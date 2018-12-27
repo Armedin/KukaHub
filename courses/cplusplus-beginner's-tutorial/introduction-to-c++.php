@@ -128,7 +128,7 @@
             <div class="col-md-8 col-md-push-2">
 
               <p class="lesson_paragraph_20_margin">
-                Hello ME!
+                Hello Kuka
               </p>
 
             </div>
