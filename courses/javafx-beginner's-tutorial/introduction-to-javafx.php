@@ -159,6 +159,45 @@
                 </li>
               </ul>
 
+              <h1 class="lesson_paragraph_20_margin lecture_sub_heading">JavaFX Application Structure</h1>
+              <p class="lesson_paragraph_20_margin">In general, a JavaFX application will have consist of three main components; <strong>Stage, Scene and Nodes</strong>.
+              A typical JavaFX application will look like this :</p>
+              <div class="image_container_centered">
+                <img src="img/javafx_structure.png">
+              </div>
+              <p class="lesson_paragraph_20_margin">Before looking at each of these components individually, let us first look at the very basic
+              application. The code below produces a very basic JavaFX application which shows only a white window with dimensions 350 x 280 with
+              title JavaFx App. Try it out and see the results.</p>
+
+<pre class="code-pre"><code class="language-java">import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
+public class firstJavaFXProgram {
+
+      public static void main(String[]args){
+        launch(args);
+      }
+
+      public void start(Stage primaryStage){
+
+        BorderPane pane = new BorderPane();
+        Scene scene = new Scene(pane, 350, 280);
+
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("JavaFX App");
+        primaryStage.show();
+      }
+
+    }
+</code> </pre>
+
+              <h1 class="lesson_paragraph_20_margin lecture_sub_heading">Importing JavaFX Packages</h1>
+              <p class="lesson_paragraph_20_margin">As usual, JavaFX programs always start with some <i class="light">import</i> statements that refer
+              to the various JavaFX packages for which the application will use. In the example above, there are 4 <i class="light">import</i> statements.
+              </p>
+
             </div>
 
           </div>
