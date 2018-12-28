@@ -128,8 +128,42 @@
             <div class="col-md-8 col-md-push-2">
 
               <p class="lesson_paragraph_20_margin">
-                Hello Kuka
+                C++ is an <strong>object-oriented</strong> programming language.This means that it
+                includes the four pillars of object-oriented development : data
+                hiding , encapsulation , inheritance and polymorphism.
+                It is a middle-level language
+                ,since it combines both high and low-level language features.
+                Codes you write in Mac will also compile without any errors in
+                Microsoft's compiler or other software compilers.This means
+                C++ is portable and supports the ANSI standard.
               </p>
+              <h1 class="lesson_paragraph_20_margin lecture_sub_heading">Why learn C++</h1>
+                <p class="lesson_paragraph_20_margin">
+                  C++ is used everywhere around the world. C++ is a language focused
+                  on <strong>concepts</strong>.It helps programmers to become more effective
+                  at designing and implementing new systems.It is mostly used for teaching
+                  and research.C++ supports a lot of programming styles, which maintain
+                  the runtime and space efficiency.
+                </p>
+                <h1 class="lesson_paragraph_20_margin lecture_sub_heading">Opening a C++ compiler</h1>
+                <p class="lesson_paragraph_20_margin">
+                  The first moment you open a compiler for C++ you will be
+                  shown a simple program which will look like this :</p>
+<pre class="code-pre"><code class="language-c++">  #include &ltiostream&gt
+    using namespace std;
+    int main()
+    {
+      cout<<"Hello World!";
+
+      return 0;
+    }
+</code> </pre>
+                  <p class="lesson_paragraph_20_margin">
+                    After you execute these codes you will be given a sentence
+                    showing : "Hello world!".This is the most basic program there
+                    is.Sometimes you will be given other examples which you can execute
+                    and then test your theories on them.
+                    </p>
 
             </div>
 
