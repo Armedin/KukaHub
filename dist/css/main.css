@@ -4,6 +4,11 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+:after, :before{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
 body{
 	margin:0;
 	padding:0;
@@ -1925,7 +1930,7 @@ body.opened_curriculum_sidebar .course_lesson_overlay{
 }
 .course_lessons_navigation_o_O_bott>.course_lessons_navigation_one_side a>.icon{
 	position: absolute;
-	border:2px solid #fff;
+	border:2px solid #555d6d;
 	width:48px;
 	height: 48px;
 	line-height: 45px;
@@ -1936,7 +1941,11 @@ body.opened_curriculum_sidebar .course_lesson_overlay{
 	-webkit-transition: all .25s ease;
 	-ms-transition: all .25s ease;
 	-moz-transition: all .25s ease;
-	color: #fff;
+	color: #273044;
+}
+.course_lessons_navigation_o_O_bott.completed_lesson>.course_lessons_navigation_one_side a>.icon{
+	border-color: #fff;
+  color: #fff;
 }
 .course_lessons_navigation_o_O_bott>.course_lessons_navigation_one_side a>.icon.left{
 	left:0;
@@ -1950,23 +1959,29 @@ body.opened_curriculum_sidebar .course_lesson_overlay{
 	line-height: 38px;
 }
 .course_lessons_navigation_o_O_bott>.course_lessons_navigation_one_side a:hover>.icon{
+	background-color: #273044;
+	color: #fff;
+}
+.course_lessons_navigation_o_O_bott.completed_lesson>.course_lessons_navigation_one_side a:hover>.icon{
 	background-color: #fff;
 	color: #273044;
 }
 .course_lessons_navigation_o_O_bott>.course_lessons_navigation_one_side a span{
-	color:#fff;
+	color:#273044;
 	padding:3px 0 0;
 	font-weight: 400;
 	display: block;
 	font-size: 15px;
-
+}
+.course_lessons_navigation_o_O_bott.completed_lesson>.course_lessons_navigation_one_side a span{
+	color: #fff;
 }
 .course_lessons_navigation_o_O_bott>.course_lessons_navigation_completed_lecture{
 	width: 40%;
 	text-align: center;
 }
-.course_lessons_navigation_o_O_bott>.course_lessons_navigation_completed_lecture a{
-	background: #fff;
+.course_lessons_navigation_o_O_bott>.course_lessons_navigation_completed_lecture .lecture_completed_btn{
+	background: #195ec8;
 	cursor: default;
 	padding: 16px 30px;
   border-radius: 30px;
@@ -1977,29 +1992,73 @@ body.opened_curriculum_sidebar .course_lesson_overlay{
   display: inline-flex;
 	align-items: center;
 	-webkit-align-items:center;
+	cursor: pointer;
+	z-index: 30;
 }
-.course_lessons_navigation_o_O_bott>.course_lessons_navigation_completed_lecture .tick_icon{
+.course_lessons_navigation_o_O_bott>.course_lessons_navigation_completed_lecture .lecture_completed_btn.completed{
+	background: #fff;
+	cursor: default;
+}
+.course_lessons_navigation_o_O_bott>.course_lessons_navigation_completed_lecture .lecture_completed_btn:after{
+	content: '';
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	left: -100%;
+	top: 0;
+	background: rgba(0, 0, 0, 0.1);
+	z-index: -1;
+	-webkit-transition: all 0.25s cubic-bezier(.66,.36,.17,.91);
+	-moz-transition: all 0.25s cubic-bezier(.66,.36,.17,.91);
+	-o-transition: all 0.25s cubic-bezier(.66,.36,.17,.91);
+	transition: all 0.25s cubic-bezier(.66,.36,.17,.91);
+}
+.course_lessons_navigation_o_O_bott>.course_lessons_navigation_completed_lecture .lecture_completed_btn:hover:after{
+	left: 0;
+}
+.course_lessons_navigation_o_O_bott.completed_lesson>.course_lessons_navigation_completed_lecture .lecture_completed_btn:after{
+	content:none !important;
+}
+
+.lecture_completed_btn:before{
 	width: 24px;
 	height: 24px;
-	border:2px solid #17d292;
-	color:#17d292;
+	border:2px solid #fff;
+	color:#fff;
 	line-height: 20px;
 	display: inline-block;
 	vertical-align: top;
 	border-radius: 50%;
 	margin-right: 10px;
+	content: '';
 }
-.course_lessons_navigation_o_O_bott>.course_lessons_navigation_completed_lecture .tick_icon>i{
-	line-height: 23px;
-	font-size: 13px;
+.course_lessons_navigation_o_O_bott.completed_lesson>.course_lessons_navigation_completed_lecture .lecture_completed_btn:before{
+	font-family: Font Awesome\ 5 Pro;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	content: "\f00c";
+	border-color: #17d292;
+	color: #17d292;
+	line-height: 20px;
+	font-size: 11px;
+	text-indent: 1px;
 }
 .course_lessons_navigation_o_O_bott>.course_lessons_navigation_completed_lecture .text{
 	text-transform: uppercase;
 	top:1px;
 	position: relative;
 	font-size: 15px;
-	color:#17d292;
+	color:#fff;
 	font-weight:600;
+}
+.course_lessons_navigation_o_O_bott.completed_lesson>.course_lessons_navigation_completed_lecture .text{
+	color:#17d292;
 }
 .course_lesson_main_body{
 	position: relative;
@@ -2249,6 +2308,9 @@ body.opened_curriculum_sidebar .course_lessons_curriculum{
 	list-style: none;
 	margin:0 0 30px;
 	padding-left: 15px;
+}
+.course_lesson_inner_content_main_info i.light{
+	font-weight: 300;
 }
 .course_lesson_inner_content_main_info .lesson_paragraph_list>li{
 	position: relative;
