@@ -74,7 +74,7 @@
             </div>
           </div>
           <div class="curriculum_section_subs_items">
-            <a class="curriculum_sub_single_item completed" href="recursive-functions.php">
+            <a class="curriculum_sub_single_item completed" href="introduction-to-c++.php">
               <div class="left_icon">
                 <i class="fal fa-file"></i>
               </div>
@@ -85,7 +85,7 @@
                 <i class="fas fa-check"></i>
               </div>
             </a>
-            <a class="curriculum_sub_single_item completed" href="recursive-functions-in-programming.php">
+            <a class="curriculum_sub_single_item completed" href="Beginning-with-C++.php">
               <div class="left_icon">
                 <i class="fal fa-file"></i>
               </div>
@@ -178,10 +178,6 @@
 
 <div class="course_lessons_navigation_o_O_bott">
   <div class="course_lessons_navigation_one_side left_side">
-    <a href="introduction-to-javafx.php">
-      <span class="icon left"><i class="fal fa-chevron-left"></i></span>
-      <span class="section_prev_info_text">Section 1: Introduction to JavaFX , Lecture 1.0</span>
-    </a>
   </div>
   <div class="course_lessons_navigation_completed_lecture">
     <a class="lecture_completed_btn">
@@ -189,8 +185,8 @@
     </a>
   </div>
   <div class="course_lessons_navigation_one_side right_side">
-    <a href="introduction-to-javafx.php">
-      <span class="section_prev_info_text">Section 1: The Application Class, Lecture 1.1</span>
+    <a href="Beginning-with-C++.php">
+      <span class="section_prev_info_text">Section 1: Beginning with C++, Lecture 1.1</span>
       <span class="icon right"><i class="fal fa-chevron-right"></i></span>
     </a>
   </div>

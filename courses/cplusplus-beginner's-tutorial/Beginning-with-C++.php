@@ -74,18 +74,18 @@
             </div>
           </div>
           <div class="curriculum_section_subs_items">
-            <a class="curriculum_sub_single_item completed" href="recursive-functions.php">
+            <a class="curriculum_sub_single_item completed" href="introduction-to-c++.php">
               <div class="left_icon">
                 <i class="fal fa-file"></i>
               </div>
               <div class="curriculum_item_number">Lecture 1.0</div>
-              <div class="curriculum_single_item_title">Introduction to Recursive Functions</div>
+              <div class="curriculum_single_item_title">Introduction to C++</div>
               <div class="curriculum_single_item_percentage"></div>
               <div class="curriculum_single_item_completed is_completed">
                 <i class="fas fa-check"></i>
               </div>
             </a>
-            <a class="curriculum_sub_single_item completed" href="recursive-functions-in-programming.php">
+            <a class="curriculum_sub_single_item completed" href="Beginning-with-C++.php">
               <div class="left_icon">
                 <i class="fal fa-file"></i>
               </div>
@@ -194,6 +194,10 @@ Usually every code requires a  <strong> ; </strong>  in the end.The importment l
 
 <div class="course_lessons_navigation_o_O_bott">
   <div class="course_lessons_navigation_one_side left_side">
+    <a href="introduction-to-c++.php">
+      <span class="icon left"><i class="fal fa-chevron-left"></i></span>
+      <span class="section_prev_info_text">Section 1: Introduction to C++ , Lecture 1.0</span>
+    </a>
   </div>
   <div class="course_lessons_navigation_completed_lecture">
     <a class="lecture_completed_btn">
@@ -201,10 +205,6 @@ Usually every code requires a  <strong> ; </strong>  in the end.The importment l
     </a>
   </div>
   <div class="course_lessons_navigation_one_side right_side">
-    <a href="introduction-to-javafx.php">
-      <span class="section_prev_info_text">Section 1: The Application Class, Lecture 1.1</span>
-      <span class="icon right"><i class="fal fa-chevron-right"></i></span>
-    </a>
   </div>
 </div>
 
