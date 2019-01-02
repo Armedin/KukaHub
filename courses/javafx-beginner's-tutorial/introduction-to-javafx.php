@@ -70,7 +70,7 @@
           <div class="curriculum_section_item opened">
             <div class="curriculum_section_item_info">
               <span> Section 1</span>
-              <h3>Section 1: Recursive Functions</h3>
+              <h3>Section 1: What is JavaFX</h3>
             </div>
           </div>
           <div class="curriculum_section_subs_items">
@@ -79,18 +79,18 @@
                 <i class="fal fa-file"></i>
               </div>
               <div class="curriculum_item_number">Lecture 1.0</div>
-              <div class="curriculum_single_item_title">Introduction to Recursive Functions</div>
+              <div class="curriculum_single_item_title">Introduction to JavaFX</div>
               <div class="curriculum_single_item_percentage"></div>
               <div class="curriculum_single_item_completed is_completed">
                 <i class="fas fa-check"></i>
               </div>
             </a>
-            <a class="curriculum_sub_single_item completed" href="recursive-functions-in-programming.php">
+            <a class="curriculum_sub_single_item completed" href="the-application-class.php">
               <div class="left_icon">
                 <i class="fal fa-file"></i>
               </div>
               <div class="curriculum_item_number">Lecture 1.1</div>
-              <div class="curriculum_single_item_title">Recusive Functions in Programming</div>
+              <div class="curriculum_single_item_title">The Application Class</div>
               <div class="curriculum_single_item_percentage"></div>
               <div class="curriculum_single_item_completed">
                 <i class="fas fa-check"></i>
@@ -174,7 +174,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class firstJavaFXProgram {
+public class firstJavaFXProgram extends Application{
 
       public static void main(String[]args){
         launch(args);
@@ -196,7 +196,26 @@ public class firstJavaFXProgram {
               <h1 class="lesson_paragraph_20_margin lecture_sub_heading">Importing JavaFX Packages</h1>
               <p class="lesson_paragraph_20_margin">As usual, JavaFX programs always start with some <i class="light">import</i> statements that refer
               to the various JavaFX packages for which the application will use. In the example above, there are 4 <i class="light">import</i> statements.
+              It's important to notice that all JavaFX packages begin with <i class="light">javafx</i>. Below, there is a brief information regarding
+              each package.
               </p>
+              <ul class="lesson_paragraph_list">
+                <li><strong>javafx.application.* :</strong> This is the most important JavaFX package. Every JavaFX application depends on the core
+                  class Application.
+                </li>
+                <li><strong>javafx.scene.* :</strong> This package holds the Scene class. The Scene class holds all the UI elements displayed by the
+                  application.
+                </li>
+                <li><strong>javafx.scene.layout.* :</strong> Every different layout design is defined by this package. In the example above we used
+                  the BorderPane layout. The purpose of a layout is to manage the position of each element in the UI
+                </li>
+                <li><strong>javafx.stage.* :</strong> Defines the container of all the UI objects. It is the highest-level window of all the JavaFX
+                  applications within which all the elements are displayed. Sometimes a Stage takes two parameters which determine the
+                  <strong>width </strong>and the <strong>height</strong> of the window itself.
+                </li>
+              </ul>
+
+
 
             </div>
 
@@ -214,14 +233,13 @@ public class firstJavaFXProgram {
 
   </div>
   <div class="course_lessons_navigation_completed_lecture">
-    <a href="#" class="lecture_completed_div">
-      <span class="tick_icon"><i class="fas fa-check"></i></span>
+    <a class="lecture_completed_btn completed">
       <span class="text">Completed</span>
     </a>
   </div>
   <div class="course_lessons_navigation_one_side right_side">
-    <a href="recursive-functions-in-programming.php">
-      <span class="section_prev_info_text">Section 1: Recursive Functions in Programming, Lecture 1.1</span>
+    <a href="the-application-class.php">
+      <span class="section_prev_info_text">Section 1: The Application Class, Lecture 1.1</span>
       <span class="icon right"><i class="fal fa-chevron-right"></i></span>
     </a>
   </div>
