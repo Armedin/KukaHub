@@ -1,9 +1,9 @@
+var lyricsClass= new Lyrics($(".kuka-lyrics"));
 
 var playBtn = $(".play_btn");
 var nextBtn = $(".next_btn");
 var prevBtn = $(".prev_btn");
 var progress_bar_container = $(".musicPlayer_progress_cont");
-var action_progress_bar = $(".progress_bar");
 var repeatBtn = $(".repeat_button");
 var playlist_button = $(".playlist_button");
 
@@ -13,22 +13,39 @@ var music_jap_title = $(".song_japanese_title");
 var music_picture = $(".song_picture>img");
 var currentTime = $(".music_currTime");
 var musicDuration = $(".music_totDuration");
-var progressBar = $(".progress_bar_playing");
-var music = new Audio();
+
+var progressBar = $(".progress_bar:eq(0)");
+var progressBar_menu = $(".progress_bar:eq(1)");
+var playingBar = $(".progress_bar_playing");
+var hoverBar = $(".hover_bar");
+var insTime = $(".ins-time")
+var progressLoc;
+var progressDiff;
+
+var music = $("#audio-main")[0];
+var lyrics = $(".lyrics");
 
 var autoPlay = false; //Autoplay not allowed anymore in Google
 
 
 function togglePlay(){
-  if(music.paused){
-    music.play();
-    $(".audio_player_interface").addClass("music_playing");
-    $(".media_musicPlayer_controller").addClass("music_playing");
-  }else{
-    music.pause();
-    $(".audio_player_interface").removeClass("music_playing");
-    $(".media_musicPlayer_controller").removeClass("music_playing");
-  }
+
+  setTimeout(function()
+  {
+
+    if(music.paused){
+      music.play();
+      $(".audio_player_interface").addClass("music_playing");
+      $(".media_musicPlayer_controller").addClass("music_playing");
+      $(".curr_song_media").addClass("active");
+    }else{
+      music.pause();
+      $(".audio_player_interface").removeClass("music_playing");
+      $(".media_musicPlayer_controller").removeClass("music_playing");
+      $(".curr_song_media").removeClass("active");
+    }
+  }, 300);
+
 }
 
 
@@ -56,8 +73,39 @@ function displayTrackDetails(){
   music_title.text(anime_musics[0].name);
   music_jap_title.text(anime_musics[0].jap_name);
   music_picture.attr("src",anime_musics[0].img);
-  //animateSongTitle();
+  getLyrics(anime_musics[0].name);
 }
+
+function getLyrics(name){
+  var file = "lyrics/"+name+".lrc";
+  var kanji_file = "lyrics/"+name+" Kanji.lrc";
+
+  //Get romaji File !
+  $.ajax({
+    url: file,
+    async: false,
+    success: function(data){
+      lyrics.html(data);
+      lyricsClass.parseLyrics();
+    },
+    error: function(xhr){
+      lyrics.html("Lyrics can't be allocated ...");
+    }
+  });
+
+  //Get Kanji File !
+  $.ajax({
+    url: kanji_file,
+    async: false,
+    success: function(data){
+      $(".kanji-lyrics").html(data);
+    },
+    error: function(xhr){
+      $(".kanji-lyrics").html("Lyrics can't be allocated ...");
+    }
+  });
+}
+
 
 function playMusic(anime_musics){
   music.src= anime_musics[0].link;
@@ -66,6 +114,7 @@ function playMusic(anime_musics){
     music.play();
     $(".audio_player_interface").addClass("music_playing");
     $(".media_musicPlayer_controller").addClass("music_playing");
+    $(".curr_song_media").addClass("active");
   }
   displayTrackDetails();
 }
@@ -84,18 +133,44 @@ function initialisePlaylist(){
     togglePlay();
   });
 
+  //Progress Bars
+
+  progressBar.mousemove(function(event){
+      showHoverProgress(event, progressBar);
+  });
+  progressBar.mouseout(hideHoverProgress);
+  progressBar.on("click",function(){
+    music.currentTime = progressLoc;
+    playingBar.width(progressDiff);
+    hideHoverProgress();
+  });
+  progressBar_menu.mousemove(function(event){
+
+      showHoverProgress(event, progressBar_menu);
+  });
+  progressBar_menu.mouseout(hideHoverProgress);
+  progressBar_menu.on("click",function(){
+    music.currentTime = progressLoc;
+    playingBar.width(progressDiff);
+    hideHoverProgress();
+  });
+
+
   nextBtn.on("click",nextTrack);
   prevBtn.on("click",prevTrack);
   repeatBtn.on("click",repeatSong);
   music.addEventListener("loadedmetadata",function(){
     getDuration();
   });
+
   initializeFullPlaylist();
-  action_progress_bar.on("click", (e) => updateProgressBar(e));
   playlist_button.on("click",openFullPlaylist);
   updateSelectedMusic();
   $(".openedPlaylist_innerCloseBtn").on("click",openFullPlaylist);
-
+  $(".open_kanji").on("click",function(){
+    $(".romaji-lyrics").html($(".kanji-lyrics").html());
+    lyricsClass.parseLyrics();
+  })
 }
 
 function convertTime(secs)
@@ -114,14 +189,14 @@ function getDuration(){
 
 music.addEventListener('timeupdate', updateCurrTime);
 function updateCurrTime(){
-
   var c = Math.round(music.currentTime);
   var totDur = Math.floor(music.duration);
   currentTime.text(convertTime(c));
 
+
   var secPercentage = 100/totDur;
   var totPercentage = c * secPercentage;
-  progressBar.width(totPercentage+"%");
+  playingBar.width(totPercentage+"%");
 
   if(totPercentage >= 100){
     totPercentage = 0;
@@ -150,13 +225,6 @@ function specTrack(index){
   playMusic(anime_musics);
 }
 
-function updateProgressBar(e){
-  if(autoPlay){
-    const time = (e.offsetX / action_progress_bar.width()) * music.duration;
-    music.currentTime = time;
-  }
-}
-
 function repeatSong(){
   repeatBtn.toggleClass("active");
 }
@@ -169,28 +237,9 @@ function isRepeatingOn(){
   }
 }
 
-function animateSongTitle(){
-
-  var containerWidth = music_details_container.width();
-  var textWidth = music_title.width();
-  if(textWidth>containerWidth){
-
-    var animationSpeed = 4000;
-    music_details_container.animate({
-      scrollLeft: (textWidth - containerWidth)
-    },animationSpeed,function(){
-      music_details_container.animate({
-	     scrollLeft: 0
-     },animationSpeed,function(){
-       setTimeout(10000,animateSongTitle());
-      });
-    });
-  }
-
-}
-
 function openFullPlaylist(){
   $(".fully_openedPlaylist_cont").toggleClass("open");
+  $(".openedPlaylist_lyrics_cont").toggleClass("open");
   $("body").toggleClass("locked_body");
   $("body").toggleClass("has_overlay");
 }
@@ -227,6 +276,36 @@ function changePlaylist(){
   initializeFullPlaylist();
   updateSelectedMusic();
 }
+
+function showHoverProgress(event, container){
+  var _this = container;
+  progressBarPos = _this.offset();
+  progressDiff = event.clientX - progressBarPos.left;
+  hoverBar.width(progressDiff);
+
+  progressLoc = music.duration * (progressDiff/_this.outerWidth()); //Relative to width of container
+  min  = Math.floor(progressLoc/60);
+  sec = Math.floor(progressLoc - (min*60));
+
+  if(min<0 || sec<0)
+    return;
+
+  min = min<10?'0'+min:min;
+  sec = sec<10?'0'+sec:sec;
+
+  if(isNaN(min) || isNaN(sec)){
+    insTime.text('--:--');
+  }else{
+    insTime.text(min+':'+sec);
+  }
+  insTime.css({'left':progressDiff,'margin-left':'-21px'}).fadeIn(0);
+}
+
+function hideHoverProgress(){
+  hoverBar.width(0);
+  insTime.text('00:00').css({'left':'0px','margin-left':'0px'}).fadeOut(0);
+}
+
 
 
 

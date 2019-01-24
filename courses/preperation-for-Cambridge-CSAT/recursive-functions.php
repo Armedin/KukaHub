@@ -203,8 +203,7 @@
 
   </div>
   <div class="course_lessons_navigation_completed_lecture">
-    <a href="#" class="lecture_completed_div">
-      <span class="tick_icon"><i class="fas fa-check"></i></span>
+    <a class="lecture_completed_btn completed">
       <span class="text">Completed</span>
     </a>
   </div>

@@ -8,14 +8,15 @@ header("Location: profile.php?id=" . getSessionUser_id());
 
 <html>
   <head>
-    <?php getHeader("Register a new account | KukaHub"); ?>
+    <meta name="description" content="Sign Up for Kuka Academy and start learning now." />
+    <?php getHeader("Register a new account | Kuka Academy"); ?>
   </head>
 
   <body class="register_9vo_O_ph73bw_login">
     <div class="register_9vo_O_ph73bw_login_wrapper">
       <div class="auth_register_9vo_O_ph73bw_login">
         <div class="auth_9vo_O_ph73bw_logo">
-          <span>KukaHub</span>
+          <span>Kuka Academy</span>
         </div>
         <div class="auth_9vo_O_ph73bw_body">
           <p class="auth_9vo_O_ph73bw_premsg">Sign up to start your session</p>

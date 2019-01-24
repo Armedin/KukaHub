@@ -77,13 +77,17 @@ include('include/playlist_constantFunctions.php');
       <div class="navbar_sidemenu_btn_manConts">
         <a class="sidemenu_toggler navbar_floating_btn"><i class="fal fa-bars"></i></a>
       </div>
-      <form class="song_search_form" method="post" role="search">
+      <form class="song_search_form" id="song_search_form" method="post" role="search">
         <div class="search_songs_inputContainer">
-          <input type="text" class="searchbox" id="search_song" placeholder="Search Musics...">
+          <input type="search" class="searchbox" name="search_song" id="search_song" autocomplete="off" placeholder="Search Musics...">
           <span class="search_icon"><i class="fal fa-search"></i></span>
+          <ul class="autocomplete-songs">
+
+          </ul>
         </div>
       </form>
     </div>
+
 
     <?php
     if(!isUserLoggedIn()){
@@ -92,6 +96,23 @@ include('include/playlist_constantFunctions.php');
           <a href="#" class="login_link" data-target="#modal_SignInBox">Login or Register</a>
         </li>
       </ul>';
+    }else{
+      echo '<div class="user_menu_084nv9vnr_o_O_cont navbar_084nv9vnr_o_O_rightContent">
+        <div class="dropdown_cont">
+          <a href="javascript:void(0)">
+            <img src="'.pro_pic_stat_destination() . get_profile_picture(getSessionUser_id()).'">
+          </a>
+          <div class="dropdown-menu">
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">My Playlists</a></li>
+            <li><a href="#">My Tracks</a></li>
+            <li class="menu_nav">
+              <a href="#"><i class="fal fa-user"></i>Settings</a>
+              <a href="#" id="logout_btn"><i class="fal fa-sign-out"></i>Logout</a>
+            </li>
+          </div>
+        </div>
+      </div>';
     }
     ?>
 
@@ -108,13 +129,31 @@ include('include/playlist_constantFunctions.php');
   </div>
 
 
+  <!-- TOP SLIDER -->
+  <div class="music_player_084nv9vnr_o_O_topSlider">
+    <ul class="slider-list">
+      <li class="slider-item">
+        <span class="slider-image" style="background-image:url(images/detective_konan.jpg);"></span>
+      </li>
+      <li class="slider-item">
+        <span class="slider-image" style="background-image:url(images/shigatsu_wa_kimi_no_uso.jpg);"></span>
+      </li>
+      <li class="slider-item">
+        <span class="slider-image" style="background-image:url(images/kimi_no_na_wa.jpg);"></span>
+      </li>
+      <li class="slider-item">
+        <span class="slider-image" style="background-image:url(images/shigatsu_wa_kimi_no_uso.jpg);"></span>
+      </li>
+    </ul>
+  </div>
+
   <!-- MAIN BODY WRAPPER -->
   <div class="music_player_084nv9vnr_o_O_content_fullWrapper" id="mainContent">
     <div class="loading">
       <span class="colour_bar"></span>
     </div>
 
-    <div class="content_music_player_084nv9vnr_o_O_banner">
+  <!--  <div class="content_music_player_084nv9vnr_o_O_banner">
       <div class="wrapper_inner">
         <div class="row-col">
           <div class="col-lg-12 col-md-12 main_banner_controller">
@@ -134,7 +173,7 @@ include('include/playlist_constantFunctions.php');
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
    <!-- Navbar Main Navigation-->
     <nav class="main_page_navigation">
@@ -198,7 +237,7 @@ include('include/playlist_constantFunctions.php');
 
   </div>
 
-  <div class="page_overlay"></div>
+
 
 
 
@@ -268,7 +307,6 @@ include('include/playlist_constantFunctions.php');
 
     <div class="footer_main_page_wrapper_inner">
       <div class="footer_space_20"></div>
-      <hr>
       <div class="footer_main_body row-col">
         <div class="footer_space_38"></div>
 
@@ -344,7 +382,7 @@ include('include/playlist_constantFunctions.php');
       </div>
     </div>
     <div class="col-lg-12 footer_copyright">
-      <p>Copyright © 2018 KukaHub. All Rights Reserved.</p>
+      <p>Copyright © 2018 Kuka Academy. All Rights Reserved.</p>
     </div>
   </div>
 
@@ -387,6 +425,7 @@ include('include/playlist_constantFunctions.php');
             </button>
           </div>
           <div class="musicPlayer_progress_cont">
+            <div class="ins-time">00:00</div>
             <div class="music_playing_time_controller">
               <span class="music_currTime">00:00</span>
               <span class="music_totDuration">00:00</span>
@@ -396,6 +435,7 @@ include('include/playlist_constantFunctions.php');
                 <div class="progress_bar_playing">
                   <div class="progress_move_point"></div>
                 </div>
+                <div class="hover_bar"></div>
               </div>
             </div>
           </div>
@@ -449,6 +489,7 @@ include('include/playlist_constantFunctions.php');
             <div class="song_jap_title_container">
               <span class="song_japanese_title">NaN</span>
             </div>
+            <a class="open_kanji">Kanji</a>
           </div>
         </div>
 
@@ -469,11 +510,13 @@ include('include/playlist_constantFunctions.php');
               <span class="music_currTime">00:00</span>
             </div>
             <div class="musicPlayer_progress_cont">
+              <div class="ins-time">00:00</div>
               <div class="music_playing_progress">
-                <div class="progress_bar">
+                <div class="progress_bar" id="#progress_bar2">
                   <div class="progress_bar_playing">
                     <div class="progress_move_point"></div>
                   </div>
+                  <div class="hover_bar"></div>
                 </div>
               </div>
             </div>
@@ -511,45 +554,61 @@ include('include/playlist_constantFunctions.php');
     </div>
   </div>
 
+  <div class="openedPlaylist_lyrics_cont">
+    <div class="lyrics_inner">
+      <audio preload="auto" id="audio-main"></audio>
+      <div class="lyrics kuka-lyrics romaji-lyrics" data-media="audio-main">
+
+      </div>
+      <div class="lyrics kuka-lyrics kanji-lyrics" data-media="audio-main">
+
+      </div>
+    </div>
+  </div>
+
 </div>  <!-- END LAYOUT MANAGER -->
+<div class="page_overlay darker"></div>
 
 <?php
-  getJs_Files();
+  getLoggedIn_jsInfo();
  ?>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<script src="js/pjax.min.js" type="text/javascript"></script>
-
-<script>
-
-$(document).pjax('a:not(a[target="_blank"], a[no-pjax])', {
-            container: '#mainContent',
-            fragment: '#mainContent',
-            timeout: 8000
-        }).on('pjax:send',function () {
-            $('.loading').addClass('show');
-        }).on('pjax:click', function() {
-          $('body,html').animate({scrollTop:0},100);
-        }).on('pjax:complete', function() {
-          //Load Tabs
-          // musicApp.navTabs('.navigation_cont_loader');
-          // $(".navigation_item.active>a").trigger('click');
-           $('.loading').removeClass('show');
-        });
-</script>
 
 <script src="js/perfect-scrollbar.min.js"></script>
 <script>
 var current_playlist;
 
 $(document).ready(function(){
-
 var ps = new PerfectScrollbar('.fully_openedPlaylist_playlistOther_songs_scrollableY');
 ps.update();
 
 $(".page_overlay").on("click",function(){
   $(".fully_openedPlaylist_cont").removeClass("open");
+  $(".openedPlaylist_lyrics_cont").removeClass("open");
+  $("body").removeClass("locked_body").removeClass("has_overlay");
 });
+
+
+var speed = 5000;
+var slideIndex=0;
+
+//showSlides();
+
+function showSlides(){
+  var slides = $(".slider-item");
+  for(var i=0;i<slides.length;i++){
+    $(slides[i]).css("display","none");
+  }
+  if(slideIndex>=slides.length){
+    slideIndex=0;
+  }
+  $(slides[slideIndex]).fadeIn("fast");
+  console.log(slides[slideIndex]);
+  slideIndex++;
+  setTimeout(showSlides,speed);
+};
 
 // When firstly opened, the normal playlist playing
 var data;
@@ -597,12 +656,40 @@ $("body").on("click",".featured_playlist_box",function(){
 
 });
 
+//When changing the track
+$("body").on("click",".track_item",function(){
+  var trackId=$(this).attr("id").replace("trackId_","");
+  $.ajax({
+    type: "POST",
+    url: "include/playlists.php?action=get-specific-track",
+    data: {trackId: trackId},
+    dataType: "json",
+    success: function(response){
+      if(response.status == 0){
+        Snackbar.showToast({def_text:response.error});
+      }else{
+        Snackbar.showToast({def_text:"Track Successfully Changed!"});
+        current_playlist = response.data;
+        changePlaylist();
+      }
+    },
+    error: function(xhr, ajaxOptions, thrownError){
+      Snackbar.showToast({def_text:xhr.responseText});
+    }
+  });
 
 });
 
 
-</script>
 
+
+});
+
+
+
+
+</script>
+<script src="js/lyrics.js"></script>
 <script src="js/anime_main.json"></script>
 <script src="js/anime_songs.js"></script>
 <script src="js/owl.carousel.min.js"></script>

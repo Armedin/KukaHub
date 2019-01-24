@@ -80,7 +80,7 @@ if(isset($_POST['ajaxcall']) && is_ajax()){
 
 <html>
   <head>
-    <?php getHeader("KukaHub | Verify Account"); ?>
+    <?php getHeader("Kuka Academy | Verify Account"); ?>
   </head>
 
   <body>
@@ -91,7 +91,7 @@ if(isset($_POST['ajaxcall']) && is_ajax()){
             <div class="black_1eqav4O2v_o_O_overlay"></div>
             <div class="logo_1eqav4O2v_o_O">
               <img src="dist/img/facilities/kukahub-logo-white.png">
-              KukaHub
+              Kuka Academy
             </div>
             <div class="wrapper_1eqav4O2v_o_O_centeredCont">
               <div class="authorizeBox_1eqav4O2v_o_O_dark_theme">

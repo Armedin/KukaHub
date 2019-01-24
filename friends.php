@@ -10,7 +10,7 @@
 
  <html>
    <head>
-
+     
    <?php getHeader($user_info['firstname'] . " ". $user_info['lastname'] ."'s Friends | KukaHub"); ?>
 
    </head>

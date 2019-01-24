@@ -1,16 +1,14 @@
 <?php
 
-
 echo '
 <footer class="main_oexfFooter">
     <div class="footer_oexfContainer">
       <div class="footer_oexfContent_block">
-        <div class="footer_oexfNewsletterSignup">
-          <p class="newsletter_oexf_paragraph">Sign Up For Our Newsletter</p>
-          <div class="newsletter_oexfFromCon">
-            <input id="subscribe-email" class="newsletter_eoxfinput" type="email" name="email" placeholder="Type your email...">
-            <button type="submit" name="submit" class="newsletter_submit">Sign Up</button>
-          </div>
+        <div class="footer_oexfaboutUs">
+          <p class="aboutUs_oexf_paragraph">About Us</p>
+          <p>Kuka Academy is an online learning platform  which is mainly aimed for students who want to explore the
+          beauty of new concepts in maths or programming.</p>
+          <p class="contact_det_oexf_paragraph"></p>
         </div>
         <div class="footer_oexfLinkHolder">
           <div class="group_oexflinks">
@@ -98,7 +96,7 @@ echo '
                 <h2 class="list_oexf_6i9v_heading"><a class="list_oexf_link" href="javascript:void(0)">Help</a></h2>
               </li>
               <li class="list_oexf_6i9v">
-                <a class="list_oexf_link" href="javascript:void(0)">FAQ</a>
+                <a class="list_oexf_link" href="about/faq.php">FAQ</a>
               </li>
               <li class="list_oexf_6i9v">
                 <a class="list_oexf_link" href="javascript:void(0)">Support Center</a>
@@ -109,13 +107,13 @@ echo '
       </div>
       <div class="footer_oexfTerms_block">
         <div class="footer_oexfLink">
-          <span>Copyright &copy; KukaHub 2018 | All rights reserved</span>
+          <span>Copyright &copy; Kuka Academy 2018 | All rights reserved</span>
         </div>
         <div class="footer_oexfLink">
-          <span><a class="small_oexfLink" href="javascript:void(0)">Privacy Policy</a></span>
+          <span><a class="small_oexfLink" href="about/terms-of-use.php">Privacy Policy</a></span>
         </div>
         <div class="footer_oexfLink">
-          <span><a class="small_oexfLink" href="javascript:void(0)">Terms of use</a></span>
+          <span><a class="small_oexfLink" href="about/terms-of-use.php">Terms of use</a></span>
         </div>
         <div class="footer_oexfFill_spc"></div>
         <div class="footer_oexfSocialMedia_container">

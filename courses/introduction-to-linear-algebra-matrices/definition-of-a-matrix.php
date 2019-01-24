@@ -212,7 +212,7 @@
 </div>
 
 
-  <div class="course_lessons_navigation_o_O_bott completed_lesson">
+  <div class="course_lessons_navigation_o_O_bott ">
     <div class="course_lessons_navigation_one_side left_side">
       <a href="pre-start-matrices.php">
         <span class="icon left"><i class="fal fa-chevron-left"></i></span>
@@ -220,8 +220,7 @@
       </a>
     </div>
     <div class="course_lessons_navigation_completed_lecture">
-      <a href="#" class="lecture_completed_div">
-        <span class="tick_icon"><i class="fas fa-check"></i></span>
+      <a href="#" class="lecture_completed_btn">
         <span class="text">Completed</span>
       </a>
     </div>
@@ -238,7 +237,7 @@
  getJs_Files();
  ?>
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_CHTML-full"></script>
-
+<script type="text/javascript" src="../js/courses.js"></script>
  <script type="text/x-mathjax-config">
 
    MathJax.Hub.Config({

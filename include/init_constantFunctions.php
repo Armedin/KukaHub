@@ -69,18 +69,18 @@ function getHeader($title){
 
   echo '<meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta property="og:url" content="http://www.kukahub.com"/>
+	<meta property="og:url" content="http://www.kukaacademy.com"/>
 	<meta property="og:type" content="non_profit"/>
-	<meta property="og:title" content="KukaHub"/>
-	<meta property="og:description" content="Learn or improve your mathematics and programming skills. KukaHub provides free courses for
+	<meta property="og:title" content="Kuka Academy"/>
+	<meta property="og:description" content="Learn or improve your mathematics and programming skills. Kuka Academy provides free courses for
 	every level from beginner to intermediate.">
 
-	<meta name="twitter:site" content="@kukahub">
-	<meta name="twitter:title" content="KukaHub">
+	<meta name="twitter:site" content="@kukaacademy">
+	<meta name="twitter:title" content="Kukaacademy">
 	<meta name="twitter:description" content="Learn or improve your mathematics and programming skills. KukaHub provides free courses for
 	every level from beginner to intermediate..">
 
-	<meta itemprop="name" content="KukaHub">
+	<meta itemprop="name" content="KukaAcademy">
 	<meta itemprop="description" content="The newest platform to study maths and programming for every level. Supports social networking for
 	people to communicate and take on challenges together.">
 
@@ -108,13 +108,16 @@ function getHeader($title){
 function getJs_Files(){
   echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.js"></script>
-  <script src="'.ROOT_DIR.'/dist/js/main.js"></script>
+	<script src="'.ROOT_DIR.'/dist/js/main.js"></script>
 	<script src="'.ROOT_DIR.'/dist/jqueryUI/jquery-ui.min.js"></script>
 	';
 
+	getLoggedIn_jsInfo();
+}
+
+function getLoggedIn_jsInfo(){
 
 	if(isUserLoggedIn()){
-
 		$user_name = getSessionUser_name();
 		$user_id =getSessionUser_id();
 		$token = getToken($user_id);
@@ -125,7 +128,6 @@ function getJs_Files(){
 						email="'.$email.'",
 						token="'.$token.'";
 					</script>';
-
 	}
 }
 

@@ -4,8 +4,9 @@
 
 <html>
   <head>
-
-  <?php getHeader("Terms of Use | KukaHub"); ?>
+    <meta name="description" content="Kuka Academy's terms of use, property right provisions
+    and alterations." />
+  <?php getHeader("Terms of Use | Kuka Academy"); ?>
 
   </head>
 <body>
@@ -32,7 +33,7 @@
 							<h3>1. Introduction</h3>
 						</div>
 						<div class="terms_oexf98v3a_card_content">
-								<span>Welcome, and thank you for using KukaHub! Please read our <strong>Terms and Conditions</strong> in great details in order to have permission to make use of our website services! Thank you for your understanding.</span>
+								<span>Welcome, and thank you for using Kuka Academy! Please read our <strong>Terms and Conditions</strong> in great details in order to have permission to make use of our website services! Thank you for your understanding.</span>
 						</div>
 					</div>
 				</div>
@@ -44,7 +45,7 @@
 							<h3>2. Property Rights Provision </h3>
 						</div>
 						<div class="terms_oexf98v3a_card_content">
-								<span>The site and its original content, features, and functionality are owned by KukaHub and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws. </span>
+								<span>The site and its original content, features, and functionality are owned by Kuka Academy and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws. </span>
 						</div>
 					</div>
 				</div>
@@ -77,7 +78,7 @@
 							<h3>5. Alterations </h3>
 						</div>
 						<div class="terms_oexf98v3a_card_content">
-								<span>KukaHub reserves the right to change these conditions from time to time as it sees fit and your continued use of the site will signify your acceptance of any adjustment to these terms. If there are any changes to our privacy policy, we will announce you that these changes have been made. If there are any changes in how we use our site customers' Personally Identifiable Information, notification by email will be made to those affected by the change. You are therefore advised to re-read this statement on a regular basis."</span>
+								<span>Kuka Academy reserves the right to change these conditions from time to time as it sees fit and your continued use of the site will signify your acceptance of any adjustment to these terms. If there are any changes to our privacy policy, we will announce you that these changes have been made. If there are any changes in how we use our site customers' Personally Identifiable Information, notification by email will be made to those affected by the change. You are therefore advised to re-read this statement on a regular basis."</span>
 						</div>
 					</div>
 				</div>

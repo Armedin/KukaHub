@@ -159,7 +159,7 @@
           <div class="row-col">
             <div class="col-md-6">
               <div class="course_curr_index">
-                <span>Showing 0-3 of 3 result</span>
+                <span>Showing 0-4 of 4 result</span>
               </div>
             </div>
             <div class="col-sm-12 col-md-6">
@@ -180,7 +180,7 @@
           <article class="col-md-4 col-sm-6 col-xs-6 course_item_full_o_Owidth">
             <div class="course_single_unit_item_card">
               <div class="course_item_thumbnail">
-                <a href="introduction-to-matrices.php">
+                <a href="preperation-for-Cambridge-CSAT.php">
                   <img src="dist/img/courses/cambridge_csat.png">
                 </a>
               </div>
@@ -268,7 +268,7 @@
           <article class="col-md-4 col-sm-6 col-xs-6 course_item_full_o_Owidth">
             <div class="course_single_unit_item_card">
               <div class="course_item_thumbnail">
-                <a href="introduction-to-matrices.php">
+                <a href="javafx-beginner's-tutorial.php">
                   <img src="dist/img/courses/javafx.png">
                 </a>
               </div>
@@ -305,6 +305,51 @@
                   know much about JavaFX? This is the right course for you. Embark on this JavaFX tutorial now! | By Armedin Kuka
                 </span>
                 <a href="javafx-beginner's-tutorial.php" class="course_item_explore_course">Explore Course</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="col-md-4 col-sm-6 col-xs-6 course_item_full_o_Owidth">
+            <div class="course_single_unit_item_card">
+              <div class="course_item_thumbnail">
+                <a href="c++-beginner's-tutorial.php">
+                  <img src="dist/img/courses/c++.png">
+                </a>
+              </div>
+              <div class="course_item_desc">
+                <h3 class="course_item_title"><a href="introduction-to-matrices.php">C++ - Beginner's Tutorial</a></h3>
+                <div class="course_item_publish_time">Last Updated On January 2019</div>
+                <div class="course_item_inner_data">
+                  <ul>
+                    <li>1 hours</li>
+                    <li>4 lectures</li>
+                    <li>All Levels</li>
+                  </ul>
+                </div>
+                <div class="course_item_star_rating">
+                  <span class="star_rating star_rating_filled">
+                    <div><i class="fas fa-star"></i></div>
+                  </span>
+                  <span class="star_rating star_rating_filled">
+                    <div><i class="fas fa-star"></i></div>
+                  </span>
+                  <span class="star_rating star_rating_filled">
+                    <div><i class="fas fa-star"></i></div>
+                  </span>
+                  <span class="star_rating star_rating_filled">
+                    <div><i class="fas fa-star"></i></div>
+                  </span>
+                  <span class="star_rating star_rating_filled">
+                    <div><i class="fas fa-star"></i></div>
+                  </span>
+                  <span class="rating_value star_rating_filled">5.0</span>
+                  <span class="total_ratings">(10 ratings)</span>
+                </div>
+                <span class="course_item_little_description">Fancy of learning programming language?
+                  Learn C++ from basics. Make you first Hello World Application and many more awesome
+                  stuff. | By Arbi Kuka
+                </span>
+                <a href="c++-beginner's-tutorial.php" class="course_item_explore_course">Explore Course</a>
               </div>
             </div>
           </article>

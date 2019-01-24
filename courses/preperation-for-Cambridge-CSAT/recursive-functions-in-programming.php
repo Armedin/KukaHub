@@ -226,14 +226,16 @@
 </div>
 
 
-<div class="course_lessons_navigation_o_O_bott completed_lesson">
+<div class="course_lessons_navigation_o_O_bott">
   <div class="course_lessons_navigation_one_side left_side">
-
+    <a href="recursive-functions.php">
+      <span class="icon left"><i class="fal fa-chevron-left"></i></span>
+      <span class="section_prev_info_text">Section 1: Introduction to Recursive Functions, Lecture 1.0</span>
+    </a>
   </div>
   <div class="course_lessons_navigation_completed_lecture">
-    <a href="#" class="lecture_completed_div">
-      <span class="tick_icon"><i class="fas fa-check"></i></span>
-      <span class="text">Completed</span>
+    <a class="lecture_completed_btn">
+      <span class="text">Complete</span>
     </a>
   </div>
   <div class="course_lessons_navigation_one_side right_side">

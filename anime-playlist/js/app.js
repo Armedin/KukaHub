@@ -1,3 +1,129 @@
+/*
+  SnackBar Custom
+*/
+
+(function(root, factory) {
+    'use strict';
+
+    if (typeof define === 'function' && define.amd) {
+        define([], function() {
+            return (root.Snackbar = factory());
+        });
+    } else if (typeof module === 'object' && module.exports) {
+        module.exports = root.Snackbar = factory();
+    } else {
+        root.Snackbar = factory();
+    }
+})
+(this, function() {
+
+  var Snackbar = {};
+
+  Snackbar.current = null;
+
+  var $defaults = {
+    def_text : "Snackbar Default Text",
+    textColor: "#fff",
+    background_color: "#323232",
+    duration : 4000,
+    showAction : true,
+    actionText_color : "#eeff41",
+    actionText : "Dismiss",
+    onClick: function(element) {
+        element.css("opacity","0");
+    },
+    onClose: function(element) {}
+  };
+
+
+  Snackbar.showToast = function($options){
+    var options = $.extend({}, $defaults, $options);
+
+    if (Snackbar.current) {
+
+        Snackbar.current.css("opacity","0");
+        setTimeout(
+            function() {
+                if ($("body").has($(this)))
+                  $(this).remove();
+
+            }.bind(Snackbar.current),
+            500
+        );
+    }
+
+    Snackbar.toast = $("<div></div>");
+    Snackbar.toast.attr('id','snackbar_cont');
+
+    var innerSnack = $("<div></div>").addClass("snackbar").text(options.def_text);
+    Snackbar.toast.append(innerSnack);
+
+
+    if(options.showAction){
+      var actionBtn = $("<button></button>");
+      actionBtn.addClass("actionBtn");
+      actionBtn.text(options.actionText);
+      actionBtn.css("color",options.actionText_color);
+      actionBtn.on("click",function(){
+        options.onClick(Snackbar.toast);
+      });
+      innerSnack.append(actionBtn);
+    }
+
+    if(options.duration){
+      setTimeout(function(){
+         if(Snackbar.current == this){
+           Snackbar.current.css("opacity","0");
+           Snackbar.current.css("top","-80px");
+           Snackbar.current.css("bottom","-80px");
+         }
+      }.bind(Snackbar.toast),options.duration
+    );
+  }
+
+    Snackbar.toast.on("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend",function(event){
+
+      if (event.originalEvent.propertyName === 'opacity' && $(this).css("opacity") == '0') {
+        if (typeof(options.onClose) === 'function')
+            options.onClose($(this));
+
+          $(this).remove();
+          if (Snackbar.current === this) {
+              Snackbar.current = null;
+          }
+      }
+    }.bind(Snackbar.toast)
+  );
+
+    Snackbar.current = Snackbar.toast;
+
+    $("body").append(Snackbar.toast);
+    //Just to make sure transition will work for the first time as well !!!
+    var $bottom = window.getComputedStyle(document.getElementById('snackbar_cont')).bottom;
+    var $top = window.getComputedStyle(document.getElementById('snackbar_cont')).top;
+    Snackbar.toast.css("opacity","1");
+    Snackbar.toast.attr('id','snackbar_cont');
+    Snackbar.toast.addClass("show");
+  }
+
+  Snackbar.close = function() {
+      if (Snackbar.current) {
+          Snackbar.current.css("opacity","0");
+      }
+  };
+
+    return Snackbar;
+});
+
+
+
+
+
+
+
+
+
+
 var musicApp = {};
 
 $(document).ready(function(){
@@ -213,6 +339,14 @@ $(document).ready(function(){
 } //End musicApp.navTabs
 
 /**
+   * Music App Lyrics
+   *
+*/
+  musicApp.lyrics = function(_sel){
+
+  }
+
+/**
    * Modal Opening
    *
 */
@@ -262,7 +396,7 @@ $(document).ready(function(){
       carousel_owl.owlCarousel({
         margin: 0,
         autoWidth: true,
-        loop: true,
+        loop: false,
         autoplay:true,
         autoplayTimeout:4000,
         autoplaySpeed: 1500
@@ -387,7 +521,7 @@ $(document).ready(function(){
                 Snackbar.showToast({def_text:response.error});
               }else if(response.status == 1){
                 Snackbar.showToast({def_text:"Login Succesfully"});
-                window.location.href = "?loggedSuccessfull";
+                window.location.href = "";
               }else{
                 Snackbar.showToast({def_text:"An unknown error has occured!"});
               }
@@ -480,6 +614,21 @@ $(document).ready(function(){
    };
 
 
+   /**
+    * Logout
+    */
+
+    $("body").on("click","#logout_btn",function(event){
+      event.preventDefault();
+      $.post("include/verify.php?action=logout", {token: token, user_id: user_id}).done(function(data){
+        if(data == "error"){
+          Snackbar.showToast({def_text: "An unknown error has occured!"});
+        }else{
+          window.location.href="";
+        }
+      })
+    });
+
 
   // Body Loaded
   $('body').imagesLoaded(function(){
@@ -505,13 +654,6 @@ $(document).ready(function(){
     $("#layout_manager").toggleClass("sidemenu_compressed");
   });
 
-  //PJAX
-  $(".song_search_form").on("submit",function() {
-    $.pjax.submit(event, "#mainContent", {
-          fragment: "#mainContent",
-          timeout: 6e3
-      })
-    });
 
     // Find a more efficient way ! // TODO
     musicApp.manageModal(".login_link");
@@ -524,7 +666,48 @@ $(document).ready(function(){
       $("#modal_SignInBox").css("display","none");
     });
 
+    // Search Song !!!
 
-console.log("\n %c KukaHub Version 1.0.2.1 \n", "color:#eee;background:#444;padding:5px 0;");
+    $("#search_song").on("keyup",function(e){
+      e.preventDefault();
+      var _this = $("#search_song");
+      var _cont = $(".autocomplete-songs");
+      if(_this.val().replace(/^\s+|\s+$/g, "").length >= 3){
+
+
+        $.ajax({
+          type: "POST",
+          url: "include/search.php?action=search-song",
+          data: {value: _this.val()},
+          dataType: "json",
+          success: function(response){
+            if(response.status == 0){
+              Snackbar.showToast({def_text:response.error});
+            }else if(response.status == 1){
+              _cont.html(response.data);
+              if(!_cont.is(":visible")){
+                _cont.css("display","block");
+              }
+
+            }else{
+              Snackbar.showToast({def_text:'An unknown error has occured.'});
+            }
+          },
+          error: function(xhr){
+            Snackbar.showToast({def_text:xhr.responseText});
+          }
+
+        });
+
+      }else{
+        if(_cont.is(":visible")){
+          _cont.css("display","none");
+        }
+      }
+
+    });
+
+
+console.log("\n %c KukaHub/Academy Version 1.0.2.1 \n", "color:#eee;background:#444;padding:5px 0;");
 
 })

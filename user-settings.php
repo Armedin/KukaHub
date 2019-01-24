@@ -11,7 +11,7 @@
  <html>
    <head>
 
-   <?php getHeader("User Settings | KukaHub"); ?>
+   <?php getHeader("User Settings | Kuka Academy"); ?>
    <link rel="stylesheet" href="dist/css/croppie.css">
    </head>
  <body>

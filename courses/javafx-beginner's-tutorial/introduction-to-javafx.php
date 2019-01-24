@@ -5,7 +5,7 @@
  <html>
    <head>
 
-   <?php getHeader("Introduction To JavaFX | KukaHub"); ?>
+   <?php getHeader("Introduction To JavaFX | Kuka Academy"); ?>
    <link rel="stylesheet"
     href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
     <link rel="stylesheet" href="../../dist/css/custom-highlight.css">

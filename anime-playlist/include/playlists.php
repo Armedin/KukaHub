@@ -216,6 +216,47 @@ if($numRow = mysqli_num_rows($query) >0){
     );
 }
 
+/************************************************
+*********GET CLICKED TRACK TO LISTEN**********
+*************************************************/
+elseif(isset($_GET['action']) && $_GET['action'] == 'get-specific-track' && is_ajax()){
+
+  $playing = db_escapeString($_POST['trackId']);
+  $error = '';
+  $status = 0;
+  $data = array();
+
+  $query = db_query("SELECT * FROM tracks WHERE trackId = '$playing'");
+
+if($numRow = mysqli_num_rows($query) >0){
+  $status = 1;
+  while($row = mysqli_fetch_assoc($query)){
+
+    $data[]=array(
+      'link' =>$row['music_link'],
+      'name' => $row['music_name'],
+      'jap_name' =>$row['jap_name'],
+      'img' => $row['img']
+    );
+
+  }
+  $json_data = json_encode($data);
+  file_put_contents('../js/anime_main.json', $json_data);
+}else{
+  $error = $playing;
+}
+
+  echo json_encode(
+      array(
+        'status' =>$status ,
+        'error' => $error,
+        'data' => $data
+      )
+    );
+}
+
+
+
 elseif(isset($_GET['action']) && $_GET['action'] == 'get-hot-songs' && is_ajax()){
 
   $error = '';

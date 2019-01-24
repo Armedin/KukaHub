@@ -230,7 +230,7 @@
  <?php
  getJs_Files();
  ?>
-
+<script type="text/javascript" src="../js/courses.js"></script>
 <script type="text/javascript">
 
   var questionNum = 1;

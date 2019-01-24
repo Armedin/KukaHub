@@ -36,10 +36,6 @@ $(document).ready(function(){
   }
 
 
-
-
-
-
   courseApp.initButtons();
 
   courseApp.slimScroller($(".slim-scroller"));
@@ -65,6 +61,17 @@ $(document).ready(function(){
           })
   });
 
+  $("body").on("click",".lecture_completed_btn",function(e){
+      e.preventDefault();
+      if($(this).hasClass('completed')){
+        return false;
+      }
+      $(this).addClass("completed");
+      $(".course_lessons_navigation_o_O_bott").addClass("completed_lesson");
+      
 
-  console.log("\n %c KukaHub Version 1.0.2.1 \n", "color:#eee;background:#444;padding:5px 0;");
+  });
+
+
+  console.log("\n %c KukaAcademy Version 1.0.2.1 \n", "color:#eee;background:#444;padding:5px 0;");
 });

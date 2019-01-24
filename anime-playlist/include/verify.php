@@ -159,7 +159,7 @@ elseif(isset($_GET['action']) && $_GET['action'] == 'register' && is_ajax()){
             // }
             //header("Location: ".$redirect);
             //exit();
-            
+
             $status = 1;
           }else{
             $error = 'We could not register. Please try again.';
@@ -177,5 +177,35 @@ elseif(isset($_GET['action']) && $_GET['action'] == 'register' && is_ajax()){
        'error' => $error
      )
    );
+}
+elseif(isset($_GET['action']) && $_GET['action'] == "logout" && is_ajax()
+    && isset($_POST['token'])
+    && isset($_POST['user_id'])
+    && !empty($_POST['token'])
+    && !empty($_POST['user_id'])
+){
+
+  $token = db_escapeString($_POST['token']);
+  $user_id = db_escapeString($_POST['user_id']);
+
+  if($token == getToken($user_id)){
+
+    session_start();
+
+    //Unset all the sessions
+    $_SESSION = array();
+
+    if (ini_get("session.use_cookies")) {
+      $params = session_get_cookie_params();
+      setcookie(session_name(), '', time() - 42000,
+      $params["path"], $params["domain"],
+     $params["secure"], $params["httponly"]
+   );
+  }
+    session_destroy();
+  }else{
+    echo "Error! Please try again later!";
+  }
+
 }
 ?>

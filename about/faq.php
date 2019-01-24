@@ -4,8 +4,9 @@
 
 <html>
   <head>
-
-  <?php getHeader("Frequently Asked Questions || KukaHub"); ?>
+    <meta name="description" content="Frequently Asked Question about Kuka Academy." />
+    <?php getHeader("Introduction to Matrices | KukaHub"); ?>
+  <?php getHeader("Frequently Asked Questions || Kuka Academy"); ?>
 
   </head>
 <body>
