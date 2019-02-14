@@ -462,12 +462,11 @@ $('a[href*="#"]')
     target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
 
     if (target.length) {
-      // Only prevent default if animation is actually gonna happen (-60px due to fixed nav)
       event.preventDefault();
       $('html, body').animate({
         scrollTop: target.offset().top-72
       }, 1000, function() {
-        //sth once done
+        
       });
     }
   }

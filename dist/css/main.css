@@ -5170,6 +5170,9 @@ body.opened_curriculum_sidebar .course_lessons_curriculum{
 	font-family: inherit;
 	text-align: left;
 }
+.settings_opog4vh_navLink>i{
+	margin-right: 8px;
+}
 .settings_opog4vh_navLink.active{
 	background: #E7F1FD;
 	color:#736cc7;
@@ -5181,6 +5184,19 @@ body.opened_curriculum_sidebar .course_lessons_curriculum{
 .settings_opog4vh_contentCon{
 	display: none;
 }
+.settings_opog4vh_contentCon h3.widget_title{
+	margin-top:0;
+	margin-bottom: 14px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid rgba(0,0,0,.1);
+	color:rgb(60, 60, 60);
+	font-weight: 400;
+	letter-spacing: 1.38;
+	font-size: 19px;
+}
+.settings_opog4vh_contentCon h3.widget_title>i{
+	margin-right: 8px;
+}
 .settings_opog4vh_contentCon.active{
 	display: block;
 }
@@ -5191,8 +5207,27 @@ body.opened_curriculum_sidebar .course_lessons_curriculum{
 	font-weight: 400;
 	margin:0;
 }
+.updateProfileBtn_container{
+  width: 100%;
+  text-align: center;
+  margin:10px 0;
+}
 .form_opog4vh_group{
 	margin-bottom: 18px;
+}
+.form_opog4vh_group .labelIcon{
+	margin-left: 8px;
+}
+.labelIcon.success_icon{
+	color:rgb(59, 185, 76);
+}
+.labelIcon.error_icon{
+	color:rgb(235, 91, 66);
+}
+.form_opog4vh_group .curr_emailTxt{
+	padding:0;
+	margin:0;
+	line-height: 36px;
 }
 .forms_opog4vh_rowDis{
 	display: -webkit-box;
@@ -15061,6 +15096,11 @@ textarea.field-input{
   .section_oexefWho_are_weCon_inner{
     max-width: 1160px;
   }
+}
+@media screen and (max-width:1200px){
+	.settings_opog4vh_navCont{
+		margin-bottom: 30px;
+	}
 }
 @media screen and (max-width:499px){
 	.wrapper_1eqav4O2v_o_O_centeredCont{

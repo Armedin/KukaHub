@@ -634,7 +634,7 @@ $("document").ready(function(){
 
 			$(".change_opog4vh_pickModal").one("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd",
 			function(e){
-				$(".change_opog4vh_pickModal").css("display","none");
+				$(".change_pickModal").css("display","none");
 				$("body").removeClass("locked_body");
 				$("body").css("padding-right","");
 				$("change_opog4vh_selectImg_btn input").val("");
@@ -642,97 +642,97 @@ $("document").ready(function(){
  			});
 		});
 
-		window.onclick = function(event){
-			if(event.target.matches(".change_opog4vh_pickModal")){
-				$(".change_opog4vh_pickModal").removeClass("open");
-				$(".change_opog4vh_pickModal").one("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd",
-			function(e){
-				$(".change_opog4vh_pickModal").css("display","none");
-				$("body").removeClass("locked_body");
-				$("body").css("padding-right","");
-				$("change_opog4vh_selectImg_btn input").val("");
-				$(this).off('webkitTransitionEnd moztransitionend transitionend oTransitionEnd');
- 			});
-			}
-		}
+		// window.onclick = function(event){
+		// 	if(event.target.matches(".change_opog4vh_pickModal")){
+		// 		$(".change_opog4vh_pickModal").removeClass("open");
+		// 		$(".change_opog4vh_pickModal").one("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd",
+		// 	function(e){
+		// 		$(".change_opog4vh_pickModal").css("display","none");
+		// 		$("body").removeClass("locked_body");
+		// 		$("body").css("padding-right","");
+		// 		$("change_opog4vh_selectImg_btn input").val("");
+		// 		$(this).off('webkitTransitionEnd moztransitionend transitionend oTransitionEnd');
+ 		// 	});
+		// 	}
+		// }
 
 	});
 
-  // Got all user info
-  $("#get-started-finish-btn").on("click",function(event){
-    event.preventDefault();
-
-    //Create a FormData to append everything
-
-    var form_data = new FormData();
-
-
-    var firstname = $("#get-started-firstname").val();
-    var lastname = $("#get-started-lastname").val();
-    var gender = $("#get-started-gender").val();
-    var age = $("#get-started-age").val();
-
-    var phone_number = $("#phone-number").val();
-    var birthday = $("#get-started-birthday").val();
-    var location = $("#get-started-location").val();
-    var study_place = $("#get-started-study_place").val();
-    var biography = $("#get-started-biography").val();
-
-    //Append everything in FormData (also user_id and token from the normal js )
-    form_data.append("user_id", user_id);
-    form_data.append("token", token);
-    form_data.append("file", profile_pic_image);
-    form_data.append("firstname", firstname);
-    form_data.append("lastname", lastname);
-    form_data.append("gender", gender);
-    form_data.append("age", age);
-    form_data.append("phone_number", phone_number);
-    form_data.append("birthday", birthday);
-    form_data.append("location", location);
-    form_data.append("study_place", study_place);
-    form_data.append("biography", biography);
-
-    if(firstname.replace(/^\s+|\s+$/g, "").length == 0){
-      Snackbar.showToast({def_text:"Please fill in all the required information !"});
-    }else if(lastname.replace(/^\s+|\s+$/g, "").length == 0){
-      Snackbar.showToast({def_text:"Please fill in all the required information !"});
-    }else if(gender.replace(/^\s+|\s+$/g, "").length == 0){
-      Snackbar.showToast({def_text:"Please fill in all the required information !"});
-    }else if(age.replace(/^\s+|\s+$/g, "").length == 0){
-      Snackbar.showToast({def_text:"Please fill in all the required information !"});
-    }else if(phone_number.replace(/^\s+|\s+$/g, "").length == 0){
-      Snackbar.showToast({def_text:"Please fill in all the required information !"});
-    }else if(birthday.replace(/^\s+|\s+$/g, "").length == 0){
-      Snackbar.showToast({def_text:"Please fill in all the required information !"});
-    }else if(study_place.replace(/^\s+|\s+$/g, "").length == 0){
-      Snackbar.showToast({def_text:"Please fill in all the required information !"});
-    }else if(biography.replace(/^\s+|\s+$/g, "").length == 0){
-      Snackbar.showToast({def_text:"Please fill in all the required information !"});
-    }else{
-      $.ajax({
-        url: "include/user-information.php?action=insert-info",
-        data: form_data,
-			  processData: false,
-			  contentType: false,
-        type: "POST",
-        dataType: "json",
-        success: function(response){
-          if(response.status == 0){
-            Snackbar.showToast({def_text:response.error});
-          }else if(response.status == 1){
-              window.location.href = "./profile.php?id="+user_id;
-          }else{
-            Snackbar.showToast({def_text:'An unknown error has occured.'});
-          }
-        },
-        error: function(xhr, ajaxOptions, thrownError){
-          Snackbar.showToast({def_text:xhr.responseText});
-        }
-
-      });
-
-    }
-  });
+  // // Got all user info
+  // $("#get-started-finish-btn").on("click",function(event){
+  //   event.preventDefault();
+  //
+  //   //Create a FormData to append everything
+  //
+  //   var form_data = new FormData();
+  //
+  //
+  //   var firstname = $("#get-started-firstname").val();
+  //   var lastname = $("#get-started-lastname").val();
+  //   var gender = $("#get-started-gender").val();
+  //   var age = $("#get-started-age").val();
+  //
+  //   var phone_number = $("#phone-number").val();
+  //   var birthday = $("#get-started-birthday").val();
+  //   var location = $("#get-started-location").val();
+  //   var study_place = $("#get-started-study_place").val();
+  //   var biography = $("#get-started-biography").val();
+  //
+  //   //Append everything in FormData (also user_id and token from the normal js )
+  //   form_data.append("user_id", user_id);
+  //   form_data.append("token", token);
+  //   form_data.append("file", profile_pic_image);
+  //   form_data.append("firstname", firstname);
+  //   form_data.append("lastname", lastname);
+  //   form_data.append("gender", gender);
+  //   form_data.append("age", age);
+  //   form_data.append("phone_number", phone_number);
+  //   form_data.append("birthday", birthday);
+  //   form_data.append("location", location);
+  //   form_data.append("study_place", study_place);
+  //   form_data.append("biography", biography);
+  //
+  //   if(firstname.replace(/^\s+|\s+$/g, "").length == 0){
+  //     Snackbar.showToast({def_text:"Please fill in all the required information !"});
+  //   }else if(lastname.replace(/^\s+|\s+$/g, "").length == 0){
+  //     Snackbar.showToast({def_text:"Please fill in all the required information !"});
+  //   }else if(gender.replace(/^\s+|\s+$/g, "").length == 0){
+  //     Snackbar.showToast({def_text:"Please fill in all the required information !"});
+  //   }else if(age.replace(/^\s+|\s+$/g, "").length == 0){
+  //     Snackbar.showToast({def_text:"Please fill in all the required information !"});
+  //   }else if(phone_number.replace(/^\s+|\s+$/g, "").length == 0){
+  //     Snackbar.showToast({def_text:"Please fill in all the required information !"});
+  //   }else if(birthday.replace(/^\s+|\s+$/g, "").length == 0){
+  //     Snackbar.showToast({def_text:"Please fill in all the required information !"});
+  //   }else if(study_place.replace(/^\s+|\s+$/g, "").length == 0){
+  //     Snackbar.showToast({def_text:"Please fill in all the required information !"});
+  //   }else if(biography.replace(/^\s+|\s+$/g, "").length == 0){
+  //     Snackbar.showToast({def_text:"Please fill in all the required information !"});
+  //   }else{
+  //     $.ajax({
+  //       url: "include/user-information.php?action=insert-info",
+  //       data: form_data,
+	// 		  processData: false,
+	// 		  contentType: false,
+  //       type: "POST",
+  //       dataType: "json",
+  //       success: function(response){
+  //         if(response.status == 0){
+  //           Snackbar.showToast({def_text:response.error});
+  //         }else if(response.status == 1){
+  //             window.location.href = "./profile.php?id="+user_id;
+  //         }else{
+  //           Snackbar.showToast({def_text:'An unknown error has occured.'});
+  //         }
+  //       },
+  //       error: function(xhr, ajaxOptions, thrownError){
+  //         Snackbar.showToast({def_text:xhr.responseText});
+  //       }
+  //
+  //     });
+  //
+  //   }
+  // });
 
   //////////////////////////////////////////////////////////////////
       //////////// Log the User Out/////////////

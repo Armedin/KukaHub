@@ -11,7 +11,7 @@
   <meta name="keywords" content="kuka academy,academy, learn, practice, exercises, skills, courses, free, articles" />
   <?php getHeader("Kuka Academy | A place to enjoy learning new skills."); ?>
   <link rel="stylesheet" id="redux-google-fonts-stm_option-css"
-		href="http://fonts.googleapis.com/css?family=Montserrat%3A200%2C500%2C600%2C400%2C700%7COpen+Sans%3A300%2C400%2C600%2C700%2C800%2C300italic%2C400italic%2C600italic%2C700italic%2C800italic&#038;subset=latin&#038;ver=1536658178"
+		href="https://fonts.googleapis.com/css?family=Montserrat%3A200%2C500%2C600%2C400%2C700%7COpen+Sans%3A300%2C400%2C600%2C700%2C800%2C300italic%2C400italic%2C600italic%2C700italic%2C800italic&#038;subset=latin&#038;ver=1536658178"
 		type="text/css" media="all" />
    <link rel="stylesheet" href="dist/css/owl.carousel.css">
 
@@ -19,6 +19,56 @@
 </head>
 <body class="mainPage_gh83b9v">
 
+  <header class="page_la10ndp_header sticky_navbar">
+    <div class="page_la10ndp_header_Wrapper">
+      <div class="page_la10ndp_header_Wrapper_inner">
+        <a class="page_la10ndp_header_logo" href="#">Kuka Academy</a>
+        <button type="button" class="navbar_la10ndp_toggle closed">
+          <span class="icon_la10ndp_bar"></span>
+          <span class="icon_la10ndp_bar"></span>
+          <span class="icon_la10ndp_bar"></span>
+        </button>
+        <div class="navbar_la10ndp_header">
+          <ul>
+            <li class="navbar_la10ndp_item active">
+              <a href="#features">Welcome</a>
+            </li>
+            <li class="navbar_la10ndp_item">
+              <a href="#about">About</a>
+            </li>
+            <li class="navbar_la10ndp_item">
+              <a href="#courses">Courses</a>
+            </li>
+            <li class="navbar_la10ndp_item">
+              <a href="#join">Join Now</a>
+            </li>
+            <li class="navbar_la10ndp_item">
+              <a href="#contact">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar_la10ndp_header_not_collapsed">
+          <ul>
+            <li class="navbar_la10ndp_item active">
+              <a href="#features">Welcome</a>
+            </li>
+            <li class="navbar_la10ndp_item">
+              <a href="#about">About</a>
+            </li>
+            <li class="navbar_la10ndp_item">
+              <a href="#courses">Courses</a>
+            </li>
+            <li class="navbar_la10ndp_item">
+              <a href="#join">Join Now</a>
+            </li>
+            <li class="navbar_la10ndp_item">
+              <a href="#contact">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
   <div class="mainPage_gh83b9v_o_O_landingDiv">
     <div class="landingDiv_backgroundImg">
       <div class="backgroundImage_des">
@@ -35,7 +85,7 @@
       </div>
     </div>
   </div>
-  <div class="mainpage_gh83b9v_o_O_features">
+  <div class="mainpage_gh83b9v_o_O_features" id="features">
     <div class="container_inner">
       <h2>Why choose Kuka Academy?</h2>
       <div class="feature_categories_cont row-col">
@@ -91,7 +141,7 @@
       </div>
     </div>
   </div>
-  <div class="mainpage_gh83b9v_o_O_lessons_cont">
+  <div class="mainpage_gh83b9v_o_O_lessons_cont" id="about">
     <div class="mainpage_gh83b9v_o_O_lessonsImages">
       <div class="liquid_bg"></div>
       <div class="image_single first">
@@ -115,7 +165,7 @@
       </div>
     </div>
   </div>
-  <div class="mainpage_gh83b9v_o_O_courses_mod1_cont">
+  <div class="mainpage_gh83b9v_o_O_courses_mod1_cont" id="courses">
     <div class="container_inner">
       <div class="row-col">
         <div class="col-sm-3"></div>
@@ -322,7 +372,7 @@
       </div>
     </div>
   </div>
-  <div class="mainPage_gh83b9v_o_O_CEO_joinNow">
+  <div class="mainPage_gh83b9v_o_O_CEO_joinNow" id="join">
     <div class="row-col">
       <div class="container_inner">
         <div class="inner_wrapper">
@@ -353,7 +403,7 @@
       </div>
     </div>
   </div>
-  <div class="mainPage_gh83b9v_o_O_contactUs">
+  <div class="mainPage_gh83b9v_o_O_contactUs" id="contact">
     <div class="row-col">
       <div class="col-sm-6 no_padd">
         <div class="wrapper-inner">
@@ -436,34 +486,35 @@
 
   <script>
 
-  // Smooth scrolling to the desired destination.
-$('a[href*="#"]')
-.not('[href="#"]')
-.not('[href="#0"]')
-.click(function(event) {
-  if (
-    location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
-    &&
-    location.hostname == this.hostname
-  ) {
+  // Smooth scrolling
+  $('a[href*="#"]')
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+      &&
+      location.hostname == this.hostname
+    ) {
 
-    var target = $(this.hash);
-    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
 
-    if (target.length) {
-      // Only prevent default if animation is actually gonna happen (-60px due to fixed nav)
-      event.preventDefault();
-      $('html, body').animate({
-        scrollTop: target.offset().top-72
-      }, 1000, function() {
-        //sth once done
-      });
+      if (target.length) {
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top-72
+        }, 1000, function() {
+        });
+        /* IF collapsed, close */
+        if($(".navbar_la10ndp_toggle").is(":visible")){
+          $(".navbar_la10ndp_toggle").trigger('click');
+        }
+      }
     }
-  }
-});
+  });
 
 $(".owl-carousel").owlCarousel({
-
   items: 4,
   rtl: false,
   margin: 30,
@@ -512,6 +563,7 @@ $(".owl-carousel").owlCarousel({
   updateLanding();
   $(document).ready(function(){
     updateLanding();
+    initNavbar();
   });
 
   function updateLanding(){
@@ -538,6 +590,26 @@ $(".owl-carousel").owlCarousel({
       $(".landingPage_content_wrapper").css("left",l+"px");
     }
   }
+
+  $(document).on("scroll",function(){
+    updateNavbar();
+  });
+
+    $nav = $(".page_la10ndp_header");
+    function initNavbar(){
+      updateNavbar();
+      $(".navbar_la10ndp_toggle").on("click",function(){
+        $(this).toggleClass("closed");
+        $(".navbar_la10ndp_header_not_collapsed").slideToggle("1000");
+        $(".page_la10ndp_header").css("height","auto");
+      });
+    }
+
+    function updateNavbar(){
+        $nav.toggleClass('sticky_navbar', $(this).scrollTop() > 15);
+    }
+
+
   </script>
 </body>
 </html>
