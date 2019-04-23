@@ -1,0 +1,848 @@
+body.lolPage{
+  background:#070720;
+  font-family: 'Montserrat',sans-serif;
+}
+.summoner_page_header{
+  background-image: url('../img/background.jpg');
+  background-repeat: no-repeat;
+  width: 100%;
+  position: absolute;
+  background-position: center top;
+  z-index:-1;
+  height:560px;
+}
+.summoner_page_header::after{
+  background-color:rgba(7, 7, 32, 0.36);
+  content:' ';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.summoner_profile_084nv9vnr_o_O_content_fullWrapper{
+  padding-top:80px;
+}
+.summoner_profile_084nv9vnr_o_O_content_fullWrapper>.summoner_profile_main_headerCont{
+  background:#17172e;
+  color:#fff;
+  box-shadow:0 1px 3px rgba(0,0,0,.25);
+  -webkit-box-shadow:0 1px 3px rgba(0,0,0,.25);
+  max-width: 1000px;
+  margin:0 auto;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  margin-bottom: 110px;
+}
+.summoner_profile_main_headerCont>.profile_header_top{
+  border-top:1px solid #f7af3c;
+  height:180px;
+  border-radius: 4px;
+}
+.summoner_profile_main_headerCont>.profile_header_top>.inner_paddingWrapp{
+  padding:15px;
+  display: flex;
+}
+.summoner_profile_main_headerCont .profile_main_info{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  width: auto;
+  padding:5px 20px 20px 60px;
+  align-items: flex-start;
+  -webkit-align-items:flex-start;
+  text-shadow: 0 1px 3px rgba(0,0,0,.75);
+  flex:1;
+  -webkit-flex:1;
+}
+.summoner_profile_main_headerCont .profile_main_info .summoner_equipped_icon{
+  width:120px;
+  height:120px;
+  position: relative;
+}
+.summoner_profile_main_headerCont .profile_main_info .summoner_equipped_icon>.rankBorder_img{
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  left:-10px;
+  top:-10px;
+  background-image: url('https://opgg-static.akamaized.net/images/borders2/gold.png');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+.summoner_profile_main_headerCont .profile_main_info .summoner_equipped_icon>.summoner_icon{
+  display: block;
+  vertical-align: middle;
+  outline: none;
+  width:100px;
+  height: 100px;
+}
+.summoner_profile_main_headerCont .profile_main_info .summoner_info{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  flex-direction: column;
+  -webkit-flex-direction:column;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  min-width: 240px;
+}
+.summoner_info>.summoner_info_username_cont{
+  border-bottom: 1px solid #2c2c40;
+  padding-bottom: 9px;
+}
+.profile_main_info .summoner_info .summoner_name{
+  font-size: 20px;
+  font-weight: 500;
+}
+.summoner_info>.summoner_info_rank_details{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  flex-direction: row;
+  -webkit-flex-direction:row;
+  align-items: center;
+  -webkit-align-items:center;
+  margin-top:8px;
+  font-size: 12px;
+  line-height: 1.35;
+}
+.summoner_info>.summoner_info_rank_details>img.rank_img{
+  vertical-align: middle;
+  height:47px !important;
+  margin-right: 10px;
+}
+.summoner_info>.summoner_info_rank_details .rank-text>p{
+  color:rgb(214, 195, 126);
+  font-weight: 600;
+  margin:2px 0;
+}
+.rank-text.iron>p{
+  color:rgb(128, 96, 96)!important;
+}
+.rank-text.bronze>p{
+  color:rgb(185, 177, 146)!important;
+}
+.rank-text.silver>p{
+  color:rgb(191, 190, 190)!important;
+}
+.rank-text.gold>p{
+  color:rgb(214, 195, 126)!important;
+}
+.rank-text.platinum>p{
+  color:rgb(136, 232, 177)!important;
+}
+.rank-text.diamond>p{
+  color:rgb(167, 184, 245)!important
+}
+.rank-text.master>p{
+  color:rgb(184, 102, 191)!important;
+}
+.rank-text.grandmaster>p{
+  color:rgb(243, 142, 106)!important;
+}
+.rank-text.challenger>p{
+  color:rgb(249, 226, 109)!important;
+}
+.summoner_info>.summoner_info_rank_details .league_points{
+  font-weight: 600;
+}
+.summoner_info>.summoner_info_rank_details .back_slash{
+  color:#4f4f60;
+  margin:0 5px;
+}
+.summoner_profile_main_headerCont .profile_stats{
+  width: auto;
+  min-width: 390px;
+  font-size: 12px;
+  color:#fff;
+  padding:0 60px 0 20px;
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+}
+.summoner_profile_main_headerCont .profile_stats>.profile_single_stat{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  margin:6px 0;
+  color:#fff;
+  width: 100%;
+}
+.summoner_profile_main_headerCont .profile_stats>.profile_single_stat>.stat_cat{
+  opacity: .9;
+  margin-right: 30px;
+  margin:0;
+  font-weight: 300;
+}
+.summoner_profile_main_headerCont .profile_stats>.profile_single_stat>.stat_val{
+  font-weight: 600;
+  margin:0;
+}
+.summoner_profile_page_navigations{
+  border-top: 1px solid #2c2c40;
+  border-bottom: 1px solid #2c2c40;
+  background-color: #222238;
+  margin-top:30px;
+}
+.summoner_profile_page_navigations>.page_nav_inner{
+  max-width: 1180px;
+  margin:0 auto;
+  height: 34px;
+}
+.summoner_profile_page_navigations>.page_nav_inner>ul{
+  list-style-type: none;
+  margin:0;
+  padding: 0;
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  align-items: center;
+  -webkit-align-items:center;
+}
+.summoner_profile_page_navigations>.page_nav_inner>ul>li{
+  display: inline-block;
+  margin-right: 8px;
+}
+.summoner_profile_page_navigations>.page_nav_inner>ul>li>a{
+  color:#fff;
+  padding:8px 13px;
+  display: block;
+  font-weight: 400;
+  font-size: 13px;
+  height: 100%;
+}
+.summoner_profile_page_navigations>.page_nav_inner>ul>li>a.active{
+  border-bottom:1px solid #19f979;
+}
+.summoner_profile_page_navigations>.page_nav_inner>ul>li:hover{
+  background:#2c2c40;
+}
+.summoner_profile_main_headerCont>.profile_detail_update_bar{
+  background: #1f253c;
+  position: relative;
+}
+.summoner_profile_main_headerCont>.profile_detail_update_bar>.detail_bar_inner{
+  padding:0 68px;
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  height: 60px;
+  align-items: center;
+  -webkit-align-items:center;
+}
+.profile_detail_update_bar .update_profile_cont .update-profile-btn{
+  padding:8px 15px;
+  min-width: 120px;
+  background:#3ccd7a;
+  border:1px solid #3ccd7a;
+  color:#fff;
+  font-weight: 400;
+  font-family: inherit;
+  font-size: 13px;
+  border-radius: 4px;
+}
+.profile_detail_update_bar .profile_level_cont{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  min-width: 300px;
+  padding:10px;
+  width: auto;
+}
+.profile_detail_update_bar .profile_level_cont>.level_progress{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  align-items: center;
+  -webkit-align-items: center;
+  padding-right: 11px;
+  font-size: 13px;
+  font-weight: 600;
+  flex:1;
+  -webkit-flex:1;
+}
+.profile_detail_update_bar .profile_level_cont>.level_progress>.bar_user_level{
+  border-radius: 50px;
+  background: #111;
+  height: 6px;
+  width: 100%;
+  display: block;
+  position: relative;
+}
+.profile_detail_update_bar .profile_level_cont>.level_progress>.bar_user_level>.bar_progress{
+  background: #fec818;
+  width:51%;
+  border-radius: 50px;
+  height: 100%;
+}
+.profile_detail_update_bar .profile_level_cont>.level_progress>.bar_user_level>.progress_perc{
+  position: absolute;
+  right: 0;
+  margin-top: 4px;
+}
+.profile_detail_update_bar .profile_level_cont>.user_level_cont{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  align-items: center;
+  -webkit-align-items: center;
+  justify-content: center;
+  -webkit-align-items:center;
+  width:auto;
+  height: 40px;
+}
+.profile_detail_update_bar .profile_level_cont>.user_level_cont>.user_level{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  align-items: center;
+  -webkit-align-items: center;
+  justify-content: center;
+  -webkit-align-items:center;
+  background-image: url('../img/hexagon.svg');
+  background-repeat: no-repeat;
+  background-position: 50%;
+  font-size: 18px;
+  width: 50px;
+  height: 50px;
+}
+.summoner_profile_main_navigations{
+  padding:0 !important;
+  border-bottom: 1px solid rgb(215, 179, 102);
+}
+.main_wrapper{
+  max-width: 1460px;
+  width: 100%;
+  margin:0 auto;
+  padding:0 30px;
+}
+.summoner_profile_main_navigations>ul{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  justify-content: space-between;
+  -webkit-justify-content:space-between;
+  margin:0;
+  padding:0;
+}
+.summoner_profile_main_navigations>ul>li{
+  width: 25%;
+}
+.summoner_profile_main_navigations>ul>li>a{
+  color:rgb(215, 179, 102);
+  text-transform: uppercase;
+  font-size: 16px;
+  padding:18px 0;
+  font-weight: 400;
+  display: inline-block;
+  width:90%;
+  text-align: center;
+}
+.summoner_profile_main_navigations>ul>li>a.active{
+  border-bottom: 4px solid;
+}
+.summoner_profile_main_body{
+  margin-top: 30px;
+}
+.summoner_profile_widget{
+  background-color: rgb(26, 32, 57);
+  width: 100%;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  box-shadow: rgba(21, 11, 37, 0.5) 0px 2px 10px 0px;
+  border:1px solid rgba(52, 64, 117, 0.74);
+  border-radius: 3px;
+}
+.summoner_profile_widget>.widget_header{
+  padding:9px 11px;
+  text-align: left;
+  border-bottom:1px solid rgba(52, 64, 117, 0.74);
+}
+.summoner_profile_widget>.widget_header>h5{
+  color:#fff;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin:0;
+  font-weight: 400;
+}
+.summoner_profile_widget .widget_header_info{
+  padding:0 10px;
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  -webkit-align-items:center;
+  align-items: center;
+  height:33px;
+}
+.champion_info_o_O_championHeader{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  justify-content: flex-start;
+  -webkit-justify-content:flex-start;
+  width: 40%;
+}
+.sty_grey84m{
+  font-size: 12px;
+  color: rgb(92, 102, 150);
+  font-weight: 300;
+  margin:0;
+}
+.champion_info_o_O_championHeader_totGames{
+  /*margin:0 12px;*/
+  width: 20%;
+  text-align: center;
+}
+.champion_info_o_O_championHeader_winrate{
+  /*margin-right: 14px;*/
+  width: 20%;
+  text-align: center;
+}
+.champion_info_o_O_championHeader_kda{
+  width: 20%;
+  text-align: center;
+}
+.widget_champion_o_O_infoRow{
+  height: 50px;
+  padding:0 8px;
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  align-items: center;
+  -webkit-align-items:center;
+}
+.widget_champion_o_O_infoRow:nth-child(2n+1) {
+  background-color: rgb(28, 35, 64);
+}
+.champion_cef03_v_o_O_statInfo_con{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 40%;
+}
+.championIcon{
+  z-index: 1;
+  width:38px;
+  height: 38px;
+  margin-right: 8px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 20px 0px;
+  position: relative;
+  background: linear-gradient(rgb(194, 158, 82) 0px, rgb(122, 90, 38) 88%, rgb(168, 132, 73));
+  border-radius: 100%;
+  padding: 1px;
+}
+.championIcon::before{
+  content: "";
+  display: block;
+  background-color: rgb(22, 20, 46);
+  position: absolute;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  z-index:-1;
+  border-radius: 100%;
+}
+.championIcon>img{
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  border:1px solid rgb(17, 23, 44);
+  border-radius: 100%;
+}
+.champion_cef03_v_o_O_statInfo_con>.championInfo{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  flex-direction: column;
+  -webkit-flex-direction:column;
+}
+.champion_cef03_v_o_O_statInfo_con>.championInfo>p{
+  margin:0;
+  color:#fff;
+  font-weight:300;
+  font-size: 13px;
+}
+.champion_cef03_v_o_O_statInfo_con>.championInfo>p.champ_avgcs{
+  font-size: 10px;
+  margin-top: 5px;
+}
+.summoner_v_o_O_totGames{
+  width:20%;
+  color:#fff;
+  margin:0;
+  font-size: 14px;
+  text-align: center;
+}
+.summoner_v_o_O_winrate{
+  color:#fff;
+  width:20%;
+  margin:0;
+  font-size: 14px;
+  text-align: center;
+}
+.most_played_with_v_o_O_table{
+  border-collapse: collapse;
+  width: 100%;
+}
+.most_played_with_v_o_O_table tr>th.meif_3lv{
+  font-weight: 400;
+  text-align: left;
+  padding: 8px 0 8px 8px;
+}
+.most_played_with_v_o_O_table tr>th.lfi3_31v{
+  font-weight: 400;
+  text-align: center;
+  padding-left: 8px
+}
+.played_with_v_o_O_row:nth-child(2n+1){
+  background-color: rgb(28, 35, 64);
+}
+.most_played_with_v_o_O_table .played_with_v_o_O_row>td{
+  text-transform: capitalize;
+  padding: 8px 0 8px 8px;
+  text-align: center;
+}
+.summoner_played_withContainer{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-align-items:center;
+}
+.summoner_played_withContainer>.summoner_played_with_username{
+  font-size: 12px;
+  max-width: 80px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: 300;
+  color: #fff;
+  margin:0;
+}
+.summoner_played_withContainer>.summoner_icon{
+  z-index: 1;
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 20px 0px;
+  position: relative;
+  background: linear-gradient(rgb(194, 158, 82) 0px, rgb(122, 90, 38) 88%, rgb(168, 132, 73));
+  border-radius: 100%;
+  padding: 1px;
+}
+.summoner_played_withContainer>.summoner_icon::before{
+  content: "";
+  display: block;
+  background-color: rgb(22, 20, 46);
+  position: absolute;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  z-index: -1;
+  border-radius: 100%;
+}
+.summoner_played_withContainer>.summoner_icon>img{
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  border: 1px solid rgb(17, 23, 44);
+  border-radius: 100%;
+}
+.most_played_with_v_o_O_table .summoner_played_with_winratio{
+  font-size: 12px;
+  font-weight: 300;
+  color:#fff;
+  margin:0;
+}
+.single_gameDetails_container{
+  color: #fff;
+  margin-bottom: 14px;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: rgba(21, 11, 37, 0.5) 0px 2px 10px 0px;
+}
+.single_gameDetails_container.defeat_cont{
+  /* background: linear-gradient(10deg, #944259 0%, rgba(69, 61, 101, 0.5) 100%); */
+  background: #6b2f47;
+}
+.single_gameDetails_container.victory_cont{
+  background:rgba(138, 244, 192, 0.3);
+}
+.single_gameDetails_header{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  padding:8px;
+  border-bottom: 1px solid rgba(201, 103, 143, 0.25);
+}
+.single_gameDetails_header>.gameDetails_header_left,
+.single_gameDetails_header>.gameDetails_header_center,
+.single_gameDetails_header>.gameDetails_header_right{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  -webkit-align-items:center;
+  align-items: center;
+}
+.ijvmi2_v0e{
+  font-size: 10px;
+  font-weight: 400;
+  margin:0 16px 0 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.kim3v_oce{
+  font-size: 9px;
+  font-weight: 400;
+  margin-right: 10px;
+  color:rgb(144, 152, 187);
+}
+.ik3iv_res{
+  text-transform: uppercase;
+  letter-spacing: 1.22px;
+  font-size: 12px;
+  font-weight: 500;
+  color:#f3c3d7;
+  margin:0;
+}
+.ik3iv_res.vic{
+  color:#4ad09b;
+}
+.omeiv02_ce{
+  margin:0;
+  margin-left: 8px;
+  color: rgb(204, 174, 112);
+  font-size: 10px;
+  font-weight: 400;
+}
+.omeiv02_ce:hover{
+  color: rgb(245, 199, 104);
+}
+.single_gameDetails_body{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  flex-direction: row;
+  -webkit-flex-direction:row;
+  padding:8px;
+}
+.gameDetails_body_champInfo_row_02_ceDet{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  flex-direction: row;
+  -webkit-flex-direction:row;
+  align-items: center;
+  -webkit-align-items:center;
+}
+.gameDetails_body_champInfo_row_02_ceDet>.gameDet_selChamp_detailPos{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  flex-direction: column;
+  -webkit-flex-direction:column;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: flex-start;
+}
+.gameDetails_body_champInfo_row_02_ceDet>.gameDet_selChamp_detailPos>.championIcon{
+  width: 46px;
+  height: 46px;
+}
+.gameDetails_body_champInfo_row_02_ceDet>.gameDet_selChamp_detailPos>.gameDet_playPosition{
+  height: 16px;
+}
+.gameDetails_body_champInfo_row_02_ceDet>.gameDet_selChamp_detailPos>.selChamp_name{
+  font-size: 11px;
+  color:#fff;
+  margin:6px 0 6px 6px;
+}
+.gameDet_spells_selRunes-detailImg{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  flex-direction: row;
+  -webkit-flex-direction:row;
+}
+.gameDet_spells_selRunes-detailImg .selectedSpell_single,
+.gameDet_spells_selRunes-detailImg .selectedRune_single{
+  width: 28px;
+  height: 28px;
+  margin:0 3px 3px 0;
+}
+.gameDet_spells_selRunes-detailImg .selectedSpell_single>img{
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  border:2px solid #2c2c40;
+}
+.gameDet_spells_selRunes-detailImg .selectedRune_single>img{
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  border-radius: 50%;
+  background-color: #17172e;
+}
+.gameDetails_body_match_innerInfo_rowDets_stats{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  flex-direction: row;
+  -webkit-flex-direction:row;
+  justify-content: space-between;
+  -webkit-justify-content:space-between;
+  align-items: center;
+  -webkit-align-items:center;
+}
+.gameDetails_body_match_innerInfo_rowDets_stats .played_roleIcon{
+  margin-right: 10px;
+  width: 24px;
+  height: 24px;
+}
+.gameDetails_body_match_innerInfo_rowDets_stats .played_roleIcon>img{
+  width: 100%;
+  vertical-align: middle;
+}
+.gameDetails_body_match_innerInfo_rowDets_stats .match_innerInfo_stat_dou2v{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  align-items: center;
+  flex:4 1 0%;
+  -webkit-flex: 4 1 0%;
+  -webkit-align-items: center;
+  flex-direction: column;
+  -webkit-flex-direction:column;
+}
+.gameDetails_body_match_innerInfo_rowDets_stats .match_innerInfo_stat_dou2v p{
+  color:#fff;
+  font-weight: 400;
+  font-size: 12px;
+  margin:0;
+}
+.gameDetails_body_match_innerInfo_rowDets_stats .match_innerInfo_stat_dou2v p span.grey_txt{
+  color:#92929d;
+}
+.gameDetails_body_match_innerInfo_rowDets_stats .match_innerInfo_stat_dou2v .inner_det_dou2v{
+  margin-top:6px;
+}
+.gameDetails_body_match_innerInfo_rowDets_stats .itemsBought_container{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  align-items: center;
+  -webkit-align-items: center;
+}
+.gameDetails_body_match_innerInfo_rowDets_stats .itemsBought_container>.itemsBought_rowDetails{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  flex-direction: column;
+  -webkit-flex-direction:column;
+}
+.gameDetails_body_match_innerInfo_rowDets_stats .itemsBought_container>.itemsBought_rowDetails .items_bought_singleRow{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  flex-direction: row;
+  -webkit-flex-direction:row;
+  margin-bottom: 4px;
+  align-items: center;
+  -webkit-align-items:center;
+}
+.gameDetails_body_match_innerInfo_rowDets_stats .itemsBought_container>.itemsBought_rowDetails .items_bought_singleRow>.single_item{
+  margin-right: 4px;
+  border: 2px solid #2c2c40;
+  background-color: #2c2c40;
+  width: 24px;
+  height: 24px;
+}
+.gameDetails_all_summonersPick_champs{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  align-items: center;
+  -webkit-align-items:center;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+}
+.gameDetails_all_summonersPick_champs>.all_summonerPick_singleContainer{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  align-items: center;
+  -webkit-align-items:center;
+}
+.gameDetails_all_summonersPick_champs>.all_summonerPick_singleContainer:not(:first-child){
+  margin-top:-4px;
+}
+.gameDetails_all_summonersPick_champs>.all_summonerPick_singleContainer>.gameDet_summonerChamp_pickCont{
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  align-items: center;
+  -webkit-align-items:center;
+  cursor: pointer;
+}
+.gameDetails_all_summonersPick_champs>.all_summonerPick_singleContainer>.gameDet_summonerChamp_pickCont>a{
+  color: rgb(137, 145, 182);
+  width: 58px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 11px;
+}
+.gameDetails_all_summonersPick_champs>.all_summonerPick_singleContainer>.gameDet_summonerChamp_pickCont>a.currSumm_champ{
+  color:#fff;
+}
+.gameDetails_all_summonersPick_champs>.all_summonerPick_singleContainer>.gameDet_summonerChamp_pickCont>.single_champSelected_cont>.championIcon{
+  width: 24px;
+  height: 24px;
+  margin:0 9px;
+
+}
+
+
+
+/*

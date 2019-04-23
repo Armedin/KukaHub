@@ -30,8 +30,8 @@
 }
 #live2d {
 	width: 250px;
-    height: 280px;
-    position: relative;
+  height: 320px;
+  position: relative;
 	z-index:3;
 }
 

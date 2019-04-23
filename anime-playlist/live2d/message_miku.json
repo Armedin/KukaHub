@@ -1,0 +1,30 @@
+{
+    "mouseover": [
+        {
+            "selector": "#showInfoBtn",
+            "text": ["Switch back to automatic speaking"]
+        },
+		{
+            "selector": "#showTalkBtn",
+            "text": ["Wanna listen music together :) ?"]
+        },
+		{
+            "selector": "#hideButton",
+            "text": ["You want me to go for now?"]
+        },
+		{
+            "selector": "#musicButton",
+            "text": ["Add music to the page or pause it?"]
+        },
+        {
+            "selector": ".searchbox",
+            "text": ["Looking for something, you need help?"]
+        }
+    ],
+    "click": [
+        {
+            "selector": "#landlord #live2d",
+            "text": ["Do you like my musics~~", "Oh hi!"]
+        }
+    ]
+}

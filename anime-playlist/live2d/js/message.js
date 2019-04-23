@@ -19,7 +19,7 @@ if(!window.WebGLRenderingContext){
 if(!norunFlag){
 	var hitFlag = false;
 	var AIFadeFlag = false;
-	var liveTlakTimer = null;
+	var liveTalkTimer = null;
 	var sleepTimer_ = null;
 	var AITalkFlag = false;
 	var talkNum = 0;
@@ -48,7 +48,7 @@ if(!norunFlag){
 
 		var re = /x/;
 		re.toString = function() {
-			showMessage('Haha, you opened the console, do you want to see my secret?', 5000);
+			showMessage('Haha, you opened the console, do you want to know my secret?', 5000);
 			talkValTimer();
 			return '';
 		};
@@ -60,12 +60,14 @@ if(!norunFlag){
 
 		function initTips(){
 			var msgType = 'message.json';
-			if(live2d_type == 0){
-				msgType = 'message.json';
-			}
-			else if(live2d_type == 1){
-				msgType = 'message_rem.json';
-			}
+			// if(live2d_type == 0){
+			// 	msgType = 'message.json';
+			// }
+			// else if(live2d_type == 1){
+			// 	msgType = 'message_rem.json';
+			// }else if(live2d_type == 2){
+			// 	msgType = 'message_miku.json';
+			// }
 			$.ajax({
 				cache: true,
 				url: message_Path+msgType,
@@ -78,15 +80,15 @@ if(!norunFlag){
 							text = text.renderTip({text: $(this).text()});
 							showMessage(text, 3000);
 							talkValTimer();
-							clearInterval(liveTlakTimer);
-							liveTlakTimer = null;
+							clearInterval(liveTalkTimer);
+							liveTalkTimer = null;
 						});
 						$(tips.selector).mouseout(function (){
 							showHitokoto();
-							if(liveTlakTimer == null){
-								liveTlakTimer = window.setInterval(function(){
+							if(liveTalkTimer == null){
+								liveTalkTimer = window.setInterval(function(){
 									showHitokoto();
-								},15000);
+								},8000);
 							};
 						});
 					});
@@ -104,63 +106,48 @@ if(!norunFlag){
 							text = text.renderTip({text: $(this).text()});
 							showMessage(text, 3000);
 						});
-						clearInterval(liveTlakTimer);
-						liveTlakTimer = null;
-						if(liveTlakTimer == null){
-							liveTlakTimer = window.setInterval(function(){
+						clearInterval(liveTalkTimer);
+						liveTalkTimer = null;
+						if(liveTalkTimer == null){
+							liveTalkTimer = window.setInterval(function(){
 								showHitokoto();
-							},15000);
+							},8000);
 						};
 					});
 				}
 			});
 		}
+
 		initTips();
 
+
 		var text;
-		//Incredible AI development here LOL (jokin)
-		if(document.referrer !== ''){
-			var referrer = document.createElement('a');
-			referrer.href = document.referrer;
-			text = 'Hello! From <span style="color:#0099cc;">' + referrer.hostname + '</span> ！';
-			var domain = referrer.hostname.split('.')[1];
-			console.log(domain);
-			if (domain == 'google') {
-				text = 'Hello！Google Search here！<br>Welcome to visit <span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>';
-			}else if(document.referrer.indexOf(home_Path) !== -1){
-				text = 'Hello！';
-			}
-		}else {
-		//	console.log(window.location.href);
-			if (window.location.href == home_Path) { // If user is at home URL
-				var now = (new Date()).getHours();
-				if (now > 23 || now <= 5) {
-					text = 'Are you a night owl? Aren\'t you feeling sleepy? ';
-				} else if (now > 5 && now <= 11) {
-					text = 'Good Morning! The day is just about to get started !';
-				} else if (now > 11 && now <= 14) {
-					text = 'It\'s lunch time！Awesome';
-				} else if (now > 14 && now <= 17) {
-					text = 'What are you up to？';
-				} else if (now > 17 && now <= 21) {
-					text = 'Good Evening! How was your day today?';
-				} else if (now > 21 && now <= 23) {
-					text = 'It\'s already so late. Go to sleep~~';
-				} else {
-					text = 'Hello Baka！';
-				}
-			}else {
-				text = '<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>';
-			}
+		//Incredible AI development here LOL (jokin')
+		var now = (new Date()).getHours();
+		if (now > 2 || now <= 5) {
+			text = 'Are you a night owl? Aren\'t you feeling sleepy? ';
+		} else if (now > 5 && now <= 11) {
+			text = 'Good Morning! The day is just about to get started !';
+		} else if (now > 11 && now <= 14) {
+			text = 'It\'s lunch time！Awesome!';
+		} else if (now > 14 && now <= 17) {
+			text = 'What are you up to？';
+		} else if (now > 17 && now <= 21) {
+			text = 'Good Evening! How was your day today?';
+		} else if (now > 23 && now <= 2) {
+			text = 'It\'s already so late. Go to sleep~~';
+		} else {
+			text = 'Hello Baka！';
 		}
-		showMessage(text, 12000);
+		showMessage(text, 4000);
 	})();
 
-	liveTlakTimer = setInterval(function(){
+	liveTalkTimer = setInterval(function(){
 		showHitokoto();
-	},15000);
+	},8000);
 
 	function showHitokoto(){
+
 		if(sessionStorage.getItem("Sleepy")!=="1"){
 			if(!AITalkFlag){
 				var talkContent = [];
@@ -229,6 +216,29 @@ if(!norunFlag){
 				},300);
 			}
 		});
+		$('#chingChongBtn').on('click',function(){
+			if($('#chingChongBtn').hasClass('ching_chongMode')){
+				$('body').removeClass('shake');
+				$('.fully_openedPlaylist_cont').removeClass('shake');
+				$('.openedPlaylist_lyrics_cont').removeClass('rainbow');
+				$('.fully_openedPlaylist_cont').removeClass('rainbow');
+				$('#chingChongBtn').removeClass('ching_chongMode');
+			}else{
+				var partyTypes = $('#partyType').val();
+				var typesArr = partyTypes.split(",");
+				var type = typesArr[Math.floor(Math.random() * typesArr.length)];
+				if(type == "shake"){
+					$('#chingChongBtn').addClass('ching_chongMode');
+					$('body').addClass('shake');
+					$('.fully_openedPlaylist_cont').addClass('shake');
+				}else{
+					$('.openedPlaylist_lyrics_cont').addClass('rainbow');
+					$('.fully_openedPlaylist_cont').addClass('rainbow');
+				}
+				$('#chingChongBtn').addClass('ching_chongMode');
+
+			}
+		});
 		$('#open_live2d').on('click', function(){
 			if(AIFadeFlag){
 				return false;
@@ -242,31 +252,36 @@ if(!norunFlag){
 				},300);
 			}
 		});
+		$(".select_mentorBtn").on('click',function(){
+			$("#open_live2d").click();
+		})
 		$('#showInfoBtn').on('click',function(){
-			var live_statu = $('#live_statu_val').val();
-			if(live_statu=="0"){
-				return
-			}else{
-				$('#live_statu_val').val("0");
-				$('.live_talk_input_body').fadeOut(500);
-				AITalkFlag = false;
-				showHitokoto();
-				$('#showTalkBtn').show();
-				$('#showInfoBtn').hide();
-			}
+			// var live_statu = $('#live_statu_val').val();
+			// if(live_statu=="0"){
+			// 	return
+			// }else{
+			// 	$('#live_statu_val').val("0");
+			// 	$('.live_talk_input_body').fadeOut(500);
+			// 	AITalkFlag = false;
+			// 	showHitokoto();
+			// 	$('#showTalkBtn').show();
+			// 	$('#showInfoBtn').hide();
+			// }
+			showMessage("Coming soon !",3000);
 		});
 		$('#showTalkBtn').on('click',function(){
-			var live_statu = $('#live_statu_val').val();
-			if(live_statu=="1"){
-				return
-			}else{
-				$('#live_statu_val').val("1");
-				$('.live_talk_input_body').fadeIn(500);
-				AITalkFlag = true;
-				$('#showTalkBtn').hide();
-				$('#showInfoBtn').show();
-
-			}
+			// var live_statu = $('#live_statu_val').val();
+			// if(live_statu=="1"){
+			// 	return
+			// }else{
+			// 	$('#live_statu_val').val("1");
+			// 	$('.live_talk_input_body').fadeIn(500);
+			// 	AITalkFlag = true;
+			// 	$('#showTalkBtn').hide();
+			// 	$('#showInfoBtn').show();
+			//
+			// }
+			showMessage("Coming soon !",3000);
 		});
 		$('#talk_send').on('click',function(){
 			var info_ = $('#AIuserText').val();
@@ -300,7 +315,9 @@ if(!norunFlag){
 				}
 			});
 		});
-		//Get Background Music Initialization
+
+		/*Get Background Music Initialization
+
 		var bgmListInfo = $('input[name=live2dBGM]');
 		if(bgmListInfo.length == 0){
 			$('#musicButton').hide();
@@ -369,8 +386,13 @@ if(!norunFlag){
 				$('#musicButton').removeClass('play');
 				showMessage('音乐似乎加载不出来了呢！',0);
 			});
-		}
+		} */
 
+
+		//Set Mentor ID
+		if(localStorage.getItem("live2dMentor") === null){
+			localStorage.setItem("live2dMentor", "0");
+		}
 		//Getting Username
 		var live2dUser = sessionStorage.getItem("live2duser");
 		if(live2dUser !== null){
@@ -437,9 +459,16 @@ if(!norunFlag){
 				}
 			};
 		};
-	}
+	} //Ends initLive2d
 
 	$(document).ready(function() {
+		initLive2d();
+		updateLive2D(localStorage.getItem("live2dMentor"));
+	});
+
+
+	//MAIN FUNCTION
+	function updateLive2D(live2d_type){
 		if(live2d_type == 0){
 			var AIimgSrc = [
 				message_Path+"model/histoire/histoire.1024/texture_00.png",
@@ -450,6 +479,10 @@ if(!norunFlag){
 		}else if(live2d_type == 1){
 			var AIimgSrc = [
 				message_Path+"model/rem/remu2048/texture_00.png"
+			];
+		}else if(live2d_type == 2){
+			var AIimgSrc = [
+				message_Path+"model/miku/miku.1024/texture_00.png"
 			];
 		}
 		var images = [];
@@ -465,23 +498,27 @@ if(!norunFlag){
 					if(live2dhidden==="0"){
 						setTimeout(function(){
 							$('#open_live2d').fadeIn(200);
+
 						},1300);
 					}else{
 						setTimeout(function(){
 							$('#landlord').fadeIn(200);
 						},1300);
 					}
+					//localStorage.setItem("live2dhidden", "1");
+					localStorage.setItem("live2dMentor",live2d_type);
 					setTimeout(function(){
 						if(live2d_type == 0){
 							loadlive2d("live2d",  message_Path+"/model/histoire/model.json");
 						}else if(live2d_type == 1){
 							loadlive2d("live2d",  message_Path+"/model/rem/rem.json");
+						}else if(live2d_type == 2){
+							loadlive2d("live2d",  message_Path+"/model/miku/miku.model.json");
 						}
 					},1000);
-					initLive2d ();
 					images = null;
 				}
 			}
 		}
-	});
+	}
 }

@@ -204,7 +204,7 @@ if($numRow = mysqli_num_rows($query) >0){
   $json_data = json_encode($data);
   file_put_contents('../js/anime_main.json', $json_data);
 }else{
-  $error = $playing;
+  $error = "Playlist not found! Please contact administrator";
 }
 
   echo json_encode(

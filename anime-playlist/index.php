@@ -1,13 +1,13 @@
 <?php
 
-include('include/playlist_constantFunctions.php');
+include('include/constantFunctions.php');
 
 
  ?>
 <html>
 
 <head>
-  <?php getHeader("Anime Music Player | KukaHub"); ?>
+  <?php getHeader("Anime Ongaku"); ?>
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
   <link href="css/perfect-scrollbar.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,13 +52,16 @@ include('include/playlist_constantFunctions.php');
           <span>Music Navigation</span>
         </li>
         <li>
-          <a href="naruto.php" class="active"> <i class="fal fa-home"></i><span>Home</span></a>
+          <a class="active"> <i class="fal fa-home"></i><span>Home</span></a>
         </li>
         <li>
-          <a href="#"> <i class="fab fa-servicestack"></i><span>Playlists</span></a>
+          <a> <i class="fab fa-servicestack"></i><span>Playlists</span></a>
         </li>
         <li>
-          <a href="#"> <i class="fal fa-music"></i><span>Single Songs</span></a>
+          <a> <i class="fal fa-music"></i><span>Single Songs</span></a>
+        </li>
+        <li>
+          <a class="openMentor"> <i class="fal fa-user change_mentor"></i><span>Change Mentor</span></a>
         </li>
       </ul>
     </nav>
@@ -66,114 +69,15 @@ include('include/playlist_constantFunctions.php');
 
   <!-- HEADER TOP NAV -->
   <div class="music_player_084nv9vnr_o_O_top_header">
-    <div class="main_084nv9vnr_o_O_top_header">
-      <a href="index.php" class="navbar_home">
-        <img src="https://www.kukahub.com/dist/img/facilities/kukahub-logo-white.png">
-        <span>KukaHub</span>
-      </a>
-    </div>
-
-    <div class="navbar_084nv9vnr_o_O_collapse">
-      <div class="navbar_sidemenu_btn_manConts">
-        <a class="sidemenu_toggler navbar_floating_btn"><i class="fal fa-bars"></i></a>
-      </div>
-      <form class="song_search_form" id="song_search_form" method="post" role="search">
-        <div class="search_songs_inputContainer">
-          <input type="search" class="searchbox" name="search_song" id="search_song" autocomplete="off" placeholder="Search Musics...">
-          <span class="search_icon"><i class="fal fa-search"></i></span>
-          <ul class="autocomplete-songs">
-
-          </ul>
-        </div>
-      </form>
-    </div>
-
-
-    <?php
-    if(!isUserLoggedIn()){
-      echo '<ul class="navbar_084nv9vnr_o_O_rightContent">
-        <li class="login_actions">
-          <a href="#" class="login_link" data-target="#modal_SignInBox">Login or Register</a>
-        </li>
-      </ul>';
-    }else{
-      echo '<div class="user_menu_084nv9vnr_o_O_cont navbar_084nv9vnr_o_O_rightContent">
-        <div class="dropdown_cont">
-          <a href="javascript:void(0)">
-            <img src="'.pro_pic_stat_destination() . get_profile_picture(getSessionUser_id()).'">
-          </a>
-          <div class="dropdown-menu">
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">My Playlists</a></li>
-            <li><a href="#">My Tracks</a></li>
-            <li class="menu_nav">
-              <a href="#"><i class="fal fa-user"></i>Settings</a>
-              <a href="#" id="logout_btn"><i class="fal fa-sign-out"></i>Logout</a>
-            </li>
-          </div>
-        </div>
-      </div>';
-    }
-    ?>
-
-    <!--<div class="content_fullWrapper_inner">
-      <div class="left_side">
-        <div class="music_trend_main">
-          <span class="trending_song">Trending Songs : </span>
-          <span class="trending_song_title">Code Geass Opening 1 (+8 More)</span>
-        </div>
-      </div>
-      <div class="right_side">
-      </div>
-    </div>-->
+    <?php getHeaderMainNav(0);?>
   </div>
 
-
-  <!-- TOP SLIDER -->
-  <div class="music_player_084nv9vnr_o_O_topSlider">
-    <ul class="slider-list">
-      <li class="slider-item">
-        <span class="slider-image" style="background-image:url(images/detective_konan.jpg);"></span>
-      </li>
-      <li class="slider-item">
-        <span class="slider-image" style="background-image:url(images/shigatsu_wa_kimi_no_uso.jpg);"></span>
-      </li>
-      <li class="slider-item">
-        <span class="slider-image" style="background-image:url(images/kimi_no_na_wa.jpg);"></span>
-      </li>
-      <li class="slider-item">
-        <span class="slider-image" style="background-image:url(images/shigatsu_wa_kimi_no_uso.jpg);"></span>
-      </li>
-    </ul>
-  </div>
 
   <!-- MAIN BODY WRAPPER -->
   <div class="music_player_084nv9vnr_o_O_content_fullWrapper" id="mainContent">
     <div class="loading">
       <span class="colour_bar"></span>
     </div>
-
-  <!--  <div class="content_music_player_084nv9vnr_o_O_banner">
-      <div class="wrapper_inner">
-        <div class="row-col">
-          <div class="col-lg-12 col-md-12 main_banner_controller">
-            <div class="banner_left_image">
-              <img src="https://www.dropbox.com/s/ipww179fn35tsm6/lelouch.png?raw=1">
-            </div>
-            <div class="banner_info">
-              <h1>This Month's</h1>
-              <h1 class="blue_colored">Most Listened Openings</h1>
-              <p>Code Geass Opening 1, Naruto Shippuden Blue Bird,コードギアスOP1,
-                One Piece Opening 12, Charlotte 灼け落ちない翼, Black Clover Opening 3</p>
-              <div class="banner_buttons_cont">
-                <button class="banner_button" id="listen_now_btn">Listen Now</button>
-                <button class="banner_button" id="listen_now_btn">Add To Queue</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
 
    <!-- Navbar Main Navigation-->
     <nav class="main_page_navigation">
@@ -190,32 +94,6 @@ include('include/playlist_constantFunctions.php');
 
         <!-- Featured Playlist -->
         <div class="featured_playlists inactive_tab active" id="featured_content_overview">
-          <!-- <div class="row-col hot_songs_cont">
-            <div class="col-lg-8">
-              <div class="hot_songs_cont_title">
-                <h6>Hot Track</h6>
-                <h2>Hot Songs</h2>
-              </div>
-
-              <div class="anime-owl-main" responsive-width="0:100%|600:50%|900:33.33%|1200:25%" >
-                <div class="owl-carousel hot_songs_cont_body">
-
-                   <div class="item">
-                    <div class="horizontal_box_song">
-                      <div class="image_box_song">
-                        <img src="https://www.dropbox.com/s/vc8hjn1u6g4dld9/overlord_season3.png?raw=1">
-                      </div>
-                      <div class="desc_box_song">
-                        <h6>The Separation</h6>
-                        <p>Rachel Platten</p>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div> -->
         </div>
 
         <!-- All Songs -->
@@ -239,29 +117,27 @@ include('include/playlist_constantFunctions.php');
 
 
 
-
-
   <!-- Sign In -->
   <div class="fadeIn modal_SignInBox" id="modal_SignInBox">
     <div class="heading">
-      <h2>登录</h2>
+      <h2>Login</h2>
     </div>
     <form class="signIn_form">
       <div class="form_input">
-        <input autocomplete="off" type="text" name="usename" id="username" placeholder="邮箱或用户名">
+        <input autocomplete="off" type="text" name="usename" id="username" placeholder="Username">
       </div>
       <div class="form_input">
-        <input autocomplete="off" type="password" id="password" name="password" placeholder="密码">
+        <input autocomplete="off" type="password" id="password" name="password" placeholder="Password">
       </div>
-      <button type="submit" class="login_submit btn_dis">提交</button>
+      <button type="submit" class="login_submit btn_dis">Login</button>
       <div class="login_help_options">
-        <a href="signup.php?redict_location=<?php echo urlencode($_SERVER['REQUEST_URI']) ?>" class="register_btn">现在注册</a>
-        <a href="#" class="forget_pass_btn">忘记密码?</a>
+        <a href="signup.php?redict_location=<?php echo urlencode($_SERVER['REQUEST_URI']) ?>" class="register_btn">Register</a>
+        <a href="#" class="forget_pass_btn">Forgot password?</a>
       </div>
     </form>
 
     <div class="other_socialLogin">
-      <span class="otherTxt">使用社交账户登录</span>
+      <span class="otherTxt">Other Methods(Coming Soon)</span>
       <a class="qq_login social_login"><i class="fab fa-qq"></i></a>
       <a class="wechat_login social_login"><i class="fab fa-weixin"></i></a>
     </div>
@@ -274,7 +150,7 @@ include('include/playlist_constantFunctions.php');
 
 <div  id= "landlord"  style= "left:5px;bottom:0px;" >
   <div  class= "message"  style= "opacity:0" ></div>
-  <canvas  id= "live2d"  width= "500 "  height= "560"  class= "live2d" ></canvas>
+  <canvas id= "live2d" width= "450" height= "640" class= "live2d" ></canvas>
   <div  class= "live_talk_input_body" >
     <div  class= "live_talk_input_name_body" >
         <input  name= "name"  type= "text"  class= "Live_talk_name white_input"  id= "AIuserName"  autocomplete= "off" Placeholder= "Your Name"  />
@@ -289,12 +165,12 @@ include('include/playlist_constantFunctions.php');
     <div  class= "live_ico_item type_info"  id= "showInfoBtn" ></div>
     <div  class= "live_ico_item type_talk"  id= "showTalkBtn" ></div >
       <!-- <div  class= "live_ico_item type_music"  id= "musicButton" ></div> -->
-      <div  class= "live_ico_item type_youdu"  id= "youduButton" ></div>
+      <div  class= "live_ico_item type_youdu"  id= "chingChongBtn" ></div>
       <div  class= "Live_ico_item type_quit"  id= "hideButton" ></div>
       <input  name="live_statu_val"  id= "live_statu_val"  value= "0"  type= "hidden"  />
       <audio  src= ""  style= "display:none;"  id= "live2d_bgm"  data-bgm= "0"  preload= "none " ></audio>
       <!-- <input  name= "live2dBGM"  value= "https://www.dropbox.com/s/qrcxop9gg1k3qq5/Black%20Clover%20Opening%203.mp3?raw=1"  type= "hidden" > -->
-      <input  id= "duType"  value= "douqilai,l2d_caihong"  type= "hidden" >
+      <input id= "partyType" value= "shake,rainbow" type= "hidden" >
   </div>
 </div>
 <div id="open_live2d">Summon!</div>
@@ -313,12 +189,12 @@ include('include/playlist_constantFunctions.php');
         <div class="col-lg-4 col-xs-6">
           <div class="footer_logo">
             <a href="index.php">
-              <img src="https://www.kukahub.com/dist/img/facilities/kukahub-logo.png">
-              <h1>KukaHub</h1>
+              <img src="https://www.kukahub.com/dist/img/facilities/kukahub-logo-white.png">
+              <h1>Ongaku</h1>
             </a>
           </div>
           <div class="footer_social_info">
-            <h2>KukaHub Music, Online Anime Songs</h2>
+            <h2>Anime Ongaku, Online Anime Songs</h2>
             <div class="social_links">
               <ul>
                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -331,7 +207,7 @@ include('include/playlist_constantFunctions.php');
         </div>
         <div class="col-lg-4 col-xs-6">
           <div class="footer_general_navs">
-            <h3 class="title">KukaHub Music</h3>
+            <h3 class="title">Ongaku</h3>
             <ul>
               <li><a href="#">About</a></li>
               <li><a href="#">Help & Support</a></li>
@@ -553,7 +429,6 @@ include('include/playlist_constantFunctions.php');
       </div>
     </div>
   </div>
-
   <div class="openedPlaylist_lyrics_cont">
     <div class="lyrics_inner">
       <audio preload="auto" id="audio-main"></audio>
@@ -565,6 +440,55 @@ include('include/playlist_constantFunctions.php');
       </div>
     </div>
   </div>
+
+  <!-- Change Mentor -->
+  <div class="mentorSelection_main">
+    <div class="mentorSelection_backgroundImg">
+      <div class="background_mentorImg">
+        <!-- <img src="images/histoire.png"> -->
+      </div>
+    </div>
+    <div class="mentorSelection_infoContainer">
+      <div class="mentorSelection_onRight">
+        <div class="mentorRow_selectionPics">
+          <button class="mentor-avatar selectedAvatar">
+            <div class="mentor_avatarBox">
+              <div class="inner_box">
+                <div class="avatar_img histoire_avatar"></div>
+              </div>
+            </div>
+            <p class="mentor_name">Histoire</p>
+          </button>
+          <button class="mentor-avatar">
+            <div class="mentor_avatarBox">
+              <div class="inner_box">
+                <div class="avatar_img rem_avatar"></div>
+              </div>
+            </div>
+            <p class="mentor_name">Rem</p>
+          </button>
+          <button class="mentor-avatar">
+            <div class="mentor_avatarBox">
+              <div class="inner_box">
+                <div class="avatar_img miku_avatar"></div>
+              </div>
+            </div>
+            <p class="mentor_name">Miku</p>
+          </button>
+        </div>
+        <div class="sub_contentWrapper">
+          <div class="mentorHeader_smallDet">
+            <p class="role">Mentor</p>
+            <p class="nameLabel">Histoire</p>
+          </div>
+          <div class="select_mentorContainer">
+            <button class="select_mentorBtn">Select Mentor!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 </div>  <!-- END LAYOUT MANAGER -->
 <div class="page_overlay darker"></div>
@@ -680,8 +604,14 @@ $("body").on("click",".track_item",function(){
 
 });
 
-
-
+  $(".openMentor").on("click",function(){
+    $(".mentorSelection_main").fadeIn("fast");
+  });
+  $(".select_mentorBtn").on("click",function(){
+    $('#landlord').delay(200).fadeIn(200);//Show
+    updateLive2D(($(".mentor-avatar.selectedAvatar").index()));
+    $(".mentorSelection_main").fadeOut("fast");
+  });
 
 });
 
@@ -703,8 +633,8 @@ $("body").on("click",".track_item",function(){
 <script>
 var  message_Path  =  '/KukaHub/anime-playlist/live2d/' ;
 var  talkAPI  =  "" ;
-var home_Path = 'http://localhost/KukaHub/anime-playlist/index.php';
-var live2d_type = 0;
+var home_Path = 'http://localhost/KukaHub/anime-playlist/';
+// var live2d_Type = 2;
 </script>
 <script type= "text/javascript"  src= "live2d/js/live2d.js" ></script>
 <script type= "text/javascript"  src= "live2d/js/message.js" ></script>

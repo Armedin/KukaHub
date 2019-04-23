@@ -1,3 +1,6 @@
+
+
+
 /*
   SnackBar Custom
 */
@@ -25,7 +28,7 @@
     def_text : "Snackbar Default Text",
     textColor: "#fff",
     background_color: "#323232",
-    duration : 4000,
+    duration : 1500,
     showAction : true,
     actionText_color : "#eeff41",
     actionText : "Dismiss",
@@ -707,6 +710,26 @@ $(document).ready(function(){
 
     });
 
+
+    //Change mentor
+    $(".mentor-avatar").on("click",function(){
+      $(".mentor-avatar").removeClass("selectedAvatar");
+      $(this).addClass("selectedAvatar");
+      var avatar_img= $(this).find(".avatar_img");
+      var modelImg;
+      if(avatar_img.hasClass("rem_avatar")){
+        modelImg = 'rem_bg.png';
+        $(".nameLabel").text("Rem");
+      }else if(avatar_img.hasClass("miku_avatar")){
+        modelImg = 'miku_bg.png';
+        $(".nameLabel").text("Miku");
+      }else if (avatar_img.hasClass("histoire_avatar")){
+        modelImg = 'histoire_bg.png';
+        $(".nameLabel").text("Histoire");
+      }
+      //$(".background_mentorImg>img").attr("src","images/"+modelImg);
+      $(".background_mentorImg").css({"background-image":"url(images/"+modelImg+")"});
+    });
 
 console.log("\n %c KukaHub/Academy Version 1.0.2.1 \n", "color:#eee;background:#444;padding:5px 0;");
 

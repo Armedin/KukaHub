@@ -1,5 +1,6 @@
 <?php
-  include('../../include/init_constantFunctions.php');
+include('../../include/init_constantFunctions.php');
+require '../include/courses_config/config.php';
  ?>
 
  <html>
@@ -12,54 +13,8 @@
    </head>
  <body class="course_learning_page">
 
-  <div class="course_lesson_header">
-    <div class="inner_container">
-      <div class="row-col">
-        <div class="col-lg-2 col-md-2 col-sm-6 col-xs-4">
-          <div class="course_lesson_header_left">
-            <div class="course_lesson_curriculum_trigger">
-              <i class="fas fa-list-ul"></i>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-8">
-          <div class="row-col">
-            <div class="container_inner">
-              <div class="row-col">
-                <div class="col-md-8 col-md-push-2">
-                  <div class="lesson_header">
-                    <h5><a href="#">Introduction to JavaFX</a></h5>
-                    <a href="#" class="back_to"><i class="fal fa-long-arrow-left left_arrow"></i>Go Back</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-          <div class="course_lesson_header_right">
-            <div class="account_dropdown">
-              <div class="dropdown_cont">
-                <button type="button" class="course_acc_btn">
-                  <i class="fal fa-user user_icon"></i>
-                  <span class="user_name">Hey, Armedin...</span>
-                  <span class="down_arrow"></span>
-                </button>
-              </div>
-            </div>
-            <div class="account_wishlist_btn">
-              <a href="#"><i class="fal fa-bookmark"></i></a>
-            </div>
-            <div class="settings_btn">
-              <a href="#"><i class="fal fa-cog"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="course_lesson_overlay"></div>
+   <?php include ('../include/courses_config/course_lesson_header.php')  ?>
+   <?php include ('../include/courses_config/course_curriculum.php')  ?>
 
   <div class="course_lesson_main_body">
     <div class="course_lessons_curriculum">
@@ -228,22 +183,7 @@ public class firstJavaFXProgram extends Application{
 </div>
 
 
-<div class="course_lessons_navigation_o_O_bott completed_lesson">
-  <div class="course_lessons_navigation_one_side left_side">
-
-  </div>
-  <div class="course_lessons_navigation_completed_lecture">
-    <a class="lecture_completed_btn completed">
-      <span class="text">Completed</span>
-    </a>
-  </div>
-  <div class="course_lessons_navigation_one_side right_side">
-    <a href="the-application-class.php">
-      <span class="section_prev_info_text">Section 1: The Application Class, Lecture 1.1</span>
-      <span class="icon right"><i class="fal fa-chevron-right"></i></span>
-    </a>
-  </div>
-</div>
+<?php  include ('../include/courses_config/lesson_navigations.php')?>
 
 
  <?php

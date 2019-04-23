@@ -66,9 +66,33 @@ $(document).ready(function(){
       if($(this).hasClass('completed')){
         return false;
       }
-      $(this).addClass("completed");
-      $(".course_lessons_navigation_o_O_bott").addClass("completed_lesson");
-      
+
+      if(typeof username !== 'undefined' && typeof token !== 'undefined' && typeof user_id !== 'undefined'){
+        $.ajax({
+          type: "POST",
+          url: "../include/updateCourse.php",
+          data: {username: username, token: token, user_id: user_id},
+          dataType: "json",
+          success: function(response){
+            if(response.status == 0){
+              Snackbar.showToast({def_text:response.error, duration: 1500});
+            }else if(response.status == 1){
+              //  $(this).addClass("completed");
+                $(".lecture_completed_btn").addClass("completed");
+                $(".course_lessons_navigation_o_O_bott").addClass("completed_lesson");
+                Snackbar.showToast({def_text:response.error, duration: 1500});
+            }else{
+              Snackbar.showToast({def_text:'An unknown error has occured.', duration:1500});
+            }
+          },
+          error: function(){
+            Snackbar.showToast({def_text:'An unknown error has occured.', duration:1500});
+          }
+        });
+      }else{
+        Snackbar.showToast({def_text:"You need to be logged in!", duration: 1500});
+      }
+
 
   });
 
