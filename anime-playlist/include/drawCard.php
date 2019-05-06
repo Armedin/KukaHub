@@ -48,7 +48,7 @@
 				}
 			}
 
-			if($DateCheck){
+			if(!$DateCheck){
 
 				//Get Randon Card
 				$randomCardID = null;

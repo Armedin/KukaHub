@@ -1,9 +1,6 @@
 <?php
   include('../../include/init_constantFunctions.php');
-
-  if(!isset($_SESSION['score'])){
-		$_SESSION['score'] = '0';
-	}
+  $_SESSION['score'] = '0';
 
  ?>
 
@@ -80,109 +77,7 @@
 
   <div class="course_lesson_overlay"></div>
 
-  <div class="course_lesson_main_body">
-    <div class="course_lessons_curriculum">
-      <div class="course_lessons_curriculum_inner_div">
-        <h1 class="course_lessons_curriculum_title">Course Sections</h1>
-
-        <div class="course_curriculum_section opened">
-          <div class="curriculum_section_item opened">
-            <div class="curriculum_section_item_info">
-              <span> Section 1</span>
-              <h3>Section 1: Introduction to Matrices</h3>
-            </div>
-          </div>
-          <div class="curriculum_section_subs_items">
-            <a class="curriculum_sub_single_item completed" href="pre-start-matrices.php">
-              <div class="left_icon">
-                <i class="fal fa-file"></i>
-              </div>
-              <div class="curriculum_item_number">Lecture 1.0</div>
-              <div class="curriculum_single_item_title">Before you start</div>
-              <div class="curriculum_single_item_percentage"></div>
-              <div class="curriculum_single_item_completed is_completed">
-                <i class="fas fa-check"></i>
-              </div>
-            </a>
-            <a class="curriculum_sub_single_item completed" href="definition-of-a-matrix.php">
-              <div class="left_icon">
-                <i class="fal fa-file"></i>
-              </div>
-              <div class="curriculum_item_number">Lecture 1.1</div>
-              <div class="curriculum_single_item_title">Definition of a matrix</div>
-              <div class="curriculum_single_item_percentage"></div>
-              <div class="curriculum_single_item_completed">
-                <i class="fas fa-check"></i>
-              </div>
-            </a>
-            <a class="curriculum_sub_single_item completed" href="#">
-              <div class="left_icon">
-                <i class="fal fa-file"></i>
-              </div>
-              <div class="curriculum_item_number">Lecture 1.2</div>
-              <div class="curriculum_single_item_title">Matrix algebra</div>
-              <div class="curriculum_single_item_percentage"></div>
-              <div class="curriculum_single_item_completed">
-                <i class="fas fa-check"></i>
-              </div>
-            </a>
-            </div>
-          </div>
-
-          <div class="course_curriculum_section">
-            <div class="curriculum_section_item">
-              <div class="curriculum_section_item_info">
-                <span> Section 1</span>
-                <h3>Section 2: Determinant and Inverse</h3>
-              </div>
-            </div>
-            <div class="curriculum_section_subs_items">
-              <a class="curriculum_sub_single_item completed" href="#">
-                <div class="left_icon">
-                  <i class="fal fa-file"></i>
-                </div>
-                <div class="curriculum_item_number">1</div>
-                <div class="curriculum_single_item_title">Realistic Graphics</div>
-                <div class="curriculum_single_item_percentage"></div>
-                <div class="curriculum_single_item_completed is_completed">
-                  <i class="fas fa-check"></i>
-                </div>
-              </a>
-              <a class="curriculum_sub_single_item completed" href="#">
-                <div class="left_icon">
-                  <i class="fal fa-file"></i>
-                </div>
-                <div class="curriculum_item_number">1</div>
-                <div class="curriculum_single_item_title">Realistic Graphics</div>
-                <div class="curriculum_single_item_percentage"></div>
-                <div class="curriculum_single_item_completed">
-                  <i class="fas fa-check"></i>
-                </div>
-              </a>
-              <a class="curriculum_sub_single_item completed" href="#">
-                <div class="left_icon">
-                  <i class="fal fa-file"></i>
-                </div>
-                <div class="curriculum_item_number">1</div>
-                <div class="curriculum_single_item_title">Realistic Graphics</div>
-                <div class="curriculum_single_item_percentage"></div>
-                <div class="curriculum_single_item_completed">
-                  <i class="fas fa-check"></i>
-                </div>
-              </a>
-              </div>
-            </div>
-
-
-        </div>
-      </div>
-
-      <div class="course_lesson_questions_toggler">
-        <i class="fas fa-question"></i>
-      </div>
-
-
-    </div>
+  <div class="course_lesson_main_body quiz_page">
     <div class="course_lesson_main_content">
 
       <div class="container_inner">
@@ -208,26 +103,26 @@
           </div>
         </div>
       </div>
-      <div class="footer_regulator"></div>
-      <div class="relative_footer-0dex8">
-        <div class="quiz_questions_indication_footer">
-          <div class="quiz_questions_indication_footer_curr_question">
-            <span class="current_question">Question <span class="curr_question"> x </span>
-            / <span class="total_questions"> xxx</span></span>
-          </div>
-          <div class="quiz_questions_indication_footer_one_side">
-            <button class="next_question">Next</button>
-          </div>
-        </div>
-      </div>
     </div>
 
-
-
   </div>
-</div>
+
+  <div class="footer_regulator"></div>
+  <div class="relative_footer-0dex8">
+    <div class="quiz_questions_indication_footer">
+      <div class="quiz_questions_indication_footer_curr_question">
+        <span class="current_question">Question <span class="curr_question"> --</span>
+        / <span class="total_questions"> --</span></span>
+      </div>
+      <div class="quiz_questions_indication_footer_one_side">
+        <button class="next_question">Next</button>
+      </div>
+    </div>
+  </div>
+
 
  <?php
+ include('../../include/footer.php');
  getJs_Files();
  ?>
 <script type="text/javascript" src="../js/courses.js"></script>
@@ -235,40 +130,38 @@
 
   var questionNum = 1;
   var totalQuestions = 0;
+  var topic = "Matrices Addition and Subtraction";
 
   function loadQuestions(){
   var user_choice = $("input[name=user_choice]:checked").val();
-  var topic = "Matrices Addition and Subtraction";
   if(typeof(user_choice) != "undefined"){
     questionNum ++;
   }
-  $(".curr_question").html(questionNum);
   $.ajax({
   			type : "POST",
-  			url : "../../include/quiz_config/quiz_questionProcess.php?action=get-next-question",
+  			url : "../include/quiz_config/quiz_questionProcess.php?action=get-next-question",
   			data : { 'topic' : topic, 'questionNumber' : questionNum, 'user_choice' : user_choice},
   			success : function(response){
           MathJax.Hub.Queue(function(){
 							$(".questionCont_wrapp").html(response);
 						});
 						MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-
+            $(".curr_question").html(questionNum);
   			}
   		});
   }
 
-
   function getQuizStats(){
-    var topic = "Matrices Addition and Subtraction";
     $.ajax({
       type: "POST",
-      url: "../../include/quiz_config/quiz_questionProcess.php?action=get-quiz-stats",
+      url: "../include/quiz_config/quiz_questionProcess.php?action=get-quiz-stats",
       data: {'topic' : topic},
       dataType: "json",
       success: function(response){
         if(response.status == 1){
           $(".total_questions").html(response.totalQuestions);
           totalQuestions = response.totalQuestions;
+          loadQuestions();
         }else{
           Snackbar.showToast({def_text:'An unknown error has occured.'});
         }
@@ -284,16 +177,9 @@ function checkOffset() {
   if($('.quiz_questions_indication_footer').offset().top
                                          >= $('.footer_regulator').offset().top)
       $('.quiz_questions_indication_footer').css('position', 'static');
-  if($(document).scrollTop() + window.innerHeight < $('.footer_regulator').offset().top)
+  if( window.innerHeight + $(document).scrollTop()  < $('.footer_regulator').offset().top+$('.relative_footer-0dex8').height())
       $('.quiz_questions_indication_footer').css('position', 'fixed'); // restore when you scroll up
 }
-
-
-
-
-  loadQuestions();
-  getQuizStats();
-
 
 
     $(".next_question").on("click",function(){
@@ -309,33 +195,15 @@ function checkOffset() {
       }
 	  });
 
-    $(".tot_points").each(function(){
-      $(this).prop('Counter', 0).animate({
-        Counter: $(this).text()
-      },{
-        duration: 4000,
-        easing: 'swing',
-        step: function (now) {
-          $(this).text(Math.ceil(now));
-        }
-      });
-    });
-
     $(document).scroll(function() {
+      checkOffset();
+    });
+    $(window).resize(function() {
       checkOffset();
     });
 
 $("document").ready(function(){
   checkOffset();
-
-  $(".slim-scroller").each(function(){
- 		$(this).slimScroll({
- 			height:"100%",
- 			color:$(this).attr("data-color")||"#71808f",
- 			railOpacity:"0.9",
- 			size:"4px"
-    })
- 	});
 
 
   $("body").on("click",".responsiveInnerRadio",function(){
@@ -344,18 +212,14 @@ $("document").ready(function(){
         $(".next_question").addClass("available");
     });
 
-
   $("body").on("change",".radioButt .answer_radiobox",function(){
     $(".next_question").addClass("available");
   });
 
+    getQuizStats();
 
 });
 
-
-  /***
-    Keeping the footer in the bottom
-  */
 
 
 </script>

@@ -1,6 +1,6 @@
 <?php
 
-include('../init_constantFunctions.php');
+include('../../../include/init_constantFunctions.php');
 
 class quizManager{
 

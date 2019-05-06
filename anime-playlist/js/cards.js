@@ -168,6 +168,8 @@ function getBestCards(){
 }
 
 
+
+
 $(document).ready(function(){
 
   var selected = false;
@@ -279,5 +281,185 @@ $(document).ready(function(){
 			});
 		});
 	}
+
+});
+
+//New Design
+var animationDone = false;
+var cardAnimation = anime.timeline();
+var selected_card = false;
+var cardPluginPath_ = 'include/drawCard.php?action=draw-card';
+var cardImgPath = 'images/cards/';
+var cardCount = $('.single_b930bwc_card').length;
+
+cardAnimation.add({
+	targets: ".single_b930bwc_card",
+	rotateY: [180,900],
+	translateY: [150,0],
+	transformOrigin: ["50% 100%", "50% 100%"],
+	easing: "easeOutQuad",
+	scale: [0,0.75],
+	delay: 1200,
+	duration: 500
+})
+.add({
+	targets: ".single_b930bwc_card",
+	scale: [0.75,1],
+	rotateZ: function(el, i) {
+		return ["0deg", Math.floor((cardCount/2))*-15 + (i*15)+"deg"];
+	},
+	boxShadow: ['0 0 0px rgb(185, 153, 107, 0)','0 0 36px rgba(255, 204, 128, 1)'],
+	elasticity: 100,
+	duration: 800,
+	complete: function () {
+		animationDone = true;
+		pulse();
+	}
+})
+
+function pulse() {
+	cardAnimation = anime({
+		targets: ".single_b930bwc_card",
+		scale: [1,0.95],
+		rotateZ: function(el, i) {
+			return [Math.floor((cardCount/2))*-15 + (i*15)+"deg", Math.floor((cardCount/2))*-17 + (i*17)+"deg"];
+		},
+		boxShadow: ['0 0 36px rgba(255, 204, 128, 1)','0 0 50px rgba(255, 204, 128, 1)'],
+		easing: "easeInOutCubic",
+		duration: 5000,
+		loop: true,
+		direction: 'alternate'
+	})
+}
+
+function hoverCards() {
+	if (animationDone && !selected_card) {
+		cardAnimation.pause();
+		cardAnimation = anime.timeline();
+		cardAnimation.add({
+			targets: ".single_b930bwc_card",
+			rotateZ: function(el, i) {
+			return Math.floor((cardCount/2))*-15 + (i*15)+"deg";
+		},
+			translateX: function(el, i) {
+				return Math.floor((cardCount/2))*-112 + (i*112)+"px";
+			},
+			scale: 1,
+			easing: "easeInOutSine",
+			duration: 400
+		});
+	}
+}
+function unhoverCards() {
+	if (animationDone && !selected_card ) {
+		cardAnimation.pause();
+		cardAnimation = anime.timeline();
+		cardAnimation.add({
+			targets: ".single_b930bwc_card",
+			rotateZ: function(el, i) {
+			return Math.floor((cardCount/2))*-15 + (i*15)+"deg";
+			},
+			translateX: function(el, i) {
+				return 0+"px";
+			},
+			scale: 1,
+			easing: "easeInOutSine",
+			duration: 500,
+			complete: function() {
+				pulse();
+			}
+		});
+	}
+}
+
+
+var degree = 0;
+function revealCards(){
+		cardAnimation.pause();
+		cardAnimation = anime.timeline();
+		cardAnimation.add({
+			targets: ".single_b930bwc_card",
+			translateY:40,
+			easing: "easeInOutSine",
+			duration: 600,
+			delay: 100
+		})
+		.add({
+			targets: ".single_b930bwc_card",
+			begin: function() {
+				$(".selectedCard .face").fadeTo(2300, 1);
+			},
+			translateY:40,
+			rotateY: 2160,
+			duration: 2000,
+			easing: "easeInOutCubic",
+			complete: function(){
+				$(".selectedCard").addClass("showLight");
+				cardAnimation.pause();
+				cardAnimation = anime({
+					targets: ".drawing_cards_b930bwc_achievement_cont",
+					scaleY: [0,1],
+					easing: "linear",
+					duration: 400
+				});
+			}
+		})
+
+}
+
+function close() {
+	cardAnimation.pause();
+	cardAnimation = anime({
+		targets: [".single_b930bwc_card",".drawing_cards_b930bwc_achievement_cont"],
+		scale: 0,
+		rotateZ: 0,
+		translateX: 0,
+		opacity: 0,
+		easing: "easeInSine",
+		duration: 400
+	});
+}
+
+
+$(".single_b930bwc_card").on("mouseenter", hoverCards);
+$(".single_b930bwc_card").on("mouseleave", unhoverCards);
+$(".achievement_btn").on("click",close);
+
+$(".single_b930bwc_card").on("click", function(){
+	if(selected_card || !animationDone){
+		return false;
+	}
+
+	var choiseIndex = $(this).attr('data-id');
+	selected_card = true;
+ 　　　$.ajax({
+			type: 'POST',
+			url: cardPluginPath_,
+			dataType: 'json',
+			data: {choiseIndex:choiseIndex, user_id: user_id, username: username, token: token},
+			success: function(result){
+				 if(result.code == '2'){ //Exceded number of tries!
+					alert('Exceeded!');
+					selected_card = false;
+				}else if(result.code == '1'){
+
+					for(var i=0;i<result.cardChoiseList.length;i++){
+					var cardId = result.cardChoiseList[i];
+					var imgSrc = cardImgPath+ cardId+'.jpg';
+					$('#getCard').find('.single_b930bwc_card .card_img').eq(i).attr('src',imgSrc);
+					}
+					$('#getCard').find('.single_b930bwc_card').eq(result.choiseIndex).addClass("selectedCard");
+					$('#getCard').find('.single_b930bwc_card').not('.selectedCard').remove();
+					revealCards();
+					selected_card = true;
+				}else{
+					alert('Unknown Error! Please contact the administrator!');
+				}
+			},
+			error:function(xhr){
+				selected_card = false;
+				alert(xhr.responseText);
+			}
+		 });
 
 });
