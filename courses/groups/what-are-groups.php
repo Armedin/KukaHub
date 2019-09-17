@@ -5,14 +5,17 @@
 
  <html>
    <head>
-
-   <?php getHeader("What are Groups | Kuka Academy"); ?>
+<?php
+   include_adsense();
+   include_script_tag();
+   getHeader("What are Groups | Kuka Academy");
+?>
    <link rel="stylesheet"
     href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
     <link rel="stylesheet" href="../../dist/css/custom-highlight.css">
    </head>
  <body class="course_learning_page">
-
+   <?php include_noscript_tag(); ?>
    <?php include ('../include/courses_config/course_lesson_header.php')  ?>
    <?php include ('../include/courses_config/course_curriculum.php')  ?>
 
@@ -106,8 +109,6 @@
  <?php
  getJs_Files();
  ?>
- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_CHTML-full"></script>
  <script type="text/javascript" src="../js/courses.js"></script>
 
  <script type="text/x-mathjax-config">

@@ -3,14 +3,13 @@ var lyricsClass= new Lyrics($(".kuka-lyrics"));
 var playBtn = $(".play_btn");
 var nextBtn = $(".next_btn");
 var prevBtn = $(".prev_btn");
-var progress_bar_container = $(".musicPlayer_progress_cont");
 var repeatBtn = $(".repeat_button");
 var playlist_button = $(".playlist_button");
 
-var music_details_container = $(".song_details");
+
 var music_title = $(".song_title");
-var music_jap_title = $(".song_japanese_title");
-var music_picture = $(".song_picture>img");
+var music_jap_title = $(".song_jap_title");
+var music_picture = $(".song_image");
 var currentTime = $(".music_currTime");
 var musicDuration = $(".music_totDuration");
 

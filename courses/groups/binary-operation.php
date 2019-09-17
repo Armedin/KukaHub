@@ -5,15 +5,18 @@
 
  <html>
    <head>
-   <?php getHeader("Binary Operation | Kuka Academy"); ?>
+<?php
+   include_adsense();
+   include_script_tag();
+   getHeader("Binary Operation | Kuka Academy");
+?>
    <link rel="stylesheet"
     href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
     <link rel="stylesheet" href="../../dist/css/custom-highlight.css">
    </head>
 
  <body class="course_learning_page">
-
-
+  <?php include_noscript_tag(); ?>
   <?php include ('../include/courses_config/course_lesson_header.php')  ?>
   <?php include ('../include/courses_config/course_curriculum.php')  ?>
 
@@ -29,7 +32,7 @@
         <div class="row-col">
           <div class="col-md-8 col-md-push-2">
             <div class="course_lesson_title">
-              <h3>Section 1: The axioms of a group, Lecture 1.0</h3>
+              <h3>Section 1: The axioms of a group, Lecture 1.1</h3>
               <h2>Binary Operation </h2>
             </div>
           </div>
@@ -260,8 +263,6 @@
  <?php
  getJs_Files();
  ?>
- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_CHTML-full"></script>
  <script type="text/javascript" src="../js/courses.js"></script>
 
  <script type="text/x-mathjax-config">

@@ -19,22 +19,23 @@ if(isset($_GET['action']) && $_GET['action'] == "search-song" && is_ajax()
       $searched_song = trim(strtolower(db_escapeString($_POST['value'])));
 
       $check_song = db_query("SELECT * FROM tracks WHERE music_name LIKE '%$searched_song%' UNION
-      SELECT * FROM tracks WHERE jap_name LIKE '%$searched_song%'");
+      SELECT * FROM tracks WHERE jap_name LIKE '%$searched_song%' LIMIT 6");
       if($numRow = mysqli_num_rows($check_song)>0){
-
         while($row = mysqli_fetch_assoc($check_song)){
-          $output = $output . '<li class="menu-item track_item" id="trackId_'.$row['trackId'].'">
-            <a href="javascript:void(0)">
-              <span class="img">
-                  <img src="'.$row['img'].'">
-              </span>
-              <span class="title">'.$row['jap_name'].'</span>
-            </a>
-          </li>';
+          if( stripos( $row['music_name'], $searched_song ) !== false) {
+            $res = $row['music_name'];
+          }else{
+            $res = $row['jap_name'];
+          }
+          $output = $output . '<div class="search_song_suggestion track_item" id="trackId_'.$row['trackId'].'">
+            <span class="title">'
+            .preg_replace('#'. preg_quote($searched_song) .'#i', '<span style="color:#fff">\\0</span>', $res) .'
+            </span></div>';
         }
       }else{
-        $output = '<span class="not_found">No Music Found !</span>';
+
       }
+
 
     }else{
       $error = 'Database connection problem.';

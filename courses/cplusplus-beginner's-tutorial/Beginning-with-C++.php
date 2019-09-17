@@ -6,13 +6,17 @@
  <html>
    <head>
 
-   <?php getHeader("Beginning with C++| KukaHub"); ?>
+<?php
+   include_adsense();
+   include_script_tag();
+   getHeader("Beginning with C++| KukaHub");
+?>
    <link rel="stylesheet"
     href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
     <link rel="stylesheet" href="../../dist/css/custom-highlight.css">
    </head>
  <body class="course_learning_page">
-
+   <?php include_noscript_tag(); ?>
    <?php include ('../include/courses_config/course_lesson_header.php')  ?>
    <?php include ('../include/courses_config/course_curriculum.php')  ?>
 
@@ -22,53 +26,6 @@
    -->
 
   <div class="course_lesson_main_body">
-    <div class="course_lessons_curriculum">
-      <div class="course_lessons_curriculum_inner_div">
-        <h1 class="course_lessons_curriculum_title">Course Sections</h1>
-
-        <div class="course_curriculum_section opened">
-          <div class="curriculum_section_item opened">
-            <div class="curriculum_section_item_info">
-              <span> Section 1</span>
-              <h3>Section 1: Beginning with C++</h3>
-            </div>
-          </div>
-          <div class="curriculum_section_subs_items">
-            <a class="curriculum_sub_single_item completed" href="introduction-to-c++.php">
-              <div class="left_icon">
-                <i class="fal fa-file"></i>
-              </div>
-              <div class="curriculum_item_number">Lecture 1.0</div>
-              <div class="curriculum_single_item_title">Introduction to C++</div>
-              <div class="curriculum_single_item_percentage"></div>
-              <div class="curriculum_single_item_completed is_completed">
-                <i class="fas fa-check"></i>
-              </div>
-            </a>
-            <a class="curriculum_sub_single_item completed" href="Beginning-with-C++.php">
-              <div class="left_icon">
-                <i class="fal fa-file"></i>
-              </div>
-              <div class="curriculum_item_number">Lecture 1.1</div>
-              <div class="curriculum_single_item_title">Beginning with C++</div>
-              <div class="curriculum_single_item_percentage"></div>
-              <div class="curriculum_single_item_completed">
-                <i class="fas fa-check"></i>
-              </div>
-            </a>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-
-      <div class="course_lesson_questions_toggler">
-        <i class="fas fa-question"></i>
-      </div>
-
-
-    </div>
     <div class="course_lesson_main_content">
 
       <div class="container_inner">
@@ -98,12 +55,12 @@
               <li><strong>using namespace std : </strong>normally we should write codes which look
                 like this: std::cout<<"Hello World!";, but this code allows us to write codes without
                 needing the std part in front , because it tells the computer that we are using it everywhere.</li>
-                <li><strong>int main() : </strong>most Operating Systems report back to the user, or the calling process, if an application was successful or not.
+              <li><strong>int main() : </strong>most Operating Systems report back to the user, or the calling process, if an application was successful or not.
                   All the codes are written inside this function.This code requires the return of an integer.</li>
-                  <li><strong>cout<<"Hello world!" : </strong>this code is called a statement.Cout is a code
+              <li><strong>cout<<"Hello world!" : </strong>this code is called a statement.Cout is a code
                     used to show something to the user, in this case Hello world!We use quotes and write something in between
                     them and that something is shown to the user.</li>
-                    <li><strong>return 0  : </strong>this is the code that returns the integer to main().
+              <li><strong>return 0  : </strong>this is the code that returns the integer to main().
                       It tells the computer that there are no errors.</li>
             </ul>
             We always open and close curly brackets {} in the int main , just as shown below :
@@ -149,7 +106,6 @@ Usually every code requires a  <strong> ; </strong>  in the end.The importment l
     </div>
 
   </div>
-</div>
 
 <?php  include ('../include/courses_config/lesson_navigations.php')?>
 
@@ -157,8 +113,6 @@ Usually every code requires a  <strong> ; </strong>  in the end.The importment l
  <?php
  getJs_Files();
  ?>
- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_CHTML-full"></script>
  <script type="text/javascript" src="../js/courses.js"></script>
 
  <script type="text/x-mathjax-config">

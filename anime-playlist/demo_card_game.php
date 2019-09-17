@@ -67,7 +67,7 @@ include('include/constantFunctions.php');
 <script src="js/animationEffects.js"></script>
 <script src="js/imagesloaded.pkgd.min.js"></script>
 <script src="js/snowfall.js"></script>
-<script src="js/anime.js"></script>
+<script src="js/anime.min.js"></script>
 <script src="js/cards.js"></script>
 </body>
 

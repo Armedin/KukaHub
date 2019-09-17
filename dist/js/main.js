@@ -495,7 +495,7 @@ $("document").ready(function(){
         $.ajax({
           type: "POST",
           url: "include/entry.php?action=get-new-activation-key",
-          data: {username: username, user_id: user_id, token: token},
+          data: {username: username, user_id: user_id, token: token, email: email},
           dataType: "json",
           success: function(response){
             if(response.status == 0){

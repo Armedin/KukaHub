@@ -450,6 +450,7 @@ $(".single_b930bwc_card").on("click", function(){
 					}
 					$('#getCard').find('.single_b930bwc_card').eq(result.choiseIndex).addClass("selectedCard");
 					$('#getCard').find('.single_b930bwc_card').not('.selectedCard').remove();
+					
 					revealCards();
 					selected_card = true;
 				}else{

@@ -1,20 +1,21 @@
 <?php
   include('../../include/init_constantFunctions.php');
-  //require '../include/courses_config/config.php';
+
 ?>
 
  <html>
    <head>
 
-   <?php getHeader("Group Exercises 1 | Kuka Academy"); ?>
+<?php
+   include_adsense();
+   include_script_tag();
+   getHeader("Group Exercises 1 | Kuka Academy");
+?>
    <link rel="stylesheet"
     href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
     <link rel="stylesheet" href="../../dist/css/custom-highlight.css">
    </head>
  <body class="course_learning_page">
-
-   <?php //include ('../include/courses_config/course_lesson_header.php')  ?>
-   <?php //include ('../include/courses_config/course_curriculum.php')  ?>
 
 
   <!-- /////////////////////////////
@@ -30,7 +31,7 @@
           <div class="col-md-8 col-md-push-2">
             <div class="course_lesson_title">
               <h3>Edexcel GCE Paper 1</h3>
-              <h2>Core Pure Mathematics</h2>
+              <h2>Core Pure Mathematics </h2>
             </div>
           </div>
         </div>
@@ -41,130 +42,141 @@
           <div class="row-col">
             <div class="col-md-8 col-md-push-2">
 
-              <p class="lesson_paragraph_20_margin">
-                Now that we have discussed about the four axioms, we can make a definition about what a group really is.<br>
-                <strong>If $G$ is a set with a binary operation $*$, then $(G,*)$ is a group only if the four axioms hold:
-                Closure, Identity, Inverses and Associativity.</strong>
-              </p>
 
-              <!-- Exercise 1 -->
-              <div class="lesson_paragraph_20_margin example_model_heading">Exercise 1</div>
+              <!-- Question 1 -->
+              <div class="lesson_paragraph_20_margin example_model_heading">Question 1</div>
               <p class="lesson_paragraph_20_margin">
-              The operation $*$ is defined by $a*b=a+b-2$, where $a$ and $b$ are real numbers. Determine whether the set of real
-              numbers form a group under the operation $*$.
+              $\\[0pt]$Given that $4$ and $-3+2i$ are roots of the equation:
+              $$ \\[0pt] x^{3}+ax^{2}+bx-52=0$$
+               where $a$ and $b$ are real constants.
+               Find the value of $a$ and the value of $b$ and hence write down the equation.
               </p>
               <div class="example_model_body">
                 <div class="inner_model">
                   <p class="lesson_paragraph_20_margin">
-                    <strong>Closure:</strong> The real numbers are closed under addition and subtraction, so $a+b-2$ is a real number.<br>
-                    <strong>Associativity:</strong> $(a*b)*c = (a+b-2)*c = a+b+c-4$<br>
-                    $a*(b*c) = a*(b+c-2) = a+b+c-4$. Therefore $*$ is associative.<br>
-                    <strong>Identity:</strong> $a*2 = a+2-2 = a$ and $2*a = 2+a-2 = a$, therefore $2$ is the identity element.<br>
-                    <strong>Inverses:</strong> $a*(4-a) = a+4-a-2 = 2$ and $(4-a)*a = 4-a-2+a = 2$, therefore the inverse of
-                    each element $a$ is $2-a$.<br>
-                    As the 4 axioms hold, we can conclude that the set of reals numbers form a group under $*$.
+                    Since all the coefficients in the expression are real numbers, then the third root of the
+                    equation is the conjugate of $-3+2i$, so it's <strong>$-3-2i$</strong>.<br>
+                    The sum of roots is the negative value of the coefficient of $x^2$ divided by the coefficient of $x^{3}$.
+                    So, $4+(-3-2i)+(-3+2i)=-a$; $a=2$.<br>
+                    The sum of the product of the roots is the coefficient of $x$ divided by the coefficient of $x^{3}$.<br>
+                    $\\[3pt]$ $4(2i-3)+4(-2i-3)+(2i-3)(-2i-3) = b$
+                    $\\[3pt]$ $8i-12-12-8i-6i+4+9+6i = b$
+                    $\\[3pt]$ $b = -11$.
+                    $\\[0pt]$ So the equation is $x^{3}+2x^{2}-11x-52=0$
                   </p>
                 </div>
               </div>
 
-              <!-- Exercise 2 -->
-              <div class="lesson_paragraph_20_margin example_model_heading">Exercise 2</div>
+              <!-- Question 2 -->
+              <div class="lesson_paragraph_20_margin example_model_heading">Question 2</div>
               <p class="lesson_paragraph_20_margin">
-                The operation $*$ is defined by $a*b=ab+a$, where $a$ and $b$ are real numbers. Show that $\mathbb{R}$ does
-                not form a group under $*$.
+              Use de Moivre's theorem to show that <br>
+              $$ cos(6\theta)=32cos^{6}\theta-48cos^{4}\theta+18cos^{2}\theta-1$$
+
               </p>
               <div class="example_model_body">
                 <div class="inner_model">
                   <p class="lesson_paragraph_20_margin">
-                    Let $e$ be the identity element for $*$. Then $a*e = ae+a =a \implies e=0$<br>
-                    However, $e*a = ae + e = 0 \neq a$. Therefore, $e$ cannot be an identity element,
-                    so the identity axiom does not hold!<br>
-                    Alternatively, we can look at the associativity axiom.<br>
-                    $a*(b*c) = a*(bc+b) = abc+ab+a$<br>
-                    $(a*b)*c = (ab+a)*c = abc+ac+ab+a$<br>
-                    Since they are not equal, then the associativity axiom fails.<br>
-                    Therefore, $\mathbb{R}$ does not form a group under $*$.
+                    $(cos \theta+ isin \theta)^6 = cos(6\theta) + isin(6\theta)$;
+                    $\\[3pt]$ By expanding out the brackets, on the left side we get:
+                    $\\[3pt]$ $cos^{6}\theta + \binom{6}{1}cos^{5}\theta isin\theta + \binom{6}{2}cos^{4}\theta (isin\theta)^{2}$
+                     $+ \binom{6}{3}cos^{3}\theta (isin\theta)^{3} + \binom{6}{4}cos^{2}\theta (isin\theta)^{4}$
+                     $+ \binom{6}{5}cos\theta (isin\theta)^{5} + (isin\theta)^{6}$
+                     $\\[3pt]$ By equating the real parts we get :
+                    $\\[3pt]$ $cos(6\theta) = cos^{6}\theta-15cos^{4}\theta sin^{2}\theta$ $+15cos^{2}\theta sin^{4}\theta-sin^{6}\theta$
+                    $\\[3pt]$ $=cos^{6}\theta-15cos^{4}(1-cos^{2}\theta)$ $+15cos^{2}\theta(1-cos^{2}\theta)^2-(1-cos^2\theta)^3$
+                    $\\[3pt]$ $=cos^{6}\theta-15cos^{4}+15cos^6\theta+15cos^2\theta-30cos^4\theta+15cos^6\theta$ $-1+3cos^2\theta-3cos^4\theta+cos^6\theta$
+                    $\\[3pt]$ $=32cos^6\theta-48cos^4\theta+18cos^2\theta-1$
+                    $\\[3pt]$ Therefore,
+                    $\\[3pt]$ $cos(6\theta)=32cos^6\theta-48cos^4\theta+18cos^2\theta-1$
                   </p>
                 </div>
               </div>
 
-              <!-- Exercise 3 -->
-              <div class="lesson_paragraph_20_margin example_model_heading">Exercise 3</div>
+              <!-- Question 3 -->
+              <div class="lesson_paragraph_20_margin example_model_heading">Question 3</div>
               <p class="lesson_paragraph_20_margin">
-                Let $A$ be the set of matrices of the form $\begin{bmatrix}a & b\\ 0 & c \end{bmatrix}$,
-                where $a$, $b$, $c\in \mathbb{R}$ and $a\neq0$ and $c\neq0$. Prove that $A$ is a group under
-                matrix multiplication.
+              Prove that <br>
+              $$\sum_{r=1}^{n} \dfrac{1}{(r+1)(r+3)} = \dfrac{n(an+b)}{12(n+2)(n+3)} $$
+              $\\[0pt]$ where $a$ and $b$ are constants to be found.
               </p>
               <div class="example_model_body">
                 <div class="inner_model">
                   <p class="lesson_paragraph_20_margin">
-                    <strong>Closure:</strong> Let $d$, $e$, $f$ also be real numbers, where $d\neq0$ and $f\neq0$, then
-                    $\begin{bmatrix}a & b\\ 0 & c \end{bmatrix} \begin{bmatrix}d & e\\ 0 & f \end{bmatrix}
-                     =\begin{bmatrix}ad & ae+bf\\0 & cf \end{bmatrix}$<br>
-                     Since we are dealing with real numbers, then $ad$, $ae+bf$, $cf\in\mathbb{R}$<br>
-                    <strong>Associativity:</strong> Matrix multiplication is always associative.<br>
-                    <strong>Identity:</strong> The identity element is $I = \begin{bmatrix}1 & 0\\ 0 & 1\end{bmatrix}$<br>
-                    <strong>Inverse:</strong> $A^{-1} =\dfrac{1}{ac} \begin{bmatrix}c & -b\\ 0 & a\end{bmatrix}$
-                    and $A^{-1}A = AA^{-1} = I$<br>
-                    As the 4 axioms hold, A does form a group under matrix multiplication.
+                    $\require{cancel}$
+                    By expressing $\dfrac{1}{(r+1)(r+3)}$ as partial fractions, we get :
+                    $\\[3pt]$ $\dfrac{1}{(r+1)(r+3)} = \dfrac{1}{2(r+1)} - \dfrac{1}{2(r+3)}$
+                    $\\[3pt]$ If we let $f(r) = \dfrac{1}{2(r+1)}$, then we can notice that
+                    what we got is:
+                    $$\sum_{r=1}^{n} f(r) - f(r+2) = f(1)+f(2)-f(n+1)-f(n+2) $$
+                    $\\[0pt]$ In case you don't remember this result, then you need to write enough
+                    terms to make it clear which terms cancel out. So,
+                    $\\[0pt]$ $\sum_{r=1}^{n} \dfrac{1}{(r+1)(r+3)} \equiv \sum_{r=1}^{n} \left( \dfrac{1}{2(r+1)} - \dfrac{1}{2(r+3)} \right) $
+                    $\\[4pt]$  $\begin{align} \text{When }r=1& : \qquad \dfrac{1}{4} - \cancel{\dfrac{1}{8}}
+                    \\[4pt]    r =2& : \qquad \dfrac{1}{6} - \cancel{\dfrac{1}{10}}
+                    \\[4pt]    r =3& : \qquad \cancel{\dfrac{1}{8}} - \cancel{\dfrac{1}{12}}
+                    \\[4pt]     \vdots
+                    \\[4pt]    r=n-1& : \qquad \cancel{\dfrac{1}{2n}} - \dfrac{1}{2(n+2)}
+                    \\[4pt]    r=n& : \qquad \cancel{\dfrac{1}{2(n+1)}} - \dfrac{1}{2(n+3)} \end{align}$
+                    $\\[8pt]$ So, $\sum_{r=1}^{n} \dfrac{1}{(r+1)(r+3)} = \dfrac{1}{4} + \dfrac{1}{6} - \dfrac{1}{2(n+2)} -\dfrac{1}{2(n+3)}
+                    \\[16pt] = \dfrac{5(n+2)(n+3)-6(n+3)-6(n+2)}{12(n+2)(n+3)}
+                    \\[16pt] = \dfrac{n(5n+13)}{12(n+2)(n+3)}$
                   </p>
                 </div>
               </div>
 
-
-              <!-- Exercise 4 -->
-              <div class="lesson_paragraph_20_margin example_model_heading">Exercise 4</div>
+              <!-- Question 4 -->
+              <div class="lesson_paragraph_20_margin example_model_heading">Question 4</div>
               <p class="lesson_paragraph_20_margin">
-                Show that the set of functions of the form $f(x)=ax+b$, where $a$, $b\in\mathbb{R}$ and $a\neq0$ form a group
-                under function composition.
+              Prove by induction that, for all positive integers $n$, <br>
+              $$f(n)=2^{3n+1}+3(5^{2n+1}) $$
+              $\\[0pt]$ is divisible by 17.
               </p>
               <div class="example_model_body">
                 <div class="inner_model">
                   <p class="lesson_paragraph_20_margin">
-                    <strong>Closure:</strong> Let $g(x)=cx+d$ where $c\neq0$, then $g(f(x)) = c(ax+b) +d
-                    =(ca)x + (cb+d)$ with $ca$, $cd +d\in\mathbb{R}$ and $ca\neq0$. So it is closed.<br>
-                    <strong>Associativity:</strong> Function composition is always associative, i.e for
-                    all function $f(x)$, $g(x)$ and $h(x)$,  $fg(h(x)) = f(gh(x))$.<br>
-                    <strong>Identity:</strong> Let $g(x) = x$, then $f(g(x))=g(f(x))= f(x)$, hence $g(x)=x$ is the identity element. <br>
-                    <strong>Inverse:</strong> Let $g(x)=ax+b$, then $g^{-1}(x) = \dfrac{x}{a}-\dfrac{b}{a}$. $f(g^{-1}(x)) = a(\dfrac{x}{a}
-                    -\dfrac{b}{a})+b$ $=x-b+b=x$. So $g^{-1}(x) = f(x)$, so each element in the set has an inverse.<br>
-                    As the 4 axioms hold, the set forms a group under function composition.
+                    When $n=1$,$f(1)=2^{3n+1}+3(5^{2n+1}) = 16+375=391$
+                    $\\[0pt]$ $391 = 17 \times 23$, so the statement is true for $n=1$.
+                    $\\[0pt]$ Assume the statement is true for $n=k$, so $f(k)=2^{3k+1}+3(5^{2k+1})$ is divisible by $17$.
+                    $\\[0pt]$  Consider $n=k+1$,
+                    $\\[0pt]$ $\begin{align} f(k+1) & = 2^{3k+4} + 3(5^{2k+3})
+                    \\[4pt] & = 2^3(2^{3k+1}) + 3(5^2)(5^{2k+1})
+                    \\[4pt] & = 8(2^3k+1) + 75(5^{2k+1})
+                    \end{align}$
+                    $\\[8pt]$ $\begin{align} f(k+1) - f(k) & = 8(2^3k+1) - (2^3k+1) + 75(5^{2k+1}) - 3(5^{2k+1})
+                    \\[4pt] & = 7(2^3k+1)+72(5^{2k+1})
+                    \\[4pt] & = 7f(k) + 17\times3(5^{2k+1})
+                    \end{align}$
+                    $\\[0pt]$ So, $f(k+1) = 8f(k) + 17\times3(5^{2k+1})$
+                    $\\[4pt]$ Since the statement holds for $n=1$ and it's true for $n=k$ and it has been shown
+                    that it's true for $n=k+1$, then the statement is true for all $n\in\mathbb{Z^+}$.
+
                   </p>
                 </div>
               </div>
 
-              <!-- Exercise 5 -->
-              <div class="lesson_paragraph_20_margin example_model_heading">Exercise 5</div>
+              <!-- Question 5 -->
+              <div class="lesson_paragraph_20_margin example_model_heading">Question 5</div>
               <p class="lesson_paragraph_20_margin">
-                A set $S$ forms a group under the operation of multiplication. For $a$, $b\in G$, prove that
-                $a^2b^2=(ab)^2\implies ab=ba$
+              $$f(x) = \dfrac{x+2}{x^2+9}$$
+              $\\[0pt]$ Show that the mean value of $f(x)$ over the interval $\left[0,3\right]$ is
+              $\dfrac{1}{6}\ln 2 + \dfrac{1}{18}\pi$
               </p>
               <div class="example_model_body">
                 <div class="inner_model">
                   <p class="lesson_paragraph_20_margin">
-                    $(ab)^2 = abab$, then $a^2b^2 = abab$<br>
-                    $\\[3pt]$ $\implies a^{-1}a^2b^2b^{-1} = a^{-1}ababb^{-1}$<br>
-                    $\\[3pt]$ $\implies eabe = ebae$<br>
-                    $\\[3pt]$ $\implies ab = ba$
+                    $ \begin{align} \int_{0}^{3} f(x) dx & = \int_{0}^{3} \dfrac{x+2}{x^2+9} dx
+                    \\[2pt] & = \int_{0}^{3} \dfrac{x}{x^2+9} + \int_{0}^{3} \dfrac{2}{x^2+9}
+                    \\[2pt] & = \left[\dfrac{1}{2}\ln(x^2+9) + \dfrac{2}{3}arctan\left(\dfrac{x}{3}\right) \right]_0^3
+                    \\[2pt] & = \dfrac{1}{2}\ln18 + \dfrac{2}{3}arctan\left(\dfrac{3}{3}\right) - \left(\dfrac{1}{2}\ln9 + \dfrac{2}{3}arctan(0) \right)
+                    \\[2pt] & = \dfrac{1}{2}\ln2 + \dfrac{\pi}{6}
+                    \end{align}$
+                    $\\[2pt]$ Mean value of $f(x) = \dfrac{1}{3-0}\left(\dfrac{1}{2}\ln2 + \dfrac{\pi}{6}\right)$
+                    $\\[2pt]$ So, $\dfrac{1}{6}\ln2 + \dfrac{1}{18}\pi $.
                   </p>
                 </div>
               </div>
 
-              <!-- Exercise 6 -->
-              <div class="lesson_paragraph_20_margin example_model_heading">Exercise 6</div>
-              <p class="lesson_paragraph_20_margin">
-                A group $(S,*)$ contains elements $a$ and $b$ such that $a$ and $b$ are self-inverses. Given that
-                $a*b=b*a$, prove that $a*b$ is also self-inverse.
-              </p>
-              <div class="example_model_body">
-                <div class="inner_model">
-                  <p class="lesson_paragraph_20_margin">
-                    Self-inverse means that $x=x^{-1}$, so $a*a*b*b = a*b*a*b$. So as $b$ and $a$ are self-inverses,
-                    then we have $e*e = (a*b)*(a*b)$<br>
-                    $\implies a*b$ is self-inverse.
-                  </p>
-                </div>
-              </div>
 
 
 

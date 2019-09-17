@@ -141,20 +141,105 @@ pre.code-pre{
   font-size: 12px;
   font-family: SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace;
 }
-pre.code-pre:before{
-  content: " ";
-  position: absolute;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  background: #fc625d;
-  width: 12px;
-  height: 12px;
+pre.code-pre .code_options-div{
+  position:absolute;
   left: 10px;
   top: 10px;
-  -webkit-box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
-  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
-  z-index: 2;
+  z-index:2;
 }
+.code_options-div>.close_code-div{
+  display:inline-block;
+  width:12px;
+  height:12px;
+  margin-right:8px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background:#fc625d;
+  position:relative;
+}
+.code_options-div>.min_code-div{
+  display:inline-block;
+  width:12px;
+  height:12px;
+  margin-right:8px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background:#fdbc40;
+  position:relative;
+}
+.code_options-div>.expand_code-div{
+  display:inline-block;
+  width:12px;
+  height:12px;
+  margin-right:8px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background:#35cd4b;
+  position:relative;
+}
+.code_options-div>.close_code-div:before,
+.code_options-div>.min_code-div:before,
+.code_options-div>.expand_code-div:before{
+  font-family: Font Awesome\ 5 Pro;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-size:10px;
+  position:absolute;
+  width:100%;
+  height:100%;
+  text-align:center;
+  line-height:12px;
+}
+.code_options-div>.close_code-div:before{
+  content:"\f00d";
+  color:#781a17;
+  display:none;
+}
+.code_options-div>.min_code-div:before{
+  content:"\f068";
+  color:#795510;
+  display:none;
+}
+.code_options-div>.expand_code-div:before{
+  content:"\f424";
+  color:#06440f;
+  display:none;
+}
+.code_options-div:hover>.close_code-div:before,
+.code_options-div:hover>.min_code-div:before,
+.code_options-div:hover>.expand_code-div:before{
+  display:inline-block;
+}
+.tag-span{
+  color:#d45650;
+  background-color:#f9f9f9;
+  border-radius:4px;
+  padding:3px 4px;
+  font-size:110%;
+}
+.tag-span:before{
+  content:'<';
+}
+.tag-span:after{
+  content:'>';
+}
+code{
+  background-color:#f9f9f9;
+  border-radius:4px;
+  padding:3px 4px;
+  font-size:110%;
+  color:#d45650;
+}
+pre.code-pre.small-code .pre-row{
+  display:none;
+}
+pre.code-pre.small-code .pre-div{
+  margin-left:0;
+  width:100%;
+  padding: 12px 8px 12px 20px;
+}
+
 
 
 

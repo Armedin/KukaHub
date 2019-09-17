@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 
   include('include/init_constantFunctions.php');
@@ -466,7 +467,7 @@ $('a[href*="#"]')
       $('html, body').animate({
         scrollTop: target.offset().top-72
       }, 1000, function() {
-        
+
       });
     }
   }

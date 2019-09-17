@@ -6,10 +6,14 @@
  <html>
    <head>
 
-   <?php getHeader("Recursive Functions | KukaHub"); ?>
+<?php
+   include_adsense();
+   include_script_tag();
+   getHeader("Recursive Functions | KukaHub");
+?>
    </head>
  <body class="course_learning_page">
-
+   <?php include_noscript_tag(); ?>
    <?php include ('../include/courses_config/course_lesson_header.php')  ?>
    <?php include ('../include/courses_config/course_curriculum.php')  ?>
 

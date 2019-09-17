@@ -4,33 +4,36 @@
 
     private $lessonID;
     private $courseID;
+    private $relativeLessonID;
 
-    public function __construct($lessonID){
+    public function __construct($lessonID, $courseID, $relativeLessonID){
       $this->lessonID = $lessonID;
-      $this->courseID = get_lesson_courseID($lessonID);
+      $this->relativeLessonID = $relativeLessonID;
+      $this->courseID = $courseID;
     }
 
     public function get_previous_lesson(){
-      return getPreviousLessonID($this->lessonID - 1, $this->courseID);
+      return getPreviousLessonID($this->relativeLessonID - 1, $this->courseID);
     }
 
     public function get_next_lesson(){
-      return getNextLessonID($this->lessonID + 1, $this->courseID);
+      return getNextLessonID($this->relativeLessonID + 1, $this->courseID);
     }
 
     public function getID(){
       return $this->id;
     }
 
-    public function getRelativeID(){
-      return $this->lessonID - getFirstLessonID($this->courseID);
-    }
-    public function getFileLocation($lessonID){
-      return get_file_location($lessonID);
+    public function getCourseID(){
+      return $this->courseID;
     }
 
-    public function getLessonName($lessonID){
-      return get_lesson_Name($lessonID);
+    public function getFileLocation(){
+      return get_file_location($this->$lessonID);
+    }
+
+    public function getLessonName(){
+      return get_lesson_Name($this->lessonID);
     }
 
 

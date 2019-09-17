@@ -1,6 +1,7 @@
 class Lyrics {
     constructor(e) {
         this.element = e[0],
+        this.ps = this.element.parentElement;
         this.element.classList.contains("kuka-lyrics--enabled") || (this.element.classList.add("kuka-lyrics"),
         this.mediaElement = this.findMediaElementBefore(this.element),
         this.viewMode = "default",
@@ -11,6 +12,7 @@ class Lyrics {
         this.scroll = this.scroll.bind(this), this.parseLyrics(),  this.enableLyrics())
     }
     findMediaElementBefore(e) {
+
         if (!e) return null;
         let t = e.previousElementSibling;
         for (; t;) {
@@ -76,7 +78,10 @@ class Lyrics {
             //n[0].offsetTop gives 0 ...
             //n[0].offsetTop = n[n.length - 1].offsetTop;
             let e = (n[n.length - 1].offsetTop + n[n.length - 1].offsetTop + n[n.length - 1].offsetHeight) / 2;
-            this.scrollTop = e - this.element.clientHeight / 2, clearInterval(this.scrollerInterval), this.scrollerTimer = this.scrollerIntervalDuration, this.scrollerInterval = setInterval(this.scroll, this.scrollerIntervalStep)
+            this.scrollTop = e - this.element.clientHeight / 2;
+            clearInterval(this.scrollerInterval);
+            this.scrollerTimer = this.scrollerIntervalDuration;
+            this.scrollerInterval = setInterval(this.scroll, this.scrollerIntervalStep);
         }
     }
     scroll() {

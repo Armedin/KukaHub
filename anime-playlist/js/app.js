@@ -669,15 +669,15 @@ $(document).ready(function(){
       $("#modal_SignInBox").css("display","none");
     });
 
-    // Search Song !!!
 
-    $("#search_song").on("keyup",function(e){
+
+
+    //Search Song !!!
+    $("#search-song").on("keyup",function(e){
       e.preventDefault();
-      var _this = $("#search_song");
-      var _cont = $(".autocomplete-songs");
+      var _this = $("#search-song");
+      var _cont = $(".seach_songs_dropdown");
       if(_this.val().replace(/^\s+|\s+$/g, "").length >= 3){
-
-
         $.ajax({
           type: "POST",
           url: "include/search.php?action=search-song",
@@ -691,7 +691,6 @@ $(document).ready(function(){
               if(!_cont.is(":visible")){
                 _cont.css("display","block");
               }
-
             }else{
               Snackbar.showToast({def_text:'An unknown error has occured.'});
             }
@@ -699,7 +698,6 @@ $(document).ready(function(){
           error: function(xhr){
             Snackbar.showToast({def_text:xhr.responseText});
           }
-
         });
 
       }else{
@@ -707,9 +705,7 @@ $(document).ready(function(){
           _cont.css("display","none");
         }
       }
-
     });
-
 
     //Change mentor
     $(".mentor-avatar").on("click",function(){

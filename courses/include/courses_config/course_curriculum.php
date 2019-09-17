@@ -1,15 +1,4 @@
-
 <?php
-
-include(__DIR__."/lesson.php");
-$lessonID = get_relative_lesson_id();
-$lesson = new Lesson ($lessonID);
-
-$prev_id = $lesson->get_previous_lesson();
-$next_id = $lesson->get_next_lesson();
-
-$relative_id = $lesson->getRelativeID();
-$courseID = get_course_id();
 $counter = 0;
  ?>
 <div class="course_lesson_overlay"></div>
@@ -20,21 +9,31 @@ $counter = 0;
       <div class="curriculum_section_item opened">
         <div class="curriculum_section_item_info">
           <span> Section 1 </span>
-          <h3><?php echo 'Section 1: '.get_course_title($courseID) ?></h3>
+          <h3><?php echo 'Section 1: '.$course->getCourseTitle() ?></h3>
         </div>
       </div>
       <div class="curriculum_section_subs_items">
-        <?php foreach (get_course_lessons($courseID) as $lessonID) :?>
-        <a class="curriculum_sub_single_item completed" href="<?php echo get_file_location($lessonID)?>">
+        <?php foreach (get_course_lessons($courseID) as $lesson_id) :?>
+        <a class="curriculum_sub_single_item completed" href="<?php echo $course->getLessonLocation($lesson_id)?>">
           <div class="left_icon">
             <i class="fal fa-file"></i>
           </div>
           <div class="curriculum_item_number"><?php echo 'Lecture 1.' .$counter ?></div>
-          <div class="curriculum_single_item_title"><?php echo get_lesson_Name($lessonID) ?></div>
+          <div class="curriculum_single_item_title"><?php echo $course->getLessonName($lesson_id) ?></div>
           <div class="curriculum_single_item_percentage"></div>
-          <div class="curriculum_single_item_completed">
-            <i class="fas fa-check"></i>
-          </div>
+          <?php if(!empty($userID)){
+              if(is_lesson_completed($userID, $lesson_id)){
+                echo '<div class="curriculum_single_item_completed is_completed">
+                        <i class="fas fa-check"></i>
+                      </div>';
+              }
+              else{
+                echo '<div class="curriculum_single_item_completed">
+                        <i class="fas fa-check"></i>
+                      </div>';
+              }
+          } ?>
+
         </a>
       <?php $counter ++; endforeach ?>
       </div>

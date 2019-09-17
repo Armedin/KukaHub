@@ -136,7 +136,7 @@ $user_info = getUserAccountInfo(getSessionUser_id());
                <h2 class="settings_opog4vh_contentTitle">Profile</h2>
                <form name="change-profile-settings" method="POST" id="change-profile-settings" autocomplete="off">
                  <div class="form_opog4vh_group forms_opog4vh_rowDis">
-                   <img class="profile_picture_selection" src="/KukaHub/include/img/pro_pic/5c60dbc2cb3cc.png">
+                   <img class="profile_picture_selection" src="/KukaHub/include/img/pro_pic/5d331b50c3561.png">
                    <div class="form_opog4vh_file-uploadCont">
                      <label for="upload" class="form_opog4vh_uploadPic_btn_o_O_not_xefopen_realModal">Upload a new profile
                        <input type="file" id="upload_image" name="upload_image" accept="image/x-png,image/jpeg">

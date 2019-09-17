@@ -119,7 +119,7 @@
 
                 $mail->Subject = 'Account Verification';
 
-                $url = 'https://www.kukahub.com/verify.php?action=activate&activation_key='.$activation_key.'&id='.$user_id.'&name='.$username;
+                $url = 'https://www.kukaacademy.com/verify.php?action=activate&activation_key='.$activation_key.'&id='.$user_id.'&name='.$username;
                 $valid_time = strtotime("+7 days", time());
                 $mail->Body = '<head>
   <title></title>
@@ -198,7 +198,7 @@
   </style>
 <div style="margin:0px auto;max-width:640px;background:transparent;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:transparent;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:40px 0px;"><!--[if mso | IE]>
       <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td style="vertical-align:top;width:640px;">
-      <![endif]--><div aria-labelledby="mj-column-per-100" class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-break:break-word;font-size:0px;padding:0px;" align="center"><table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0px;" align="center" border="0"><tbody><tr><td style="width:138px;"><a href="https://www.kukahub.com/" target="_blank"><img alt="" title="" height="38px" style="border:none;border-radius:;display:block;outline:none;text-decoration:none;width:100%;height:38px;" width="138"></a></td></tr></tbody></table></td></tr></tbody></table></div><!--[if mso | IE]>
+      <![endif]--><div aria-labelledby="mj-column-per-100" class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-break:break-word;font-size:0px;padding:0px;" align="center"><table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0px;" align="center" border="0"><tbody><tr><td style="width:138px;"><a href="https://www.kukaacademy.com/" target="_blank"><img alt="" title="" height="38px" style="border:none;border-radius:;display:block;outline:none;text-decoration:none;width:100%;height:38px;" width="138"></a></td></tr></tbody></table></td></tr></tbody></table></div><!--[if mso | IE]>
       </td></tr></table>
       <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
       </td></tr></table>
@@ -213,7 +213,7 @@
         <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
       <![endif]--><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#7289DA  top center / cover no-repeat;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:57px;"><!--[if mso | IE]>
       <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td style="vertical-align:undefined;width:640px;">
-      <![endif]--><div style="cursor:auto;color:white;font-family:Whitney, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;font-size:36px;font-weight:600;line-height:36px;text-align:center;">Welcome to KukaHub!</div><!--[if mso | IE]>
+      <![endif]--><div style="cursor:auto;color:white;font-family:Whitney, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;font-size:36px;font-weight:600;line-height:36px;text-align:center;">Welcome to KukaAcademy!</div><!--[if mso | IE]>
       </td></tr></table>
       <![endif]--></td></tr></tbody></table><!--[if mso | IE]>
         </v:textbox>
@@ -231,7 +231,7 @@
             <p><img src="https://cdn.discordapp.com/email_assets/127c95bbea39cd4bc1ad87d1500ae27d.png" alt="Party Wumpus" title="None" width="500" style="height: auto;"></p>
 
   <h2 style="font-family: Whitney, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;font-weight: 500;font-size: 20px;color: #4F545C;letter-spacing: 0.27px;">Hey '.$username.',</h2>
-<p>How are you doing? Thanks for registering an account with KukaHub! We have just finished setting up your KukaHub account.</p>
+<p>How are you doing? Thanks for registering an account with KukaAcademy! We have just finished setting up your KukaAcademy account.</p>
 <p>Before we get started, we will need to verify your email.</p>
 
           </div></td></tr><tr><td style="word-break:break-word;font-size:0px;padding:10px 25px;" align="center"><table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:separate;" align="center" border="0"><tbody><tr><td style="border:none;border-radius:3px;color:white;cursor:auto;padding:15px 19px;" align="center" valign="middle" bgcolor="#7289DA"><a href="'.$url.'" style="text-decoration:none;line-height:100%;background:#7289DA;color:white;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:15px;font-weight:normal;text-transform:none;margin:0px;" target="_blank">
@@ -270,7 +270,7 @@
       <![endif]--><div style="margin:0px auto;max-width:640px;background:transparent;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:transparent;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:20px 0px;"><!--[if mso | IE]>
       <div aria-labelledby="mj-column-per-100" class="m_-5325150678985200306mj-column-per-100 m_-5325150678985200306outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:center;text-align:-webkit-center;width:100%">
       <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tbody>
-      <tr><td style="word-break:break-word;font-size:0px;padding:0px" align="center"><div style="color:#99aab5;font-family:Whitney,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;font-size:12px;line-height:24px;text-align:center">Send by KukaHub  •  <a href="https://www.kukahub.com" style="color:#1eb0f4;text-decoration:none" target="_blank">Check out our website</a></div></td></tr>
+      <tr><td style="word-break:break-word;font-size:0px;padding:0px" align="center"><div style="color:#99aab5;font-family:Whitney,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;font-size:12px;line-height:24px;text-align:center">Send by KukaAcademy  •  <a href="https://www.kukaacademy.com" style="color:#1eb0f4;text-decoration:none" target="_blank">Check out our website</a></div></td></tr>
       <tr><td style="word-break:break-word;font-size:0px;padding:0px" align="center"><div style="color:#99aab5;font-family:Whitney,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;font-size:12px;line-height:24px;text-align:center">Water Tower Hill, CR0 5SX, Croydon, United Kingdom</div></td></tr>
 
       </tbody></table>
@@ -380,14 +380,17 @@ elseif(isset($_GET['action']) && $_GET['action'] == "get-new-activation-key" && 
     && isset($_POST['user_id'])
     && isset($_POST['username'])
     && isset($_POST['token'])
+    && isset($_POST['email'])
     && !empty($_POST['user_id'])
     && !empty($_POST['username'])
     && !empty($_POST['token'])
+    && !empty($_POST['email'])
     ){
 
   $user_id = db_escapeString($_POST['user_id']);
   $username = db_escapeString($_POST['username']);
   $token = db_escapeString($_POST['token']);
+  $user_email = db_escapeString($_POST['email']);
 
   $error = "";
   $status = 1;
@@ -420,7 +423,7 @@ elseif(isset($_GET['action']) && $_GET['action'] == "get-new-activation-key" && 
 
         $mail->Subject = 'Account Verification';
 
-        $url = 'https://www.kukahub.com/verify.php?action=activate&activation_key='.$activation_code.'&id='.$user_id.'&name='.$username;
+        $url = 'https://www.kukaacademy.com/verify.php?action=activate&activation_key='.$activation_code.'&id='.$user_id.'&name='.$username;
         $valid_time = strtotime("+7 days", time());
         $mail->Body = '<head>
 <title></title>
@@ -499,7 +502,7 @@ text-decoration:underline;
 </style>
 <div style="margin:0px auto;max-width:640px;background:transparent;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:transparent;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:40px 0px;"><!--[if mso | IE]>
 <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td style="vertical-align:top;width:640px;">
-<![endif]--><div aria-labelledby="mj-column-per-100" class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-break:break-word;font-size:0px;padding:0px;" align="center"><table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0px;" align="center" border="0"><tbody><tr><td style="width:138px;"><a href="https://www.kukahub.com/" target="_blank"><img alt="" title="" height="38px" style="border:none;border-radius:;display:block;outline:none;text-decoration:none;width:100%;height:38px;" width="138"></a></td></tr></tbody></table></td></tr></tbody></table></div><!--[if mso | IE]>
+<![endif]--><div aria-labelledby="mj-column-per-100" class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-break:break-word;font-size:0px;padding:0px;" align="center"><table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0px;" align="center" border="0"><tbody><tr><td style="width:138px;"><a href="https://www.kukaacademy.com/" target="_blank"><img alt="" title="" height="38px" style="border:none;border-radius:;display:block;outline:none;text-decoration:none;width:100%;height:38px;" width="138"></a></td></tr></tbody></table></td></tr></tbody></table></div><!--[if mso | IE]>
 </td></tr></table>
 <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
 </td></tr></table>
@@ -514,7 +517,7 @@ text-decoration:underline;
 <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
 <![endif]--><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#7289DA  top center / cover no-repeat;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:57px;"><!--[if mso | IE]>
 <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td style="vertical-align:undefined;width:640px;">
-<![endif]--><div style="cursor:auto;color:white;font-family:Whitney, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;font-size:36px;font-weight:600;line-height:36px;text-align:center;">Welcome to KukaHub!</div><!--[if mso | IE]>
+<![endif]--><div style="cursor:auto;color:white;font-family:Whitney, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;font-size:36px;font-weight:600;line-height:36px;text-align:center;">Welcome to KukaAcademy!</div><!--[if mso | IE]>
 </td></tr></table>
 <![endif]--></td></tr></tbody></table><!--[if mso | IE]>
 </v:textbox>
@@ -532,7 +535,7 @@ text-decoration:underline;
     <p><img src="https://cdn.discordapp.com/email_assets/127c95bbea39cd4bc1ad87d1500ae27d.png" alt="Party Wumpus" title="None" width="500" style="height: auto;"></p>
 
 <h2 style="font-family: Whitney, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;font-weight: 500;font-size: 20px;color: #4F545C;letter-spacing: 0.27px;">Hey '.$username.',</h2>
-<p>How are you doing? Thanks for registering an account with KukaHub! We have just finished setting up your KukaHub account.</p>
+<p>How are you doing? Thanks for registering an account with KukaAcademy! We have just finished setting up your KukaAcademy account.</p>
 <p>Before we get started, we will need to verify your email.</p>
 
   </div></td></tr><tr><td style="word-break:break-word;font-size:0px;padding:10px 25px;" align="center"><table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:separate;" align="center" border="0"><tbody><tr><td style="border:none;border-radius:3px;color:white;cursor:auto;padding:15px 19px;" align="center" valign="middle" bgcolor="#7289DA"><a href="'.$url.'" style="text-decoration:none;line-height:100%;background:#7289DA;color:white;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:15px;font-weight:normal;text-transform:none;margin:0px;" target="_blank">
@@ -571,7 +574,7 @@ Did you know Mathematical genius Srinivasa Ramanujan failed in all subjects in s
 <![endif]--><div style="margin:0px auto;max-width:640px;background:transparent;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:transparent;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:20px 0px;"><!--[if mso | IE]>
 <div aria-labelledby="mj-column-per-100" class="m_-5325150678985200306mj-column-per-100 m_-5325150678985200306outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:center;text-align:-webkit-center;width:100%">
 <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tbody>
-<tr><td style="word-break:break-word;font-size:0px;padding:0px" align="center"><div style="color:#99aab5;font-family:Whitney,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;font-size:12px;line-height:24px;text-align:center">Send by KukaHub  •  <a href="https://www.kukahub.com" style="color:#1eb0f4;text-decoration:none" target="_blank">Check out our website</a></div></td></tr>
+<tr><td style="word-break:break-word;font-size:0px;padding:0px" align="center"><div style="color:#99aab5;font-family:Whitney,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;font-size:12px;line-height:24px;text-align:center">Send by KukaAcademy  •  <a href="https://www.kukaacademy.com" style="color:#1eb0f4;text-decoration:none" target="_blank">Check out our website</a></div></td></tr>
 <tr><td style="word-break:break-word;font-size:0px;padding:0px" align="center"><div style="color:#99aab5;font-family:Whitney,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;font-size:12px;line-height:24px;text-align:center">Water Tower Hill, CR0 5SX, Croydon, United Kingdom</div></td></tr>
 
 </tbody></table>

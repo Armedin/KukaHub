@@ -1,13 +1,16 @@
-#landlord {
-    user-select: none;
-    position: fixed;
-    left: 5px;
-    bottom: 0;
-    width: 250px;
-    height: 280px;
-    z-index: 10000;
-    font-size: 0;
-    /*transition: all .3s ease-in-out;*/
+.ongaku-app-player #live2dModule{
+  bottom:64px;
+}
+#live2dModule{
+  user-select: none;
+  position: fixed;
+  left: 5px;
+  bottom: 0;
+  width: 250px;
+  height: 280px;
+  z-index: 10;
+  font-size: 0;
+  /*transition: all .3s ease-in-out;*/
 	display:none;
 }
 #showInfoBtn{
@@ -15,8 +18,8 @@
 }
 #open_live2d{
 	border: 2px solid rgba(75,127,199,0.9);
-    border-radius: 2px;
-    background-color: rgba(74, 59, 114,0.9);
+  border-radius: 2px;
+  background-color: rgba(74, 59, 114,0.9);
 	padding:6px 8px;
 	color:#fff;
 	line-height:24px;
@@ -36,29 +39,29 @@
 }
 
 .message {
-    opacity: 0;
-    color: #fff;
+  opacity: 0;
+  color: #fff;
 	box-sizing: border-box;
-    width: 250px;
-    height: auto;
-    margin: auto;
-    padding: 7px;
-    bottom: 280px;
-    left: 0px;
-    text-align: center;
-    border: 2px solid rgba(75,127,199,0.9);
-    border-radius: 5px;
-    background-color: rgba(74, 59, 114,0.9);
-    font-size: 13px;
-    font-weight: 400;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    position: absolute;
-    /*animation-delay: 5s;
-    animation-duration: 50s;
-    animation-iteration-count: infinite;
-    animation-name: shake;
-    animation-timing-function: ease-in-out;*/
+  width: 250px;
+  height: auto;
+  margin: auto;
+  padding: 7px;
+  bottom: 280px;
+  left: 0px;
+  text-align: center;
+  border:2px solid #e5b48f;
+  border-radius: 5px;
+  background-color: #1e1b2c;
+  font-size: 13px;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  position: absolute;
+  /*animation-delay: 5s;
+  animation-duration: 50s;
+  animation-iteration-count: infinite;
+  animation-name: shake;
+  animation-timing-function: ease-in-out;*/
 }
 .live_talk_input_body{
 	position:absolute;
@@ -175,7 +178,7 @@
 	position:absolute;
 	z-index:5;
 	right:0;
-	top:10px;
+	top:20px;
 	opacity:0.9;
 }
 .live_ico_item{
@@ -186,8 +189,12 @@
 	background-repeat:no-repeat;
 	background-size:15px;
 }
-.live_ico_item.type_youdu{
-  background-image: url(../images/youdu.png);
+.live_ico_item.type_toxic{
+  background-image: url(../images/toxic.png);
+}
+.live_ico_item.type_dress{
+  background-image: url(../images/dress.png);
+  display: none;
 }
 .live_ico_item.type_talk{
 	background-image:url(../images/talk.png);
@@ -204,8 +211,38 @@
 .live_ico_item.type_music.play{
 	background-image:url(../images/pasue.png);
 }
+.live2d_toolContainer{
+  width: 24px;
+  height: auto;
+  position: absolute;
+  right:0;
+  top:20px;
+  z-index: 4;
+  cursor: pointer;
+}
+.live2d-tool-icon{
+  width: 22px;
+  height: 22px;
+  display: block;
+  margin-bottom: 6px;
+  font-size: 11px;
+  color:#fff;
+  border-radius: 50%;
+  text-align: center;
+  border:1px solid #e5b48f;
+  background: #1e1b2c;
+}
+.live2d-tool-icon>i{
+  line-height: 22px;
+}
+.live2d-tool-icon.type_dress{
+  /*display: none;*/
+}
+
+
+
 @media (max-width: 860px) {
-    #landlord {
+    #live2dModule {
         display: none!important;
     }
 }

@@ -1,140 +1,61 @@
 <?php
 
-   function getFirstLessonID($courseID){
-     $sql = db_query("SELECT * FROM Lesson WHERE course_id = '$courseID' LIMIT 1");
-     $result = mysqli_fetch_assoc($sql);
-     if($result){
-       return $result['lessonID'];
-     }else{
-       return false;
-     }
-   }
+    // Main Initialization
+    include(__DIR__."/lesson.php");
+    include(__DIR__."/course.php");
+    include(__DIR__."/config_methods.php");
+    $lessonID = get_lesson_id();
+    $relativeLessonID = get_relative_lesson_id();
+    $courseID = get_course_id();
+    $lesson = new Lesson ($lessonID, $courseID, $relativeLessonID);
+    $course = new Course ($courseID);
+    $userID = getSessionUser_id();
 
+    //Adsense Account
+    $adsense = 0; // 0 - For unactivate , 1 - For activate
+    $ads_client_id = "ca-pub-1435728539463730"; // Publisher ID
 
-   function getPreviousLessonID($prevLessonID, $courseID){
-      $sql = db_query("SELECT * FROM Lesson WHERE lessonID = '$prevLessonID' AND course_id = '$courseID' LIMIT 1");
-      $result = mysqli_fetch_assoc($sql);
-      if($result){
-        return $result['lessonID'];
-      }else{
-        return false;
+    //Tag Manager
+    $tagmanager = 0;
+
+    function getJavaScriptDet(){
+      echo '<script type="text/javascript">var lessonID="'.$GLOBALS['lessonID'].'", courseID="'.$GLOBALS['courseID'].'";</script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+      <script type="text/javascript" async src="'.ROOT_DIR.'/dist/js/MathJax/MathJax.js?config=TeX-MML-AM_CHTML"></script>';
+    }
+
+    function include_adsense(){
+      if($GLOBALS['adsense'] == 1){
+        echo '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              <script>
+                (adsbygoogle = window.adsbygoogle || []).push({
+                  google_ad_client: "'.$GLOBALS['ads_client_id'].'",
+                  enable_page_level_ads: true
+                });
+              </script>';
       }
     }
 
-    function getNextLessonID($nextLessonID, $courseID){
-      $sql = db_query("SELECT * FROM Lesson WHERE lessonID = '$nextLessonID' AND course_id = '$courseID' LIMIT 1");
-      $result = mysqli_fetch_assoc($sql);
-      if($result){
-        return $result['lessonID'];
-      }else{
-        return false;
+    function include_script_tag(){
+      if($GLOBALS['tagmanager'] == 1){
+        echo "<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WND543L');</script>
+<!-- End Google Tag Manager -->";
       }
     }
 
-    function get_lesson_courseID($currLessonID){
-      $sql = db_query("SELECT * FROM Lesson WHERE lessonID = '$currLessonID' LIMIT 1");
-      $result = mysqli_fetch_assoc($sql);
-      if($result){
-        return $result['course_id'];
-      }else{
-        return false;
+    function include_noscript_tag(){
+      if($GLOBALS['tagmanager'] == 1){
+        echo '<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WND543L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->';
       }
     }
-
-    function get_lesson_Name($currLessonID){
-      $sql = db_query("SELECT * FROM Lesson WHERE lessonID = '$currLessonID' LIMIT 1");
-      $result = mysqli_fetch_assoc($sql);
-      if($result){
-        return $result['lesson_name'];
-      }else{
-        return false;
-      }
-    }
-
-    function get_file_location($lessonID){
-      $sql = db_query("SELECT * FROM Lesson WHERE lessonID = '$lessonID' LIMIT 1");
-      $result = mysqli_fetch_assoc($sql);
-      if($result){
-        $lesson_name = $result['lesson_name'];
-        $link = implode("-",explode(" ",$lesson_name)) . ".php";
-        return strtolower($link);
-      }else{
-        return 'File not found ...';
-      }
-    }
-
-    function get_course_id(){
-      $curr_location = explode('/',$_SERVER['REQUEST_URI']);
-      $curr_location = array_slice($curr_location, count($curr_location)-2);
-      $course_name =  addslashes(ucwords(implode(" ", explode('-', $curr_location[0])))); // in case it's like with - and addslashes for '
-      $sql = db_query("SELECT * FROM Course WHERE course_name = '$course_name' LIMIT 1");
-      $result = mysqli_fetch_assoc($sql);
-      if($result){
-        return $result['courseID'];
-      }else{
-        return 'Course not found!';
-      }
-    }
-
-    function get_lesson_id(){
-      $curr_location = explode('/',$_SERVER['REQUEST_URI']);
-      $curr_location = array_slice($curr_location, count($curr_location)-2);
-      $lesson_name = implode(" ", explode('-',str_replace(".php","",$curr_location[1])));
-
-      $sql = db_query("SELECT * FROM Lesson WHERE lesson_name = '$lesson_name' LIMIT 1");
-      $result = mysqli_fetch_assoc($sql);
-      if($result){
-        return $result['lessonID'];
-      }else{
-        return 'Lesson not found!';
-      }
-    }
-
-    function get_relative_lesson_id(){ // In case names are duplicated, check for course names
-      // echo strval(intval(get_course_id()) . "   \n " . );
-      if ( (strval(get_course_id()) !== strval(intval(get_course_id()))) || (strval(get_lesson_id()) !== strval(intval(get_lesson_id()))) ) {
-        return 'Unknown Error!';
-      }else{
-        $lessonID = get_lesson_id();
-        $courseID = get_course_id();
-        $sql = db_query("SELECT * FROM Lesson WHERE lessonID = '$lessonID' AND course_id = '$courseID' LIMIT 1");
-        $result = mysqli_fetch_assoc($sql);
-        if($result){
-          return $result['lessonID'];
-        }else{
-          return 'Lesson not found!';
-        }
-      }
-    }
-
-    function get_course_title($courseID){
-      $sql = db_query("SELECT * FROM Course WHERE courseID = '$courseID' LIMIT 1");
-      $result = mysqli_fetch_assoc($sql);
-      if($result){
-        return $result['course_name'];
-      }else{
-        return 'Error!';
-      }
-    }
-
-    function get_course_lessons($courseID){
-      $sql = db_query("SELECT * FROM Lesson WHERE course_id = '$courseID'");
-      if(mysqli_num_rows($sql)>0){
-        $lessonsID = array();
-        while($result = mysqli_fetch_assoc($sql)){
-          array_push($lessonsID, $result['lessonID']);
-        }
-        return $lessonsID;
-      }else{
-        return 'Error';
-      }
-    }
-
-
-
-
-
-
 
 
 ?>

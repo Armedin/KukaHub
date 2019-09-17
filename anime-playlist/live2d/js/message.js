@@ -1,28 +1,34 @@
-
+var message_Path='/KukaHub/anime-playlist/live2d/' ;
+var talkAPI="" ;
+var home_Path='http://localhost/KukaHub/anime-playlist/';
 
 var userAgent = window.navigator.userAgent.toLowerCase();
 var norunAI = [ "android", "iphone", "ipod", "ipad", "windows phone", "mqqbrowser" ,"msie","trident/7.0"];
-var norunFlag = false;
+var canRun = true;
+var modelType = 0;
 
 
 for(var i=0;i<norunAI.length;i++){
 	if(userAgent.indexOf(norunAI[i]) > -1){
-		norunFlag = true;
+		canRun = false;
 		break;
 	}
 }
 
 if(!window.WebGLRenderingContext){
-	norunFlag = true;
+	canRun = false;
 }
 
-if(!norunFlag){
+if(canRun){
+
 	var hitFlag = false;
-	var AIFadeFlag = false;
+	var hideAIFlag = false;
 	var liveTalkTimer = null;
 	var sleepTimer_ = null;
 	var AITalkFlag = false;
 	var talkNum = 0;
+
+
 	(function (){
 		function renderTip(template, context) {
 			var tokenReg = /(\\)?\{([^\{\}\\]+)(\\)?\}/g;
@@ -60,14 +66,6 @@ if(!norunFlag){
 
 		function initTips(){
 			var msgType = 'message.json';
-			// if(live2d_type == 0){
-			// 	msgType = 'message.json';
-			// }
-			// else if(live2d_type == 1){
-			// 	msgType = 'message_rem.json';
-			// }else if(live2d_type == 2){
-			// 	msgType = 'message_miku.json';
-			// }
 			$.ajax({
 				cache: true,
 				url: message_Path+msgType,
@@ -203,16 +201,40 @@ if(!norunFlag){
 	}
 
 	function initLive2d (){
+		var hasModels = false;
+		//Init the AI-s which have more than one model
+		var MashiroModelJson = ["model/mashiro/ryoufuku.model.json","model/mashiro/seifuku.model.json","model/mashiro/shifuku.model.json"];
+		var MashiroModelType = modelType;
+
+		//Set Mentor ID (Default is 0)
+		if(localStorage.getItem("live2dMentor") === null){
+			localStorage.setItem("live2dMentor", "3");
+		}
+		if(parseInt(localStorage.getItem("live2dMentor")) === 3){ //Mashiro
+			$(".type_dress").css("display","block");
+			hasModels = true;
+		}
+
+		$(".type_dress").on('click',function(){
+			if(hasModels){
+				MashiroModelType++;
+				if(MashiroModelType>=MashiroModelJson.length){
+					MashiroModelType = 0;
+				}
+				loadlive2d("live2d", message_Path+MashiroModelJson[MashiroModelType]);
+			}
+		});
+
 		$('#hideButton').on('click', function(){
-			if(AIFadeFlag){
+			if(hideAIFlag){
 				return false;
 			}else{
-				AIFadeFlag = true;
+				hideAIFlag = true;
 				localStorage.setItem("live2dhidden", "0");
-				$('#landlord').fadeOut(200);
+				$('#live2dModule').fadeOut(200);
 				$('#open_live2d').delay(200).fadeIn(200);
 				setTimeout(function(){
-					AIFadeFlag = false;
+					hideAIFlag = false;
 				},300);
 			}
 		});
@@ -240,15 +262,15 @@ if(!norunFlag){
 			}
 		});
 		$('#open_live2d').on('click', function(){
-			if(AIFadeFlag){
+			if(hideAIFlag){
 				return false;
 			}else{
-				AIFadeFlag = true;
+				hideAIFlag = true;
 				localStorage.setItem("live2dhidden", "1");
 				$('#open_live2d').fadeOut(200);
-				$('#landlord').delay(200).fadeIn(200);
+				$('#live2dModule').delay(200).fadeIn(200);
 				setTimeout(function(){
-					AIFadeFlag = false;
+					hideAIFlag = false;
 				},300);
 			}
 		});
@@ -256,148 +278,12 @@ if(!norunFlag){
 			$("#open_live2d").click();
 		})
 		$('#showInfoBtn').on('click',function(){
-			// var live_statu = $('#live_statu_val').val();
-			// if(live_statu=="0"){
-			// 	return
-			// }else{
-			// 	$('#live_statu_val').val("0");
-			// 	$('.live_talk_input_body').fadeOut(500);
-			// 	AITalkFlag = false;
-			// 	showHitokoto();
-			// 	$('#showTalkBtn').show();
-			// 	$('#showInfoBtn').hide();
-			// }
 			showMessage("Coming soon !",3000);
 		});
 		$('#showTalkBtn').on('click',function(){
-			// var live_statu = $('#live_statu_val').val();
-			// if(live_statu=="1"){
-			// 	return
-			// }else{
-			// 	$('#live_statu_val').val("1");
-			// 	$('.live_talk_input_body').fadeIn(500);
-			// 	AITalkFlag = true;
-			// 	$('#showTalkBtn').hide();
-			// 	$('#showInfoBtn').show();
-			//
-			// }
 			showMessage("Coming soon !",3000);
 		});
-		$('#talk_send').on('click',function(){
-			var info_ = $('#AIuserText').val();
-			var userid_ = $('#AIuserName').val();
-			if(info_ == "" ){
-				showMessage('Write Something!',0);
-				return;
-			}
-			if(userid_ == ""){
-				showMessage('Please tell me your name before chatting!',0);
-				return;
-			}
-			showMessage('Thinking~', 0);
-			$.ajax({
-				type: 'POST',
-				url:  home_Path+'index.php/Live2dHistoire',
-				data: {
-					"info":info_,
-					"userid":userid_
-				},
-				success: function(res) {
-					if(res.code !== 100000){
-						talkValTimer();
-						showMessage('There seems to be something wrong！Please Contact Admin',0);
-					}else{
-						talkValTimer();
-						showMessage(res.text,0);
-					}
-					$('#AIuserText').val("");
-					sessionStorage.setItem("live2duser", userid_);
-				}
-			});
-		});
 
-		/*Get Background Music Initialization
-
-		var bgmListInfo = $('input[name=live2dBGM]');
-		if(bgmListInfo.length == 0){
-			$('#musicButton').hide();
-		}else{
-			var bgmPlayNow = parseInt($('#live2d_bgm').attr('data-bgm'));
-			var bgmPlayTime = 0;
-			var live2dBGM_Num = sessionStorage.getItem("live2dBGM_Num");
-			var live2dBGM_PlayTime = sessionStorage.getItem("live2dBGM_PlayTime");
-			if(live2dBGM_Num){
-				if(live2dBGM_Num<=$('input[name=live2dBGM]').length-1){
-					bgmPlayNow = parseInt(live2dBGM_Num);
-				}
-			}
-			if(live2dBGM_PlayTime){
-				bgmPlayTime = parseInt(live2dBGM_PlayTime);
-			}
-			var live2dBGMSrc = bgmListInfo.eq(bgmPlayNow).val();
-			$('#live2d_bgm').attr('data-bgm',bgmPlayNow);
-			$('#live2d_bgm').attr('src',live2dBGMSrc);
-			$('#live2d_bgm')[0].currentTime = bgmPlayTime;
-			$('#live2d_bgm')[0].volume = 0.5;
-			var live2dBGM_IsPlay = sessionStorage.getItem("live2dBGM_IsPlay");
-			var live2dBGM_WindowClose = sessionStorage.getItem("live2dBGM_WindowClose");
-			if(live2dBGM_IsPlay == '0' && live2dBGM_WindowClose == '0'){
-				$('#live2d_bgm')[0].play();
-				$('#musicButton').addClass('play');
-			}else{
-				sessionStorage.setItem("live2dBGM_IsPlay",'1');
-			}
-			sessionStorage.setItem("live2dBGM_WindowClose" , '1');
-			$('#musicButton').on('click',function(){
-				if($('#musicButton').hasClass('play')){
-					$('#live2d_bgm')[0].pause();
-					$('#musicButton').removeClass('play');
-					sessionStorage.setItem("live2dBGM_IsPlay",'1');
-				}else{
-					$('#live2d_bgm')[0].play();
-					$('#musicButton').addClass('play');
-					sessionStorage.setItem("live2dBGM_IsPlay",'0');
-				}
-			});
-			window.onbeforeunload = function(){
-			 	sessionStorage.setItem("live2dBGM_WindowClose" , '0');
-				if($('#musicButton').hasClass('play')){
-					sessionStorage.setItem("live2dBGM_IsPlay",'0');
-				}
-			}
-			document.getElementById('live2d_bgm').addEventListener("timeupdate", function(){
-				var live2dBgmPlayTimeNow = document.getElementById('live2d_bgm').currentTime;
-				sessionStorage.setItem("live2dBGM_PlayTime" , live2dBgmPlayTimeNow );
-			});
-			document.getElementById('live2d_bgm').addEventListener("ended", function(){
-				var listNow = parseInt($('#live2d_bgm').attr('data-bgm'));
-				listNow ++ ;
-				if(listNow > $('input[name=live2dBGM]').length-1){
-					listNow = 0;
-				}
-				var listNewSrc = $('input[name=live2dBGM]').eq(listNow).val();
-				sessionStorage.setItem("live2dBGM_Num",listNow);
-				$('#live2d_bgm').attr('src',listNewSrc);
-				$('#live2d_bgm')[0].play();
-				$('#live2d_bgm').attr('data-bgm',listNow);
-			});
-			document.getElementById('live2d_bgm').addEventListener("error", function(){
-				$('#live2d_bgm')[0].pause();
-				$('#musicButton').removeClass('play');
-				showMessage('音乐似乎加载不出来了呢！',0);
-			});
-		} */
-
-
-		//Set Mentor ID
-		if(localStorage.getItem("live2dMentor") === null){
-			localStorage.setItem("live2dMentor", "0");
-		}
-		//Getting Username
-		var live2dUser = sessionStorage.getItem("live2duser");
-		if(live2dUser !== null){
-			$('#AIuserName').val(live2dUser);
-		}
 
 		//Get Location
 		var landL = sessionStorage.getItem("historywidth");
@@ -406,14 +292,14 @@ if(!norunFlag){
 			landL = '5px'
 			landB = '0px'
 		}
-		$('#landlord').css('left',landL+'px');
-		$('#landlord').css('bottom',landB + 'px');
+		$('#live2dModule').css('left',landL+'px');
+		$('#live2dModule').css('bottom',landB + 'px');
 
 		//Mobile
 		function getEvent() {
 			return window.event || arguments.callee.caller.arguments[0];
 		}
-		var smcc = document.getElementById("landlord");
+		var smcc = document.getElementById("live2dModule");
 		var moveX = 0;
 		var moveY = 0;
 		var moveBottom = 0;
@@ -470,29 +356,59 @@ if(!norunFlag){
 	//MAIN FUNCTION
 	function updateLive2D(live2d_type){
 		if(live2d_type == 0){
-			var AIimgSrc = [
-				message_Path+"model/histoire/histoire.1024/texture_00.png",
-				message_Path+"model/histoire/histoire.1024/texture_01.png",
-				message_Path+"model/histoire/histoire.1024/texture_02.png",
-				message_Path+"model/histoire/histoire.1024/texture_03.png"
+			var AITextureSrc = [
+				[
+					message_Path+"model/histoire/histoire.1024/texture_00.png",
+					message_Path+"model/histoire/histoire.1024/texture_01.png",
+					message_Path+"model/histoire/histoire.1024/texture_02.png",
+					message_Path+"model/histoire/histoire.1024/texture_03.png"
+			 ]
 			];
 		}else if(live2d_type == 1){
-			var AIimgSrc = [
-				message_Path+"model/rem/remu2048/texture_00.png"
+			var AITextureSrc = [
+				[
+					message_Path+"model/rem/remu2048/texture_00.png"
+			  ]
 			];
 		}else if(live2d_type == 2){
-			var AIimgSrc = [
-				message_Path+"model/miku/miku.1024/texture_00.png"
+			var AITextureSrc = [
+				[
+					message_Path+"model/miku/miku.1024/texture_00.png"
+				]
 			];
 		}
+		else if(live2d_type == 3){
+			var AITextureSrc = [
+				[
+					message_Path + "model/mashiro/seifuku.1024/L2DMSR_U_00.png",
+					message_Path + "model/mashiro/seifuku.1024/L2DMSR_U_01.png",
+					message_Path + "model/mashiro/seifuku.1024/L2DMSR_U_02.png"
+				],
+				[
+					message_Path + "model/mashiro/shifuku.1024/L2DMSR_S_00.png",
+					message_Path + "model/mashiro/shifuku.1024/L2DMSR_S_01.png",
+					message_Path + "model/mashiro/shifuku.1024/L2DMSR_S_02.png",
+					message_Path + "model/mashiro/shifuku.1024/L2DMSR_S_03.png"
+				],
+				[
+					message_Path + "model/mashiro/ryoufuku.1024/L2DMSR_R_00.png",
+					message_Path + "model/mashiro/ryoufuku.1024/L2DMSR_R_01.png",
+					message_Path + "model/mashiro/ryoufuku.1024/L2DMSR_R_02.png"
+				],
+			]
+		}
+
+		AITextureSrc = AITextureSrc[modelType];
 		var images = [];
-		var imgLength = AIimgSrc.length;
+		var imgLength = AITextureSrc.length;
+
 		var loadingNum = 0;
 		for(var i=0;i<imgLength;i++){
 			images[i] = new Image();
-			images[i].src = AIimgSrc[i];
+			images[i].src = AITextureSrc[i];
 			images[i].onload = function(){
 				loadingNum++;
+
 				if(loadingNum===imgLength){
 					var live2dhidden = localStorage.getItem("live2dhidden");
 					if(live2dhidden==="0"){
@@ -502,10 +418,10 @@ if(!norunFlag){
 						},1300);
 					}else{
 						setTimeout(function(){
-							$('#landlord').fadeIn(200);
+							$('#live2dModule').fadeIn(200);
 						},1300);
 					}
-					//localStorage.setItem("live2dhidden", "1");
+
 					localStorage.setItem("live2dMentor",live2d_type);
 					setTimeout(function(){
 						if(live2d_type == 0){
@@ -514,6 +430,9 @@ if(!norunFlag){
 							loadlive2d("live2d",  message_Path+"/model/rem/rem.json");
 						}else if(live2d_type == 2){
 							loadlive2d("live2d",  message_Path+"/model/miku/miku.model.json");
+						}
+						else if(live2d_type == 3){
+							loadlive2d("live2d",  message_Path+"/model/mashiro/ryoufuku.model.json");
 						}
 					},1000);
 					images = null;

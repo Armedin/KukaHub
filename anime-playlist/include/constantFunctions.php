@@ -1,7 +1,5 @@
 <?php
 
-
-
 require dirname(__DIR__).'../../include/init_constantFunctions.php';
 
 

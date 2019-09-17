@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 
   include('include/init_constantFunctions.php');
@@ -13,7 +14,7 @@
   <link rel="stylesheet" id="redux-google-fonts-stm_option-css"
 		href="https://fonts.googleapis.com/css?family=Montserrat%3A200%2C500%2C600%2C400%2C700%7COpen+Sans%3A300%2C400%2C600%2C700%2C800%2C300italic%2C400italic%2C600italic%2C700italic%2C800italic&#038;subset=latin&#038;ver=1536658178"
 		type="text/css" media="all" />
-   <link rel="stylesheet" href="dist/css/owl.carousel.css">
+  <link rel="stylesheet" href="dist/css/owl.carousel.css">
 
 
 </head>
@@ -122,8 +123,7 @@
         <div class="col-md-7 col-lg-7 col-sm-12">
           <div class="wrapper_inner">
             <h4>Subsribe to our newsletter</h4>
-            <h5>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-              alteration in some form, by injected humour, or randomised words
+            <h5>This feature will be released on a later update. Stay tuned!
             </h5>
           </div>
         </div>
@@ -165,133 +165,238 @@
       </div>
     </div>
   </div>
-  <div class="mainpage_gh83b9v_o_O_courses_mod1_cont" id="courses">
-    <div class="container_inner">
-      <div class="row-col">
-        <div class="col-sm-3"></div>
-        <div class="header col-sm-6">
-          <h2>Popular Courses</h2>
-          <h3>Discover our most popular courses for self-learning to find
-    our new features and new lessons in Kuka Academy.</h3>
-        </div>
-        <div class="col-sm-3"></div>
-      </div>
-    </div>
-  </div>
-  <div class="mainpage_gh83b9v_o_O_courses_mod2_cont_courses">
-      <div class="courses_inner">
-        <div class="owl-carousel owl-theme inner-carousel" id="#owl-course">
-
-          <div class="owl_carousel_item course-1">
-            <div class="course_image">
-              <a href="introduction-to-matrices.php">
-                <img src="dist/img/courses/matrices.jpg">
-              </a>
-            </div>
-            <div class="course_text">
-              <div class="course_dir">Mathematics ></div>
-              <div class="course_title">
-                <a href="introduction-to-matrices.php"><h3>Introduction to Linear Algebra - Matrices</h3></a>
-              </div>
-              <div class="course_metadata">
-                <div class="course_item_star_rating">
-                  <span class="star_rating star_rating_filled">
-                    <div><i class="fas fa-star"></i></div>
-                  </span>
-                  <span class="star_rating star_rating_filled">
-                    <div><i class="fas fa-star"></i></div>
-                  </span>
-                  <span class="star_rating star_rating_filled">
-                    <div><i class="fas fa-star"></i></div>
-                  </span>
-                  <span class="star_rating star_rating_filled">
-                    <div><i class="fas fa-star"></i></div>
-                  </span>
-                  <span class="star_rating">
-                    <div><i class="fas fa-star"></i></div>
-                  </span>
-                </div>
-                <div class="enrollers">100 students</div>
-              </div>
-            </div>
+  <div class="mainpage_gh83b9v_o_O_courses_mod_true-cont" id="courses">
+    <div class="mainpage_gh83b9v_o_O_courses_mod1_cont">
+      <div class="container_inner">
+        <div class="row-col">
+          <div class="col-sm-3"></div>
+          <div class="header col-sm-6">
+            <h2>Popular Courses</h2>
+            <h3>Discover our most popular courses for self-learning to find
+      our new features and new lessons in Kuka Academy.</h3>
           </div>
-
-
-          <div class="owl_carousel_item course-1">
-            <div class="course_image">
-              <a href="preperation-for-Cambridge-CSAT.php">
-                <img src="dist/img/courses/cambridge_csat.png">
-              </a>
-            </div>
-            <div class="course_text">
-              <div class="course_dir">Mathematics & Programming ></div>
-              <div class="course_title">
-                <a href="preperation-for-Cambridge-CSAT.php"><h3>Preperation for Cambridge CSAT</h3></a>
-              </div>
-              <div class="course_metadata">
-                <div class="course_item_star_rating">
-                  <span class="star_rating star_rating_filled">
-                    <div><i class="fas fa-star"></i></div>
-                  </span>
-                  <span class="star_rating star_rating_filled">
-                    <div><i class="fas fa-star"></i></div>
-                  </span>
-                  <span class="star_rating star_rating_filled">
-                    <div><i class="fas fa-star"></i></div>
-                  </span>
-                  <span class="star_rating">
-                    <div><i class="fas fa-star"></i></div>
-                  </span>
-                  <span class="star_rating">
-                    <div><i class="fas fa-star"></i></div>
-                  </span>
-                </div>
-                <div class="enrollers">100 students</div>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="owl_carousel_item course-1">
-            <div class="course_image">
-              <a href="javafx-beginner's-tutorial.php">
-                <img src="dist/img/courses/javafx.png">
-              </a>
-            </div>
-            <div class="course_text">
-              <div class="course_dir">Java Programming ></div>
-              <div class="course_title">
-                <a href="javafx-beginner's-tutorial.php"><h3>JavaFX Introduction - Beginner's Tutorial</h3></a>
-              </div>
-              <div class="course_metadata">
-                <div class="course_item_star_rating">
-                  <span class="star_rating star_rating_filled">
-                    <div><i class="fas fa-star"></i></div>
-                  </span>
-                  <span class="star_rating star_rating_filled">
-                    <div><i class="fas fa-star"></i></div>
-                  </span>
-                  <span class="star_rating star_rating_filled">
-                    <div><i class="fas fa-star"></i></div>
-                  </span>
-                  <span class="star_rating">
-                    <div><i class="fas fa-star"></i></div>
-                  </span>
-                  <span class="star_rating">
-                    <div><i class="fas fa-star"></i></div>
-                  </span>
-                </div>
-                <div class="enrollers">10 students</div>
-              </div>
-            </div>
-          </div>
-
-
+          <div class="col-sm-3"></div>
         </div>
       </div>
     </div>
+    <div class="mainpage_gh83b9v_o_O_courses_mod2_cont_courses">
+        <div class="courses_inner">
+          <div class="owl-carousel owl-theme inner-carousel" id="#owl-course">
+
+            <div class="owl_carousel_item course-1">
+              <div class="course_image">
+                <a href="introduction-to-matrices.php">
+                  <img src="dist/img/courses/matrices.jpg">
+                </a>
+              </div>
+              <div class="course_text">
+                <div class="course_instructor">
+                  <div class="ins_img">
+
+                  </div>
+                  <a class="ins_name">Armedin Kuka</a>
+                </div>
+                <div class="course_title">
+                  <a href="introduction-to-matrices.php"><h3>Introduction to Linear Algebra - Matrices</h3></a>
+                </div>
+                <div class="course_metadata">
+                  <div class="course_item_star_rating">
+                    <span class="star_rating star_rating_filled">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                    <span class="star_rating star_rating_filled">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                    <span class="star_rating star_rating_filled">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                    <span class="star_rating star_rating_filled">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                    <span class="star_rating">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                  </div>
+                  <div class="enrollers"><i class="fal fa-user"></i>- - -</div>
+
+                </div>
+              </div>
+            </div>
+
+
+            <div class="owl_carousel_item course-1">
+              <div class="course_image">
+                <a href="introduction-to-matrices.php">
+                  <img src="dist/img/courses/matrices.jpg">
+                </a>
+              </div>
+              <div class="course_text">
+                <div class="course_instructor">
+                  <div class="ins_img">
+
+                  </div>
+                  <a class="ins_name">Armedin Kuka</a>
+                </div>
+                <div class="course_title">
+                  <a href="introduction-to-matrices.php"><h3>Introduction to Linear Algebra - Matrices</h3></a>
+                </div>
+                <div class="course_metadata">
+                  <div class="course_item_star_rating">
+                    <span class="star_rating star_rating_filled">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                    <span class="star_rating star_rating_filled">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                    <span class="star_rating star_rating_filled">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                    <span class="star_rating star_rating_filled">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                    <span class="star_rating">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                  </div>
+                  <div class="enrollers"><i class="fal fa-user"></i>- - -</div>
+
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="owl_carousel_item course-1">
+              <div class="course_image">
+                <a href="introduction-to-matrices.php">
+                  <img src="dist/img/courses/matrices.jpg">
+                </a>
+              </div>
+              <div class="course_text">
+                <div class="course_instructor">
+                  <div class="ins_img">
+
+                  </div>
+                  <a class="ins_name">Armedin Kuka</a>
+                </div>
+                <div class="course_title">
+                  <a href="introduction-to-matrices.php"><h3>Introduction to Linear Algebra - Matrices</h3></a>
+                </div>
+                <div class="course_metadata">
+                  <div class="course_item_star_rating">
+                    <span class="star_rating star_rating_filled">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                    <span class="star_rating star_rating_filled">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                    <span class="star_rating star_rating_filled">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                    <span class="star_rating star_rating_filled">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                    <span class="star_rating">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                  </div>
+                  <div class="enrollers"><i class="fal fa-user"></i>- - -</div>
+
+                </div>
+              </div>
+            </div>
+
+
+            <div class="owl_carousel_item course-1">
+              <div class="course_image">
+                <a href="introduction-to-matrices.php">
+                  <img src="dist/img/courses/matrices.jpg">
+                </a>
+              </div>
+              <div class="course_text">
+                <div class="course_instructor">
+                  <div class="ins_img">
+
+                  </div>
+                  <a class="ins_name">Armedin Kuka</a>
+                </div>
+                <div class="course_title">
+                  <a href="introduction-to-matrices.php"><h3>Introduction to Linear Algebra - Matrices</h3></a>
+                </div>
+                <div class="course_metadata">
+                  <div class="course_item_star_rating">
+                    <span class="star_rating star_rating_filled">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                    <span class="star_rating star_rating_filled">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                    <span class="star_rating star_rating_filled">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                    <span class="star_rating star_rating_filled">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                    <span class="star_rating">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                  </div>
+                  <div class="enrollers"><i class="fal fa-user"></i>- - -</div>
+
+                </div>
+              </div>
+            </div>
+
+
+            <div class="owl_carousel_item course-1">
+              <div class="course_image">
+                <a href="introduction-to-matrices.php">
+                  <img src="dist/img/courses/matrices.jpg">
+                </a>
+              </div>
+              <div class="course_text">
+                <div class="course_instructor">
+                  <div class="ins_img">
+
+                  </div>
+                  <a class="ins_name">Armedin Kuka</a>
+                </div>
+                <div class="course_title">
+                  <a href="introduction-to-matrices.php"><h3>Introduction to Linear Algebra - Matrices</h3></a>
+                </div>
+                <div class="course_metadata">
+                  <div class="course_item_star_rating">
+                    <span class="star_rating star_rating_filled">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                    <span class="star_rating star_rating_filled">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                    <span class="star_rating star_rating_filled">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                    <span class="star_rating star_rating_filled">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                    <span class="star_rating">
+                      <div><i class="fas fa-star"></i></div>
+                    </span>
+                  </div>
+                  <div class="enrollers"><i class="fal fa-user"></i>- - -</div>
+
+                </div>
+              </div>
+            </div>
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="mainpage_gh83b9v_o_O_messageCont">
+  <!-- <div class="mainpage_gh83b9v_o_O_messageCont">
     <div class="message_text">
       <h2>Messaging system is coming</h2>
       <p>User-friendly messaging system is finally being added to Kuka Academy.
@@ -371,19 +476,34 @@
 
       </div>
     </div>
-  </div>
+  </div> -->
+
   <div class="mainPage_gh83b9v_o_O_CEO_joinNow" id="join">
-    <div class="row-col">
-      <div class="container_inner">
-        <div class="inner_wrapper">
-          <h1>Become a member now !</h1>
-          <h3>Free online courses open the opportunity for learning to everyone! You are just one click away from
-          gaining all the benefits of Kuka Academy!</h3>
-          <a href="register.php" class="join_now">Join Now</a>
+    <div class="container_inner">
+      <div class="inc_background-wrap">
+        <div class="left_column-textInfo">
+          <div class="joinNow_heading-block">
+            <h4>Become a member now</h4>
+            <h1>Explore new things, endless possibilities</h1>
+            <div class="under-line"></div>
+          </div>
+          <div class="joinNow_desc">
+            <span>High is a nationally recognized K-12 independent school situatedin the hills of Oakland, California.
+              Our mission is to inspire a maplifelonglove of learning with a focus on scholarship. For 23 years of existence,
+              Ed hasmore.</span>
+          </div>
+          <div class="joinNow_buttonCont">
+            <a href="register.php" class="join_now">Join Now</a>
+          </div>
+        </div>
+        <div class="right_column-image">
+          <img src="dist/img/facilities/time.jpg">
         </div>
       </div>
     </div>
   </div>
+
+
   <div class="mainPage_gh83b9v_o_O_CEO_testimonial">
     <div class="testimonial_cont">
       <div class="testimonial_content_box">
@@ -403,6 +523,8 @@
       </div>
     </div>
   </div>
+
+
   <div class="mainPage_gh83b9v_o_O_contactUs" id="contact">
     <div class="row-col">
       <div class="col-sm-6 no_padd">
@@ -499,11 +621,12 @@
 
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      var targetOffset = target.height()>$(window).innerHeight()?target.offset().top-72:target.offset().top-(($(window).innerHeight()-72-target.innerHeight())/2)-72;
 
       if (target.length) {
         event.preventDefault();
         $('html, body').animate({
-          scrollTop: target.offset().top-72
+          scrollTop: targetOffset
         }, 1000, function() {
         });
         /* IF collapsed, close */
@@ -531,7 +654,10 @@ $(".owl-carousel").owlCarousel({
           881: {
             items: 3,
           },
-          1024: {
+          1224: {
+            items : 4,
+          },
+          1442: {
             items : 5,
           }
         }
@@ -550,17 +676,17 @@ $(".owl-carousel").owlCarousel({
   });
 
   // Landing bg
-  var c = 1200; //changing height
-  var w = 1000; //general height
-  var t = 337; //general top
-  var m = 250; //general left
-  var q = 60; //max top
-  var l = 30; //max left
+  var c = 1200;
+  var w = 1000;
+  var t = 337;
+  var m = 250;
+  var q = 60;
+  var l = 30;
+
   $(window).on("resize",function(){
     updateLanding();
   });
 
-  updateLanding();
   $(document).ready(function(){
     updateLanding();
     initNavbar();
@@ -607,6 +733,7 @@ $(".owl-carousel").owlCarousel({
 
     function updateNavbar(){
         $nav.toggleClass('sticky_navbar', $(this).scrollTop() > 15);
+
     }
 
 

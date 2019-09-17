@@ -48,9 +48,9 @@
 				}
 			}
 
-			if(!$DateCheck){
+			if($DateCheck){
 
-				//Get Randon Card
+				//Get Random Card
 				$randomCardID = null;
 				$cardChoiseList = array();
 				$testCount = 0;

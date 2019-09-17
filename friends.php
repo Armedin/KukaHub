@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
   include('include/init_constantFunctions.php');
 
@@ -10,7 +11,7 @@
 
  <html>
    <head>
-     
+
    <?php getHeader($user_info['firstname'] . " ". $user_info['lastname'] ."'s Friends | KukaHub"); ?>
 
    </head>

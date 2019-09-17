@@ -46,6 +46,7 @@ $(document).ready(function(){
   });
 
   $('pre.code-pre').each(function(index) {
+        $(this).append('<div class="code_options-div"><span class="close_code-div"></span><span class="min_code-div"></span><span class="expand_code-div"></span></div>');
         $(this).html('<div class="pre-div">' + $(this).html() + '</div>');
         var preDiv = $(this).find('.pre-div');
         var findCodeMatch = preDiv.find('code').html().match(/\n/g);
@@ -71,22 +72,20 @@ $(document).ready(function(){
         $.ajax({
           type: "POST",
           url: "../include/updateCourse.php",
-          data: {username: username, token: token, user_id: user_id},
+          data: {username: username, token: token, user_id: user_id, course_id: courseID, lesson_id: lessonID},
           dataType: "json",
           success: function(response){
             if(response.status == 0){
               Snackbar.showToast({def_text:response.error, duration: 1500});
             }else if(response.status == 1){
-              //  $(this).addClass("completed");
                 $(".lecture_completed_btn").addClass("completed");
                 $(".course_lessons_navigation_o_O_bott").addClass("completed_lesson");
-                Snackbar.showToast({def_text:response.error, duration: 1500});
             }else{
               Snackbar.showToast({def_text:'An unknown error has occured.', duration:1500});
             }
           },
-          error: function(){
-            Snackbar.showToast({def_text:'An unknown error has occured.', duration:1500});
+          error: function(xhr){
+            Snackbar.showToast({def_text:xhr.responseText, duration:1500});
           }
         });
       }else{

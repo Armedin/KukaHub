@@ -106,8 +106,8 @@ $data=$data . '
     <div class="row-col hot_songs_cont">
       <div class="col-lg-12">
         <div class="hot_songs_cont_title">
-          <h6>Hot Track</h6>
-          <h2>Hot Songs</h2>
+          <h6>Featured Track</h6>
+          <h2>New Songs</h2>
         </div>
 
         <div class="anime-owl-main viewport-animate" animate-item=".item" animation-effect="slideUp" responsive-width="0:100%|600:50%|900:33.33%|1200:25%" >

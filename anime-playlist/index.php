@@ -1,9 +1,7 @@
 <?php
+include('include/song_struc.php');
 
-include('include/constantFunctions.php');
-
-
- ?>
+?>
 <html>
 
 <head>
@@ -14,10 +12,9 @@ include('include/constantFunctions.php');
   <link href="css/main.css" rel="stylesheet">
   <link href="css/owl.carousel.css" rel="stylesheet">
   <link  rel= "stylesheet"  href= "live2d/css/live2d.css">
-  <title>Anime Music Player</title>
 </head>
 
-<body class="music_player">
+<body class="ongaku-app-player">
 
 <!-- Loader---->
 
@@ -35,48 +32,32 @@ include('include/constantFunctions.php');
 	  </div>
 
     <!-- Layout Manager -->
-  <div id="layout_manager" class="layout_manager">
+  <div id="layout_manager" class="layout_manager no_sidemenu">
+
     <!-- SIDEMENU -->
-  <div class="music_player_084nv9vnr_o_O_sidemenu_main">
-
     <?php
-
     if(isUserLoggedIn()){
       getUserSideMenu();
     }
      ?>
 
-    <nav class="sidebar_navigations">
-      <ul class="navigations">
-        <li class="navigation_header">
-          <span>Music Navigation</span>
-        </li>
-        <li>
-          <a class="active"> <i class="fal fa-home"></i><span>Home</span></a>
-        </li>
-        <li>
-          <a> <i class="fab fa-servicestack"></i><span>Playlists</span></a>
-        </li>
-        <li>
-          <a> <i class="fal fa-music"></i><span>Single Songs</span></a>
-        </li>
-        <li>
-          <a class="openMentor"> <i class="fal fa-user change_mentor"></i><span>Change Mentor</span></a>
-        </li>
-      </ul>
-    </nav>
-  </div>
 
   <!-- HEADER TOP NAV -->
-  <div class="music_player_084nv9vnr_o_O_top_header">
+  <div class="music_player_084nv9vnr_o_O_top_header ongaku_header">
     <?php getHeaderMainNav(0);?>
   </div>
-
+  <div class="music_player_084nv9vnr_o_O_contentBackground">
+    <div class="content_background"></div>
+  </div>
 
   <!-- MAIN BODY WRAPPER -->
   <div class="music_player_084nv9vnr_o_O_content_fullWrapper" id="mainContent">
     <div class="loading">
       <span class="colour_bar"></span>
+    </div>
+
+    <div class="music_player_084nv9vnr_o_O_pageMedia_info">
+
     </div>
 
    <!-- Navbar Main Navigation-->
@@ -111,6 +92,13 @@ include('include/constantFunctions.php');
 
       </div>
     </div>
+    <!-- Footer Wrapper-->
+    <div class="music_player_footerWrapper">
+      <div class="col-lg-12 footer_copyright">
+        <p>Copyright © 2018 Kuka Academy. All Rights Reserved.</p>
+      </div>
+    </div>
+
 
 
   </div>
@@ -146,301 +134,101 @@ include('include/constantFunctions.php');
 
 
 
-<!-- Live 2D Model -->
 
-<div  id= "landlord"  style= "left:5px;bottom:0px;" >
-  <div  class= "message"  style= "opacity:0" ></div>
-  <canvas id= "live2d" width= "450" height= "640" class= "live2d" ></canvas>
-  <div  class= "live_talk_input_body" >
-    <div  class= "live_talk_input_name_body" >
-        <input  name= "name"  type= "text"  class= "Live_talk_name white_input"  id= "AIuserName"  autocomplete= "off" Placeholder= "Your Name"  />
-      </div>
-      <div  class= "live_talk_input_text_body" >
-        <input  name= "talk"  type= "text"  class= "live_talk_talk white_input"  id= "AIuserText"  autocomplete= "off"  placeholder = "What do you want to talk about" />
-          <button  type= "button"  class= "live_talk_send_btn"  id= "talk_send" > Send </button>
-      </div>
-  </div>
-  <Input  name= "live_talk"  id= "live_talk"  value= "1" Type= "hidden"  />
-  <div  class= "live_ico_box" >
-    <div  class= "live_ico_item type_info"  id= "showInfoBtn" ></div>
-    <div  class= "live_ico_item type_talk"  id= "showTalkBtn" ></div >
-      <!-- <div  class= "live_ico_item type_music"  id= "musicButton" ></div> -->
-      <div  class= "live_ico_item type_youdu"  id= "chingChongBtn" ></div>
-      <div  class= "Live_ico_item type_quit"  id= "hideButton" ></div>
-      <input  name="live_statu_val"  id= "live_statu_val"  value= "0"  type= "hidden"  />
-      <audio  src= ""  style= "display:none;"  id= "live2d_bgm"  data-bgm= "0"  preload= "none " ></audio>
-      <!-- <input  name= "live2dBGM"  value= "https://www.dropbox.com/s/qrcxop9gg1k3qq5/Black%20Clover%20Opening%203.mp3?raw=1"  type= "hidden" > -->
-      <input id= "partyType" value= "shake,rainbow" type= "hidden" >
-  </div>
-</div>
-<div id="open_live2d">Summon!</div>
-
-
-
-  <!-- FOOTER -->
-  <div class="footer_main_page_wrapper">
-
-
-    <div class="footer_main_page_wrapper_inner">
-      <div class="footer_space_20"></div>
-      <div class="footer_main_body row-col">
-        <div class="footer_space_38"></div>
-
-        <div class="col-lg-4 col-xs-6">
-          <div class="footer_logo">
-            <a href="index.php">
-              <img src="https://www.kukahub.com/dist/img/facilities/kukahub-logo-white.png">
-              <h1>Ongaku</h1>
-            </a>
-          </div>
-          <div class="footer_social_info">
-            <h2>Anime Ongaku, Online Anime Songs</h2>
-            <div class="social_links">
-              <ul>
-                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-              </ul>
-            </div>
-          </div>
+  <div class="music_player-fullPlaylist_layout">
+    <div class="layout_innerWrapper">
+      <div class="main_panel lyrics_cont">
+        <audio preload="auto" id="audio-main"></audio>
+        <div class="lyrics kuka-lyrics romaji-lyrics" data-media="audio-main">
         </div>
-        <div class="col-lg-4 col-xs-6">
-          <div class="footer_general_navs">
-            <h3 class="title">Ongaku</h3>
+      </div>
+      <div class="side_rightPanel playlist_cont">
+        <div class="queueList_text">
+          <h4>Queue</h4>
+        </div>
+        <div class="playlist_otherSongs_scrollable">
+          <div class="playlist_scrollLayout_content">
             <ul>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Help & Support</a></li>
-              <li><a href="#">Contact</a></li>
-              <li><a href="#">Terms & Privacy</a></li>
-              <li><a href="#">Store</a></li>
-              <li><a href="#">Advertise</a></li>
+
             </ul>
           </div>
         </div>
-        <div class="col-lg-4 col-xs-6">
-          <div class="footer_recently_released">
-            <h3 class="title">Recent Playlist</h3>
-            <div class="footer_recent_playlists_cont">
-
-              <div class="horizontal_pos_music">
-                <div class="music_image">
-                  <img src="https://www.dropbox.com/s/ud1v1gktfifj9qp/emotional_music.png?raw=1">
-                </div>
-                <div class="music_details">
-                  <h5 class="title">Do you want to hear?</h5>
-                  <p class="jap_name">Naruto sama</p>
-                </div>
-              </div>
-              <div class="horizontal_pos_music">
-                <div class="music_image">
-                  <img src="https://www.dropbox.com/s/ud1v1gktfifj9qp/emotional_music.png?raw=1">
-                </div>
-                <div class="music_details">
-                  <h5 class="title">Do you want to hear?</h5>
-                  <p class="jap_name">Naruto sama</p>
-                </div>
-              </div>
-              <div class="horizontal_pos_music">
-                <div class="music_image">
-                  <img src="https://www.dropbox.com/s/ud1v1gktfifj9qp/emotional_music.png?raw=1">
-                </div>
-                <div class="music_details">
-                  <h5 class="title">Do you want to hear?</h5>
-                  <p class="jap_name">Naruto sama</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
-    <div class="col-lg-12 footer_copyright">
-      <p>Copyright © 2018 Kuka Academy. All Rights Reserved.</p>
-    </div>
   </div>
-
 
 
   <!-- Audio Player in the footer -->
-  <div class="music_player_084nv9vnr_o_O_main_footer">
-    <div class="audio_player_interface">
-
-      <div class="left_music_interface">
-        <div class="music_interface_song_title_details">
-          <div class="curr_playing_song_name">
-            <span class="song_picture">
-              <img src="images/default_music_image.png">
-            </span>
-            <span class="song_details">
-              <span class="song_title">NaN</span>
-              <span class="song_japanese_title">Nan</span>
-            </span>
+  <div class="music_player_main-ongaku_app">
+    <div class="main-player player-paused">
+      <div class="ongaku_app-player-container">
+        <div class="player-main-content">
+          <img class="player-song-image song_image" src="https://www.dropbox.com/s/iyq3t842calk5w7/naruto_shippuden_man_of_the_world.jpg?raw=1">
+          <div class="player-song-info">
+            <span class="song_title song_title">NaN</span>
+            <span class="song_jap_title song_jap_title">NaN</span>
           </div>
+          <div class="player-song-controllers">
+            <button class="player-btn-controller" id="randomBtn">
+              <i class="fas fa-random"></i>
+            </button>
+            <button class="player-btn-controller" id="prevBtn">
+              <i class="fas fa-step-backward"></i>
+            </button>
+            <button class="player-btn-controller" id="playBtn">
+              <i class="fas fa-play play-icon"></i>
+              <i class="fas fa-pause pause-icon"></i>
+            </button>
+            <button class="player-btn-controller" id="nextBtn">
+              <i class="fas fa-step-forward"></i>
+            </button>
+            <button class="player-btn-controller" id="repeatBtn">
+              <i class="fas fa-repeat"></i>
+            </button>
+          </div>
+          <div class="player-content-space"></div>
+          <div class="player-song-time">00:00</div>
+          <div class="player-song-duration">0:00</div>
+          <button class="player-btn-controller" id="muteBtn">
+            <i class="fas fa-volume-down volume-icon"></i>
+            <i class="fas fa-volume-off volume-off-icon"></i>
+          </button>
+          <div class="player-volume">
+            <input type="range" min="0" max="1" step="0.05" value="0.5" id="volumeSlider" autocomplete="off" style="--vol-value:50%">
+          </div>
+          <button class="player-btn-controller" id="openPlaylist">
+            <i class="fas fa-chevron-up"></i>
+          </button>
         </div>
-      </div>
-      <!-- Playlist -->
-      <div class="playlist_cont">
-        <span class="playlist_button"><i class="fal fa-list-ul"></i></span>
-      </div>
-
-      <div class="music_mainPlaylist_centered">
-        <div class="mainPlaylist_o_O_inner_wrapper">
-
-          <div class="musicPlayer_controller">
-            <button class="prev_btn">
-              <i class="control_btn"></i>
-            </button>
-            <button class="play_btn">
-              <i class="control_btn"></i>
-            </button>
-            <button class="next_btn">
-              <i class="control_btn"></i>
-            </button>
-          </div>
-          <div class="musicPlayer_progress_cont">
-            <div class="ins-time">00:00</div>
-            <div class="music_playing_time_controller">
-              <span class="music_currTime">00:00</span>
-              <span class="music_totDuration">00:00</span>
-            </div>
-            <div class="music_playing_progress">
-              <div class="progress_bar">
-                <div class="progress_bar_playing">
-                  <div class="progress_move_point"></div>
-                </div>
-                <div class="hover_bar"></div>
+        <div class="player-progress_bar">
+          <div class="slider_container">
+            <div class="slideBar_cont">
+              <div class="player-progress" id="player-progress">
+                <div class="primary-progress"></div>
               </div>
             </div>
           </div>
-          <div class="musicPlayer_volume_controller">
-            <div class="circle_wrapper">
-              <div class="circle_mask">
-                <div class="circle_knob">
-                </div>
-                <div class="circle_knob_handler">
-                </div>
-                <div class="circle_volume_img">
-                  <img src="images/player_volume.svg">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="music_player_secondOptions_cont">
-            <div class="one_options shuffle_button">
-              <i class="control_btn"></i>
-            </div>
-            <div class="one_options repeat_button">
-              <i class="control_btn"></i>
-            </div>
-          </div>
-
+          <div class="hover-time-info">0:00</div>
         </div>
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="fully_openedPlaylist_cont">
-    <div class="fully_openedPlaylist_cont_wrapper">
-      <div class="openedPlaylist_closeBtn">
-        <div class="openedPlaylist_innerCloseBtn">
-          <span class="close_bar"></span>
-          <span class="close_bar"></span>
-        </div>
-      </div>
-      <div class="inner_fully_openedPlaylist_cont_top">
-
-        <div class="curr_song_media">
-          <div class="song_picture playing_song_poster">
-            <img src="images/default_music_image.png">
-          </div>
-          <div class="playing_song_details">
-            <div class="song_title_container">
-              <span class="song_title">NaN</span>
-            </div>
-            <div class="song_jap_title_container">
-              <span class="song_japanese_title">NaN</span>
-            </div>
-            <a class="open_kanji">Kanji</a>
-          </div>
-        </div>
-
-        <div class="media_musicPlayer_controller">
-          <div class="media_playing_controlOptions">
-            <button class="prev_btn controlOp_btn">
-              <i class="control_btn"></i>
-            </button>
-            <button class="play_btn controlOp_btn">
-              <i class="control_btn"></i>
-            </button>
-            <button class="next_btn controlOp_btn" >
-              <i class="control_btn"></i>
-            </button>
-          </div>
-          <div class="media_playing_durationController">
-            <div class="curr_time_cont">
-              <span class="music_currTime">00:00</span>
-            </div>
-            <div class="musicPlayer_progress_cont">
-              <div class="ins-time">00:00</div>
-              <div class="music_playing_progress">
-                <div class="progress_bar" id="#progress_bar2">
-                  <div class="progress_bar_playing">
-                    <div class="progress_move_point"></div>
-                  </div>
-                  <div class="hover_bar"></div>
-                </div>
-              </div>
-            </div>
-            <div class="tot_time_cont">
-              <span class="music_totDuration">00:00</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="fully_openedPlaylist_playlistOther_songs_scrollableY">
-        <ul>
-          <li>
-            <div class="music_main_photo_info_tit">
-              <div class="music_image_cont">
-                <img src="https://www.dropbox.com/s/z61ni6w9af89vqx/charlotte.png?raw=1">
-                <div class="music_hovered">
-                  <span class="dark_bg_play">
-                    <i class="fab fa-google-play"></i>
-                  </span>
-                </div>
-              </div>
-              <div class="music_title_det">
-                <span class="premusic_en_title">NaN</span>
-                <span class="premusic_jp_title">NaN</span>
-              </div>
-            </div>
-            <div class="music_meta_info">
-              <span class="premusic_duration">00:00</span>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="openedPlaylist_lyrics_cont">
-    <div class="lyrics_inner">
-      <audio preload="auto" id="audio-main"></audio>
-      <div class="lyrics kuka-lyrics romaji-lyrics" data-media="audio-main">
-
-      </div>
-      <div class="lyrics kuka-lyrics kanji-lyrics" data-media="audio-main">
-
       </div>
     </div>
   </div>
 
+
+  <!-- Live 2D Model -->
+  <div id="live2dModule" style= "left:5px;bottom:0px;">
+    <div class="message" style= "opacity:0"></div>
+    <canvas id="live2d" width="450" height="620" class="live2d"></canvas>
+    <input name="live_talk" id="live_talk" value="1" type="hidden"/>
+    <div class="live2d_toolContainer">
+      <div class="live2d-tool-icon type_talk" id="showTalkBtn"><i class="fas fa-reply"></i></div>
+      <div class="live2d-tool-icon type_dress" id="changeDressBtn"><i class="fas fa-user-secret"></i></div>
+      <div class="live2d-tool-icon type_toxic" id="chingChongBtn"><i class="fas fa-bolt"></i></div>
+      <div class="live2d-tool-icon type_quit" id="hideButton"><i class="fas fa-power-off"></i></div>
+      <input id="partyType" value="shake,rainbow" type="hidden">
+    </div>
+  </div>
+  <div id="open_live2d">Summon!</div>
   <!-- Change Mentor -->
   <div class="mentorSelection_main">
     <div class="mentorSelection_backgroundImg">
@@ -493,6 +281,7 @@ include('include/constantFunctions.php');
 </div>  <!-- END LAYOUT MANAGER -->
 <div class="page_overlay darker"></div>
 
+
 <?php
   getLoggedIn_jsInfo();
  ?>
@@ -505,8 +294,9 @@ include('include/constantFunctions.php');
 var current_playlist;
 
 $(document).ready(function(){
-var ps = new PerfectScrollbar('.fully_openedPlaylist_playlistOther_songs_scrollableY');
+var ps = new PerfectScrollbar('.playlist_otherSongs_scrollable');
 ps.update();
+
 
 $(".page_overlay").on("click",function(){
   $(".fully_openedPlaylist_cont").removeClass("open");
@@ -514,25 +304,6 @@ $(".page_overlay").on("click",function(){
   $("body").removeClass("locked_body").removeClass("has_overlay");
 });
 
-
-var speed = 5000;
-var slideIndex=0;
-
-//showSlides();
-
-function showSlides(){
-  var slides = $(".slider-item");
-  for(var i=0;i<slides.length;i++){
-    $(slides[i]).css("display","none");
-  }
-  if(slideIndex>=slides.length){
-    slideIndex=0;
-  }
-  $(slides[slideIndex]).fadeIn("fast");
-  console.log(slides[slideIndex]);
-  slideIndex++;
-  setTimeout(showSlides,speed);
-};
 
 // When firstly opened, the normal playlist playing
 var data;
@@ -596,6 +367,7 @@ $("body").on("click",".track_item",function(){
         current_playlist = response.data;
         changePlaylist();
       }
+      $(".seach_songs_dropdown").css("display","none");
     },
     error: function(xhr, ajaxOptions, thrownError){
       Snackbar.showToast({def_text:xhr.responseText});
@@ -608,20 +380,27 @@ $("body").on("click",".track_item",function(){
     $(".mentorSelection_main").fadeIn("fast");
   });
   $(".select_mentorBtn").on("click",function(){
-    $('#landlord').delay(200).fadeIn(200);//Show
+    $('#live2dModule').delay(200).fadeIn(200);//Show
     updateLive2D(($(".mentor-avatar.selectedAvatar").index()));
     $(".mentorSelection_main").fadeOut("fast");
   });
 
 });
 
-
+$(document).on("scroll",function(){
+    updateHeader();
+});
+updateHeader();
+$header = $(".ongaku_header");
+function updateHeader(){
+  $(".ongaku_header").toggleClass('page-scrolled', $(this).scrollTop() > 4);
+}
 
 
 </script>
-<script src="js/lyrics.js"></script>
+<script src="js/main_lyrics.js"></script>
 <script src="js/anime_main.json"></script>
-<script src="js/anime_songs.js"></script>
+<script src="js/songs.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/app.js"></script>
 <script src="js/anime.min.js"></script>
@@ -630,12 +409,6 @@ $("body").on("click",".track_item",function(){
 <script src="js/imagesloaded.pkgd.min.js"></script>
 
 <!-- Live 2D -->
-<script>
-var  message_Path  =  '/KukaHub/anime-playlist/live2d/' ;
-var  talkAPI  =  "" ;
-var home_Path = 'http://localhost/KukaHub/anime-playlist/';
-// var live2d_Type = 2;
-</script>
 <script type= "text/javascript"  src= "live2d/js/live2d.js" ></script>
 <script type= "text/javascript"  src= "live2d/js/message.js" ></script>
 

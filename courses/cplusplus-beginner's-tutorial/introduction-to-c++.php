@@ -5,14 +5,17 @@ require '../include/courses_config/config.php';
 
  <html>
    <head>
-
-   <?php getHeader("Introduction To C++ | KukaHub"); ?>
+<?php
+    include_adsense();
+    include_script_tag();
+    getHeader("Introduction To C++ | KukaHub");
+?>
    <link rel="stylesheet"
     href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
     <link rel="stylesheet" href="../../dist/css/custom-highlight.css">
    </head>
  <body class="course_learning_page">
-
+   <?php include_noscript_tag(); ?>
    <?php include ('../include/courses_config/course_lesson_header.php')  ?>
    <?php include ('../include/courses_config/course_curriculum.php')  ?>
 
@@ -20,55 +23,9 @@ require '../include/courses_config/config.php';
            CHANGE ONLY THIS ONE !
        /////////////////////////////
    -->
-   
+
   <div class="course_lesson_main_body">
-    <div class="course_lessons_curriculum">
-      <div class="course_lessons_curriculum_inner_div">
-        <h1 class="course_lessons_curriculum_title">Course Sections</h1>
 
-        <div class="course_curriculum_section opened">
-          <div class="curriculum_section_item opened">
-            <div class="curriculum_section_item_info">
-              <span> Section 1</span>
-              <h3>Section 1: Introduction to C++</h3>
-            </div>
-          </div>
-          <div class="curriculum_section_subs_items">
-            <a class="curriculum_sub_single_item completed" href="introduction-to-c++.php">
-              <div class="left_icon">
-                <i class="fal fa-file"></i>
-              </div>
-              <div class="curriculum_item_number">Lecture 1.0</div>
-              <div class="curriculum_single_item_title">Introduction to C++</div>
-              <div class="curriculum_single_item_percentage"></div>
-              <div class="curriculum_single_item_completed is_completed">
-                <i class="fas fa-check"></i>
-              </div>
-            </a>
-            <a class="curriculum_sub_single_item completed" href="Beginning-with-C++.php">
-              <div class="left_icon">
-                <i class="fal fa-file"></i>
-              </div>
-              <div class="curriculum_item_number">Lecture 1.1</div>
-              <div class="curriculum_single_item_title">Beginning with C++</div>
-              <div class="curriculum_single_item_percentage"></div>
-              <div class="curriculum_single_item_completed">
-                <i class="fas fa-check"></i>
-              </div>
-            </a>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-
-      <div class="course_lesson_questions_toggler">
-        <i class="fas fa-question"></i>
-      </div>
-
-
-    </div>
     <div class="course_lesson_main_content">
 
       <div class="container_inner">
@@ -132,7 +89,6 @@ require '../include/courses_config/config.php';
       </div>
     </div>
 
-  </div>
 </div>
 
 
@@ -142,10 +98,7 @@ require '../include/courses_config/config.php';
  <?php
  getJs_Files();
  ?>
- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-AMS_CHTML-full"></script>
  <script type="text/javascript" src="../js/courses.js"></script>
-
  <script type="text/x-mathjax-config">
 
    MathJax.Hub.Config({
