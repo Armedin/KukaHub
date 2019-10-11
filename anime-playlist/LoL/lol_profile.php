@@ -5,7 +5,7 @@ include('leagueAPI/autoload.php');
 use leagueAPI\API;
 use DataDragonApi\DataDragonApi;
 
-$api = new Api('RGAPI-4d4cced1-c958-4491-b389-b707d36725d8');
+$api = new Api('RGAPI-a443b8e5-0274-4e46-915b-e7cca5bcba11');
 $api->setRegion('eune');
 $dataDragon = new DataDragonApi();
 $dataDragon->initByCdn();

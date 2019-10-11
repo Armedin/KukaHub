@@ -290,16 +290,40 @@ function hideHoverProgress(){
 
 //Volume Slider
 volumeSlider.on("input", function(){
-  $(this).css("--vol-value",$(this).val()*100+"%");
-  music.volume = $(this).val();
-  if($(this).val() == 0){
+  updateVolume();
+});
+
+function updateVolume(){
+  volumeSlider.css("--vol-value",volumeSlider.val()*100+"%");
+  music.volume = $(volumeSlider).val();
+  if(volumeSlider.val() == 0){
     muteBtn.addClass("volumeOff");
   }else{
     if(muteBtn.hasClass("volumeOff")){
       muteBtn.removeClass("volumeOff");
     }
   }
-});
+}
+
+function onKeyDown(e){
+  if (e.keyCode == 37){ //left arrow
+    volumeSlider.val(Math.max(0, Math.round((music.volume - 0.1) * 10) / 10));
+    updateVolume();
+  }
+  else if(e.keyCode == 39){ // right arrow
+    volumeSlider.val(Math.min(1, Math.round((music.volume + 0.1) * 10) / 10));
+    updateVolume();
+  }
+}
+
+function onKeyUp(e){
+  e.preventDefault();
+  if(e.keyCode == 32){ //spacebar
+    togglePlay();
+  }
+}
+
+
 muteBtn.on("click",function(){
   if(muteBtn.hasClass("volumeOff")){
     muteBtn.removeClass("volumeOff");
@@ -325,6 +349,10 @@ function initFullPlaylist(){
   $(".playlist_scrollLayout_content ul").html(output);
 
 }
+
+//window.addEventListener("keyup", onKeyUp, true);// Error Music won't start next time ! TODO
+window.addEventListener("keydown", onKeyDown, true);
+
 
 
 //

@@ -32,7 +32,7 @@ include('include/song_struc.php');
 	  </div>
 
     <!-- Layout Manager -->
-  <div id="layout_manager" class="layout_manager no_sidemenu">
+  <div id="layout_manager" class="layout_manager">
 
     <!-- SIDEMENU -->
     <?php
@@ -304,6 +304,15 @@ $(".page_overlay").on("click",function(){
   $("body").removeClass("locked_body").removeClass("has_overlay");
 });
 
+$(".sidebar-toggler").on("click",function(){
+  $(".music_player_084nv9vnr_overlay").addClass("visible");
+  $(".music_player_084nv9vnr_o_O_sidemenu_main").addClass("opened");
+});
+
+$(".music_player_084nv9vnr_overlay").on("click",function(){
+  $(".music_player_084nv9vnr_overlay").removeClass("visible");
+  $(".music_player_084nv9vnr_o_O_sidemenu_main").removeClass("opened");
+});
 
 // When firstly opened, the normal playlist playing
 var data;

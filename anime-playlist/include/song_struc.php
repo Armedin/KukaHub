@@ -4,7 +4,9 @@ require dirname(__DIR__).'../../include/init_constantFunctions.php';
 
 
 function getUserSideMenu(){
-  echo '<div class="music_player_084nv9vnr_o_O_sidemenu_main">
+  echo '
+<div class="music_player_084nv9vnr_overlay"></div>
+<div class="music_player_084nv9vnr_o_O_sidemenu_main">
   <div class="sidemenu_user_piCont">
     <div class="dropdown_wrapper">
       <div>
@@ -40,6 +42,9 @@ function getUserSideMenu(){
       </li>
     </ul>
   </nav>
+  <div class="sidemenu_copyright">
+    <p>© 2019 KukaAcademy</p>
+  </div>
 </div>';
 }
 
@@ -74,6 +79,9 @@ function getLoginMenu(){
 function getHeaderMainNav($version){
 
   echo '<div class="main_084nv9vnr_o_O_top_header">
+    <div class="sidebar-toggler">
+      <i class="fal fa-bars"></i>
+    </div>
     <a href="index.php" class="navbar_home">
       <img src="images/anime-ongaku.png">
     </a>

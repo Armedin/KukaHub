@@ -189,15 +189,40 @@ body.loaded .anime_music_loader{
   min-height: 100%;
   overflow: hidden;
 }
-
+.music_player_084nv9vnr_overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color:rgba(0, 0, 0, 0.5);
+  transition:opacity 0.2s ease;
+  opacity:0;
+  z-index:99;
+  visibility:hidden;
+}
+.music_player_084nv9vnr_overlay.visible{
+  opacity:1;
+  visibility:visible;
+}
 .music_player_084nv9vnr_o_O_sidemenu_main{
-  position: fixed;
-  width: 200px;
-  background-color: #1b2039;
-  z-index: 91;
-  top: 60;
+  position:fixed;
+  width: 220px;
+  background-color:#1c1c21;
+  z-index: 100;
+  top: 0;
   bottom: 0;
-  box-shadow: 0px 0px 24px 6px rgba(4, 4, 4, 0.2)
+  left:0;
+  box-shadow: 0px 0px 24px 6px rgba(4, 4, 4, 0.2);
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  transition-duration:.2s;
+}
+.music_player_084nv9vnr_o_O_sidemenu_main.opened{
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 #layout_manager.sidemenu_compressed .music_player_084nv9vnr_o_O_sidemenu_main{
   width: 80px;
@@ -295,8 +320,8 @@ body.loaded .anime_music_loader{
   margin-top: 6px;
   display: block;
 }
-.sidemenu_user_piCont .line_seperator{
-  background:#2e3344;
+.music_player_084nv9vnr_o_O_sidemenu_main .line_seperator{
+  background:#3e3e3e;
   height: 1px;
   width: 100%;
   margin:10px 0;
@@ -306,28 +331,40 @@ body.loaded .anime_music_loader{
 #layout_manager.sidemenu_compressed .sidemenu_user_piCont .line_seperator{
   display: none!important;
 }
-.sidebar_navigations{
+.music_player_084nv9vnr_o_O_sidemenu_main .sidebar_navigations{
   display: block;
 }
-.sidebar_navigations:after,
-.sidebar_navigations:before{
+.music_player_084nv9vnr_o_O_sidemenu_main .sidemenu_copyright{
+  position:absolute;
+  left:10px;
+  bottom:18px;
+
+}
+.music_player_084nv9vnr_o_O_sidemenu_main .sidemenu_copyright>p{
+  margin:0;
+  font-size:12px;
+  color:#b0b0b0;
+}
+
+.music_player_084nv9vnr_o_O_sidemenu_main .sidebar_navigations:after,
+.music_player_084nv9vnr_o_O_sidemenu_main .sidebar_navigations:before{
   display: table;
   content: " ";
 }
-.sidebar_navigations:after{
+.music_player_084nv9vnr_o_O_sidemenu_main .sidebar_navigations:after{
   clear: both;
 }
-.sidebar_navigations>ul.navigations{
+.music_player_084nv9vnr_o_O_sidemenu_main .sidebar_navigations>ul.navigations{
   margin: 0;
   padding-left: 0;
   padding-bottom: 100px;
   list-style: none;
 }
-.sidebar_navigations>ul.navigations>li{
+.music_player_084nv9vnr_o_O_sidemenu_main .sidebar_navigations>ul.navigations>li{
   position: relative;
   display: block;
 }
-.sidebar_navigations>.navigations>.navigation_header{
+.music_player_084nv9vnr_o_O_sidemenu_main .sidebar_navigations>.navigations>.navigation_header{
   display: block;
   position: relative;
   color:#cacbd0!important;
@@ -340,7 +377,7 @@ body.loaded .anime_music_loader{
 #layout_manager.sidemenu_compressed .sidebar_navigations>.navigations>.navigation_header{
   display: none!important;
 }
-.sidebar_navigations>ul.navigations>li>a{
+.music_player_084nv9vnr_o_O_sidemenu_main .sidebar_navigations>ul.navigations>li>a{
   display: block;
   padding:10px 20px;
   position: relative;
@@ -367,7 +404,7 @@ body.loaded .anime_music_loader{
   padding: 0;
   display: block!important;
 }
-.sidebar_navigations>ul.navigations>li>a>i{
+.music_player_084nv9vnr_o_O_sidemenu_main .sidebar_navigations>ul.navigations>li>a>i{
   width:40px;
   height: 40px;
   margin: -10px;
@@ -401,12 +438,11 @@ body.loaded .anime_music_loader{
    padding: 0 5px;
    text-align: center;
  }
-.sidebar_navigations>ul.navigations>li>a.active,
-.sidebar_navigations>ul.navigations>li>a:hover{
+.music_player_084nv9vnr_o_O_sidemenu_main .sidebar_navigations>ul.navigations>li>a.active,
+.music_player_084nv9vnr_o_O_sidemenu_main .sidebar_navigations>ul.navigations>li>a:hover{
   color:#fff;
-  background-color: #2cc8e5;
+  background-color:#323238;
 }
-
 
 .loading{
   width: 100%;
@@ -493,10 +529,27 @@ body.loaded .anime_music_loader{
   box-shadow: 0 2px 30px 2px rgba(0,0,0,.1);
 }
 .music_player_084nv9vnr_o_O_top_header .main_084nv9vnr_o_O_top_header{
-  float:left;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display:flex !important;
+  justify-content:center;
+  -webkit-justify-content:center;
+  -webkit-align-items:center;
+  align-items:center;
+  margin-left:16px;
+  max-width:240px;
+}
+.music_player_084nv9vnr_o_O_top_header .main_084nv9vnr_o_O_top_header>.sidebar-toggler{
+  width:38px;
+  height:38px;
+  text-align:center;
+  cursor:pointer;
+  color:#fff;
+  font-size:16px;
+}
+.music_player_084nv9vnr_o_O_top_header .main_084nv9vnr_o_O_top_header>.sidebar-toggler>i{
+  line-height:38px;
 }
 #layout_manager.sidemenu_compressed .music_player_084nv9vnr_o_O_top_header .main_084nv9vnr_o_O_top_header{
   width:80px;
@@ -1029,7 +1082,7 @@ body.loaded .anime_music_loader{
 
 .main_084nv9vnr_o_O_top_header .navbar_home{
   height: 100%;
-  padding: 0 20px;
+  padding: 0 20px 0 4px;;
   font-weight: 700;
   line-height: 50px;
   text-align: center;
@@ -3899,6 +3952,16 @@ CARD GAME DRAW DEMO
     padding:0px 80px 2px 20px;
   }
 }
+
+@media(max-width:1262px){
+  .song_search-form>.search_songs_cont>input.searchbox{
+    width:540px;
+  }
+  .navbar_084nv9vnr_o_O_rightContent{
+    margin: 0 28px;
+  }
+}
+
 @media(max-width:1200px) {
   .content_music_player_084nv9vnr_o_O_banner .banner_left_image{
     max-width: 50%;
@@ -3952,6 +4015,13 @@ CARD GAME DRAW DEMO
   }
 }
 @media(max-width:992px) {
+  .song_search-form>.search_songs_cont>input.searchbox{
+    width: 100%;
+  }
+  .music_player_084nv9vnr_o_O_top_header .navbar_084nv9vnr_o_O_collapse{
+    -webkit-flex:1;
+    flex:1;
+  }
   .content_music_player_084nv9vnr_o_O_banner .banner_left_image{
     max-width: 100%;
   }
@@ -3997,15 +4067,6 @@ CARD GAME DRAW DEMO
   }
   .musicPlayer_progress_cont{
     max-width: 27%;
-  }
-  .music_player_084nv9vnr_o_O_sidemenu_main{
-    width: 250px;
-    left: -250px;
-    transition: all 0.5s ease-in-out;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
   }
   .music_player_084nv9vnr_o_O_sidemenu_main.fixed_position{
     left:0!important;

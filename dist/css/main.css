@@ -3180,7 +3180,7 @@ body.opened_curriculum_sidebar .course_lessons_curriculum{
 }
 .course_lesson_inner_content_main_info .image_container_centered{
 	text-align: center;
-	margin-bottom:10px;
+	margin-bottom:20px;
 }
 .course_lesson_inner_content_main_info .image_container_centered.has_border_shadow{
 	border:1px solid #ddd;
@@ -3193,6 +3193,7 @@ body.opened_curriculum_sidebar .course_lessons_curriculum{
 	height: auto;
 	vertical-align: middle;
 	outline: 0;
+	max-width:600px;
 }
 .course_lesson_inner_content_main_info a.link_to{
 	color:#195ec8;

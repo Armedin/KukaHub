@@ -29,7 +29,7 @@
 	bottom:9px;
 	z-index:10000;
 	cursor:pointer;
-	display:none;
+	display:none !important;
 }
 #live2d {
 	width: 250px;
@@ -236,7 +236,7 @@
   line-height: 22px;
 }
 .live2d-tool-icon.type_dress{
-  /*display: none;*/
+  display: none;
 }
 
 

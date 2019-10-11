@@ -353,7 +353,7 @@ if(canRun){
 	});
 
 
-	//MAIN FUNCTION
+	//main function
 	function updateLive2D(live2d_type){
 		if(live2d_type == 0){
 			var AITextureSrc = [
@@ -414,7 +414,6 @@ if(canRun){
 					if(live2dhidden==="0"){
 						setTimeout(function(){
 							$('#open_live2d').fadeIn(200);
-
 						},1300);
 					}else{
 						setTimeout(function(){
